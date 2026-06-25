@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cybersecurity curriculum PDF library with fast search and filters.">
+    <title>Cybersecurity Curriculum Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="#" aria-label="Cybersecurity Curriculum home">
+          <span class="brand-mark">CS</span>
+          <span>
+            <strong>CyberSec Library</strong>
+            <small>PDF material manager</small>
+          </span>
+        </a>
+        <div class="nav-actions">
+          <a class="ghost-link" href="#library">Browse</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="library" class="library">
+      <section class="toolbar" aria-labelledby="libraryTitle">
+        <div>
+          <p class="eyebrow">Resource database</p>
+          <h1 id="libraryTitle">Course folders</h1>
+        </div>
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="searchInput" type="search" placeholder="Search folders or material..." autocomplete="off">
+        </label>
+      </section>
+
+      <section class="filters" aria-label="Library filters">
+        <div>
+          <span class="filter-label">Stage</span>
+          <div class="chip-row" id="stageFilters"></div>
+        </div>
+        <div>
+          <span class="filter-label">Course</span>
+          <div class="chip-row" id="courseFilters"></div>
+        </div>
+      </section>
+
+      <section class="results-meta" aria-live="polite">
+        <span id="resultsCount">Showing 0 folders</span>
+        <button class="text-button" type="button" id="clearFilters">Clear filters</button>
+      </section>
+
+      <section class="resource-grid" id="folderGrid" aria-label="Course folders"></section>
+      <section class="selected-folder" id="selectedFolder" hidden>
+        <div class="selected-folder-head">
+          <div>
+            <p class="eyebrow">Opened folder</p>
+            <h2 id="selectedFolderTitle"></h2>
+          </div>
+          <button class="text-button" type="button" id="closeFolder">Back to folders</button>
+        </div>
+        <section class="resource-grid file-grid" id="resourceGrid" aria-label="PDF resources"></section>
+      </section>
+      <section class="empty-state" id="emptyState" hidden>
+        <h3>No folders found</h3>
+        <p>Try another search term or clear the active filters.</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
