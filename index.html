@@ -2,26 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-vBQvrS5mm3iqc/jcovUQpxnLFWrVjKJopdZhKm7l00E='; style-src 'self'; img-src 'self' data:; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-8cCZ+iEkutUOe0FOSKgRsSOCB29dDasWtrSFuwWB/fg='; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cyber Security Curriculum Library</title>
     <meta name="description" content="Course PDFs for the Cyber Security department, organised by stage and semester. 37 files, searchable, free to open or download.">
     <link rel="canonical" href="https://op-h.github.io/DBs/">
     <meta name="color-scheme" content="light dark">
-    <!-- Values are design.md --c-page; media queries follow the OS scheme, the manual toggle only restyles the page. -->
+    <!-- Values are design.md --c-page; the page follows the OS light/dark setting. -->
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F3EC">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171513">
     <script>
-      // Runs before first paint so a saved theme never flashes the wrong colours.
-      // The "js" class lets CSS show JS-only controls on first paint instead of popping them in later (CLS).
+      // Before first paint, so the JS-only search bar is laid out from the start instead of popping in (CLS).
       document.documentElement.classList.add("js");
-      try {
-        const t = localStorage.getItem("theme");
-        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
-        if (JSON.parse(localStorage.getItem("recent") || "[]").length) document.documentElement.classList.add("has-recent");
-      } catch {}
     </script>
-    <link rel="stylesheet" href="styles.css?v=b2c0155cdc">
+    <link rel="stylesheet" href="styles.css?v=803c5ddc82">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="CyberSec Library">
@@ -60,32 +54,16 @@
       ]
     }
     </script>
-    <script src="script.js?v=6592e1590f" defer></script>
+    <script src="script.js?v=fdbe41f1b6" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#library">Skip to library</a>
 
-    <header class="site-header">
-      <div class="wrap site-header-inner">
-        <a class="wordmark" href="./">
-          <span class="wordmark-title">CyberSec Library</span>
-          <span class="wordmark-sub">Course material, stages 1–4</span>
-        </a>
-        <button class="theme-toggle" type="button" id="themeToggle">
-          <span class="theme-toggle-label">Theme: <span id="themeValue">System</span></span>
-        </button>
-      </div>
-    </header>
-
     <main id="main">
       <section class="intro wrap">
-        <h1 id="pageTitle">Cyber Security curriculum library</h1>
-        <p class="intro-lede">Every course PDF, organised by stage and semester. Open it in your browser or download it for offline reading.</p>
-        <dl class="stats">
-          <div><dt>Files</dt><dd>37</dd></div>
-          <div><dt>Pages</dt><dd>5,089</dd></div>
-          <div><dt>Total size</dt><dd>250.5 MB</dd></div>
-        </dl>
+        <h1 id="pageTitle">Cyber Security Library</h1>
+        <p class="intro-lede">Course PDFs for every stage and semester. Open one in your browser or download it for offline reading.</p>
+        <p class="intro-meta">37 courses<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>5,089 pages<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>250.5 MB</p>
         <nav class="stage-nav" aria-label="Jump to stage">
           <ul role="list">
           <li><a href="#stage-1">Stage 1 <span class="count">13<span class="visually-hidden"> files</span></span></a></li>
@@ -100,8 +78,7 @@
         <div class="wrap controls-inner">
           <div class="search">
             <label class="search-label" for="q">Search courses</label>
-            <input class="search-input" id="q" name="q" type="search" placeholder="Search courses" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-keyshortcuts="Control+K Meta+K">
-            <kbd class="search-hint" aria-hidden="true">Ctrl K</kbd>
+            <input class="search-input" id="q" name="q" type="search" placeholder="Search courses" autocomplete="off" spellcheck="false" enterkeyhint="search">
           </div>
           <fieldset class="segmented" id="stageFilter">
             <legend>Stage</legend>
@@ -111,191 +88,125 @@
             <label><input type="radio" name="stage" value="3"><span>3</span></label>
             <label><input type="radio" name="stage" value="4"><span>4</span></label>
           </fieldset>
-          <fieldset class="segmented" id="termFilter">
-            <legend>Semester</legend>
-            <label><input type="radio" name="term" value="" checked><span>All</span></label>
-            <label><input type="radio" name="term" value="1"><span>1</span></label>
-            <label><input type="radio" name="term" value="2"><span>2</span></label>
-          </fieldset>
           <p class="results" id="results" role="status" aria-live="polite"></p>
           <button class="btn btn--quiet" type="reset" id="resetFilters" hidden>Clear</button>
         </div>
       </form>
 
-      <section class="recent wrap" id="recent" aria-labelledby="recentTitle" hidden>
-        <h2 class="recent-title" id="recentTitle">Recently opened</h2>
-        <ol class="recent-list" id="recentList" role="list"></ol>
-      </section>
-
       <div class="library wrap" id="library" tabindex="-1">
 
     <section class="stage" id="stage-1" data-stage="1" aria-labelledby="stage-1-title">
-      <header class="stage-head">
-        <h2 class="stage-title" id="stage-1-title">Stage 1 <span class="ar" lang="ar" dir="rtl">المرحلة الاولى</span></h2>
-        <p class="stage-meta">13 files · 76.1 MB</p>
-      </header>
+      <h2 class="stage-title" id="stage-1-title">Stage 1 <span class="ar" lang="ar" dir="rtl">المرحلة الاولى</span></h2>
       <section class="term" data-term="1">
-        <h3 class="term-title" id="stage-1-sem-1">Semester 1 <span class="ar" lang="ar" dir="rtl">الكورس الاول</span></h3>
+        <h3 class="term-title" id="stage-1-sem-1">Semester 1</h3>
         <ul class="course-list" role="list">
           <li class="course" id="s1-1-democracy-and-human-rights" data-stage="1" data-term="1" data-search="democracy &amp; human rights stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-democracy-and-human-rights.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-1-democracy-and-human-rights.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Democracy &amp; Human Rights</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Democracy &amp; Human Rights</a></h4>
               <p class="course-meta"><span>77 pages</span><span class="visually-hidden">, </span><span>4.4 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Democracy &amp; Human Rights</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf" type="application/pdf" download="Democracy &amp; Human Rights.pdf">Download<span class="visually-hidden"> Democracy &amp; Human Rights, 4.4 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-1-democracy-and-human-rights" aria-label="Share link to Democracy &amp; Human Rights"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf" type="application/pdf" download="Democracy &amp; Human Rights.pdf">Download<span class="visually-hidden"> Democracy &amp; Human Rights, 4.4 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-1-engineering-drawing" data-stage="1" data-term="1" data-search="engineering drawing stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-engineering-drawing.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-1-engineering-drawing.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Engineering Drawing</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Engineering Drawing</a></h4>
               <p class="course-meta"><span>63 pages</span><span class="visually-hidden">, </span><span>1.2 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Engineering Drawing</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf" type="application/pdf" download="Engineering Drawing.pdf">Download<span class="visually-hidden"> Engineering Drawing, 1.2 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-1-engineering-drawing" aria-label="Share link to Engineering Drawing"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf" type="application/pdf" download="Engineering Drawing.pdf">Download<span class="visually-hidden"> Engineering Drawing, 1.2 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-1-fundamental-of-electrical-eng" data-stage="1" data-term="1" data-search="fundamental of electrical eng stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-fundamental-of-electrical-eng.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-1-fundamental-of-electrical-eng.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Fundamental of Electrical Eng</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Fundamental%20of%20Electrical%20Eng%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Fundamental of Electrical Eng</a></h4>
               <p class="course-meta"><span>74 pages</span><span class="visually-hidden">, </span><span>8.9 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Fundamental%20of%20Electrical%20Eng%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Fundamental of Electrical Eng</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Fundamental%20of%20Electrical%20Eng%20.pdf" type="application/pdf" download="Fundamental of Electrical Eng.pdf">Download<span class="visually-hidden"> Fundamental of Electrical Eng, 8.9 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-1-fundamental-of-electrical-eng" aria-label="Share link to Fundamental of Electrical Eng"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Fundamental%20of%20Electrical%20Eng%20.pdf" type="application/pdf" download="Fundamental of Electrical Eng.pdf">Download<span class="visually-hidden"> Fundamental of Electrical Eng, 8.9 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-1-introduction-to-information-system" data-stage="1" data-term="1" data-search="introduction to information system stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-introduction-to-information-system.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-1-introduction-to-information-system.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Introduction to Information System</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Introduction to Information System</a></h4>
               <p class="course-meta"><span>124 pages</span><span class="visually-hidden">, </span><span>3.0 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Introduction to Information System</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf" type="application/pdf" download="Introduction to Information System.pdf">Download<span class="visually-hidden"> Introduction to Information System, 3.0 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-1-introduction-to-information-system" aria-label="Share link to Introduction to Information System"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf" type="application/pdf" download="Introduction to Information System.pdf">Download<span class="visually-hidden"> Introduction to Information System, 3.0 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-1-mathematics-1" data-stage="1" data-term="1" data-search="mathematics 1 stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-mathematics-1.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-1-mathematics-1.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Mathematics 1</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Mathematics 1</a></h4>
               <p class="course-meta"><span>45 pages</span><span class="visually-hidden">, </span><span>2.8 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Mathematics 1</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf" type="application/pdf" download="Mathematics 1.pdf">Download<span class="visually-hidden"> Mathematics 1, 2.8 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-1-mathematics-1" aria-label="Share link to Mathematics 1"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf" type="application/pdf" download="Mathematics 1.pdf">Download<span class="visually-hidden"> Mathematics 1, 2.8 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-1-programming-essentials" data-stage="1" data-term="1" data-search="programming essentials stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-programming-essentials.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-1-programming-essentials.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Programming Essentials</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Programming%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Programming Essentials</a></h4>
               <p class="course-meta"><span>93 pages</span><span class="visually-hidden">, </span><span>3.0 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Programming%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Programming Essentials</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Programming%20Essentials.pdf" type="application/pdf" download="Programming Essentials.pdf">Download<span class="visually-hidden"> Programming Essentials, 3.0 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-1-programming-essentials" aria-label="Share link to Programming Essentials"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Programming%20Essentials.pdf" type="application/pdf" download="Programming Essentials.pdf">Download<span class="visually-hidden"> Programming Essentials, 3.0 MB</span></a>
             </div>
           </li>
         </ul>
       </section>
       <section class="term" data-term="2">
-        <h3 class="term-title" id="stage-1-sem-2">Semester 2 <span class="ar" lang="ar" dir="rtl">الكورس الثاني</span></h3>
+        <h3 class="term-title" id="stage-1-sem-2">Semester 2</h3>
         <ul class="course-list" role="list">
           <li class="course" id="s1-2-arabic-language-1" data-stage="1" data-term="2" data-search="arabic language 1 stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-arabic-language-1.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-2-arabic-language-1.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Arabic Language 1</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Arabic Language 1</a></h4>
               <p class="course-meta"><span>83 pages</span><span class="visually-hidden">, </span><span>2.4 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Arabic Language 1</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf" type="application/pdf" download="Arabic Language 1.pdf">Download<span class="visually-hidden"> Arabic Language 1, 2.4 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-2-arabic-language-1" aria-label="Share link to Arabic Language 1"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf" type="application/pdf" download="Arabic Language 1.pdf">Download<span class="visually-hidden"> Arabic Language 1, 2.4 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-2-digital-logic-design" data-stage="1" data-term="2" data-search="digital logic design stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-digital-logic-design.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-2-digital-logic-design.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Digital Logic Design</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Digital%20Logic%20Design%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Digital Logic Design</a></h4>
               <p class="course-meta"><span>73 pages</span><span class="visually-hidden">, </span><span>4.7 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Digital%20Logic%20Design%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Digital Logic Design</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Digital%20Logic%20Design%20.pdf" type="application/pdf" download="Digital Logic Design.pdf">Download<span class="visually-hidden"> Digital Logic Design, 4.7 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-2-digital-logic-design" aria-label="Share link to Digital Logic Design"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Digital%20Logic%20Design%20.pdf" type="application/pdf" download="Digital Logic Design.pdf">Download<span class="visually-hidden"> Digital Logic Design, 4.7 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-2-engineering-workshops" data-stage="1" data-term="2" data-search="engineering workshops stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-engineering-workshops.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-2-engineering-workshops.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Engineering Workshops</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Engineering Workshops</a></h4>
               <p class="course-meta"><span>96 pages</span><span class="visually-hidden">, </span><span>3.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Engineering Workshops</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf" type="application/pdf" download="Engineering Workshops.pdf">Download<span class="visually-hidden"> Engineering Workshops, 3.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-2-engineering-workshops" aria-label="Share link to Engineering Workshops"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf" type="application/pdf" download="Engineering Workshops.pdf">Download<span class="visually-hidden"> Engineering Workshops, 3.1 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-2-english-language-1" data-stage="1" data-term="2" data-search="english language 1 stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-english-language-1.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-2-english-language-1.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">English Language 1</h4>
-              <p class="course-meta"><span>140 pages</span><span class="visually-hidden">, </span><span>29.1 MB</span><span class="visually-hidden">, </span><span class="stamp">Large file</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> English Language 1</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf" type="application/pdf" download="English Language 1.pdf">Download<span class="visually-hidden"> English Language 1, 29.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-2-english-language-1" aria-label="Share link to English Language 1"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">English Language 1</a></h4>
+              <p class="course-meta"><span>140 pages</span><span class="visually-hidden">, </span><span>29.1 MB</span><span class="visually-hidden">, </span><span class="flag">Large file</span></p>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf" type="application/pdf" download="English Language 1.pdf">Download<span class="visually-hidden"> English Language 1, 29.1 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-2-ethics-for-the-information-age" data-stage="1" data-term="2" data-search="ethics for the information age stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-ethics-for-the-information-age.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-2-ethics-for-the-information-age.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Ethics for the Information Age</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Ethics%20for%20the%20Information%20Age.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Ethics for the Information Age</a></h4>
               <p class="course-meta"><span>29 pages</span><span class="visually-hidden">, </span><span>4.3 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Ethics%20for%20the%20Information%20Age.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Ethics for the Information Age</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Ethics%20for%20the%20Information%20Age.pdf" type="application/pdf" download="Ethics for the Information Age.pdf">Download<span class="visually-hidden"> Ethics for the Information Age, 4.3 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-2-ethics-for-the-information-age" aria-label="Share link to Ethics for the Information Age"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Ethics%20for%20the%20Information%20Age.pdf" type="application/pdf" download="Ethics for the Information Age.pdf">Download<span class="visually-hidden"> Ethics for the Information Age, 4.3 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-2-general-physics" data-stage="1" data-term="2" data-search="general physics stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-general-physics.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-2-general-physics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">General Physics</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/General%20Physics%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">General Physics</a></h4>
               <p class="course-meta"><span>197 pages</span><span class="visually-hidden">, </span><span>7.2 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/General%20Physics%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> General Physics</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/General%20Physics%20.pdf" type="application/pdf" download="General Physics.pdf">Download<span class="visually-hidden"> General Physics, 7.2 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-2-general-physics" aria-label="Share link to General Physics"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/General%20Physics%20.pdf" type="application/pdf" download="General Physics.pdf">Download<span class="visually-hidden"> General Physics, 7.2 MB</span></a>
             </div>
           </li>
           <li class="course" id="s1-2-mathematics-2" data-stage="1" data-term="2" data-search="mathematics 2 stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-mathematics-2.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s1-2-mathematics-2.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Mathematics 2</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Mathematics%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Mathematics 2</a></h4>
               <p class="course-meta"><span>24 pages</span><span class="visually-hidden">, </span><span>2.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Mathematics%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Mathematics 2</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Mathematics%202.pdf" type="application/pdf" download="Mathematics 2.pdf">Download<span class="visually-hidden"> Mathematics 2, 2.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s1-2-mathematics-2" aria-label="Share link to Mathematics 2"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Mathematics%202.pdf" type="application/pdf" download="Mathematics 2.pdf">Download<span class="visually-hidden"> Mathematics 2, 2.1 MB</span></a>
             </div>
           </li>
         </ul>
@@ -303,160 +214,109 @@
     </section>
 
     <section class="stage" id="stage-2" data-stage="2" aria-labelledby="stage-2-title">
-      <header class="stage-head">
-        <h2 class="stage-title" id="stage-2-title">Stage 2 <span class="ar" lang="ar" dir="rtl">المرحلة الثانية</span></h2>
-        <p class="stage-meta">12 files · 103.2 MB</p>
-      </header>
+      <h2 class="stage-title" id="stage-2-title">Stage 2 <span class="ar" lang="ar" dir="rtl">المرحلة الثانية</span></h2>
       <section class="term" data-term="1">
-        <h3 class="term-title" id="stage-2-sem-1">Semester 1 <span class="ar" lang="ar" dir="rtl">الكورس الاول</span></h3>
+        <h3 class="term-title" id="stage-2-sem-1">Semester 1</h3>
         <ul class="course-list" role="list">
           <li class="course" id="s2-1-computer-organization-and-architecture" data-stage="2" data-term="1" data-search="computer organization &amp; architecture stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-computer-organization-and-architecture.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-1-computer-organization-and-architecture.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Computer Organization &amp; Architecture</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Computer Organization &amp; Architecture</a></h4>
               <p class="course-meta"><span>149 pages</span><span class="visually-hidden">, </span><span>7.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Computer Organization &amp; Architecture</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf" type="application/pdf" download="Computer Organization &amp; Architecture.pdf">Download<span class="visually-hidden"> Computer Organization &amp; Architecture, 7.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-1-computer-organization-and-architecture" aria-label="Share link to Computer Organization &amp; Architecture"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf" type="application/pdf" download="Computer Organization &amp; Architecture.pdf">Download<span class="visually-hidden"> Computer Organization &amp; Architecture, 7.1 MB</span></a>
             </div>
           </li>
           <li class="course" id="s2-1-data-structure-and-algorithms" data-stage="2" data-term="1" data-search="data structure &amp; algorithms stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-data-structure-and-algorithms.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-1-data-structure-and-algorithms.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Data Structure &amp; Algorithms</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Data Structure &amp; Algorithms</a></h4>
               <p class="course-meta"><span>171 pages</span><span class="visually-hidden">, </span><span>2.0 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Data Structure &amp; Algorithms</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf" type="application/pdf" download="Data Structure &amp; Algorithms.pdf">Download<span class="visually-hidden"> Data Structure &amp; Algorithms, 2.0 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-1-data-structure-and-algorithms" aria-label="Share link to Data Structure &amp; Algorithms"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf" type="application/pdf" download="Data Structure &amp; Algorithms.pdf">Download<span class="visually-hidden"> Data Structure &amp; Algorithms, 2.0 MB</span></a>
             </div>
           </li>
           <li class="course" id="s2-1-electronics-fundamentals" data-stage="2" data-term="1" data-search="electronics fundamentals stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-electronics-fundamentals.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-1-electronics-fundamentals.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Electronics Fundamentals</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Electronics Fundamentals</a></h4>
               <p class="course-meta"><span>112 pages</span><span class="visually-hidden">, </span><span>2.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Electronics Fundamentals</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf" type="application/pdf" download="Electronics Fundamentals.pdf">Download<span class="visually-hidden"> Electronics Fundamentals, 2.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-1-electronics-fundamentals" aria-label="Share link to Electronics Fundamentals"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf" type="application/pdf" download="Electronics Fundamentals.pdf">Download<span class="visually-hidden"> Electronics Fundamentals, 2.1 MB</span></a>
             </div>
           </li>
           <li class="course" id="s2-1-engineering-mathematics" data-stage="2" data-term="1" data-search="engineering mathematics stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-engineering-mathematics.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-1-engineering-mathematics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Engineering Mathematics</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Mathematics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Engineering Mathematics</a></h4>
               <p class="course-meta"><span>42 pages</span><span class="visually-hidden">, </span><span>2.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Mathematics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Engineering Mathematics</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Mathematics.pdf" type="application/pdf" download="Engineering Mathematics.pdf">Download<span class="visually-hidden"> Engineering Mathematics, 2.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-1-engineering-mathematics" aria-label="Share link to Engineering Mathematics"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Mathematics.pdf" type="application/pdf" download="Engineering Mathematics.pdf">Download<span class="visually-hidden"> Engineering Mathematics, 2.1 MB</span></a>
             </div>
           </li>
           <li class="course" id="s2-1-linux-essentials" data-stage="2" data-term="1" data-search="linux essentials stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-linux-essentials.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-1-linux-essentials.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Linux Essentials</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Linux%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Linux Essentials</a></h4>
               <p class="course-meta"><span>804 pages</span><span class="visually-hidden">, </span><span>12.0 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Linux%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Linux Essentials</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Linux%20Essentials.pdf" type="application/pdf" download="Linux Essentials.pdf">Download<span class="visually-hidden"> Linux Essentials, 12.0 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-1-linux-essentials" aria-label="Share link to Linux Essentials"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Linux%20Essentials.pdf" type="application/pdf" download="Linux Essentials.pdf">Download<span class="visually-hidden"> Linux Essentials, 12.0 MB</span></a>
             </div>
           </li>
           <li class="course" id="s2-1-the-crimes-of-the-baath-regime-in-iraq" data-stage="2" data-term="1" data-search="the crimes of the baath regime in iraq stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-the-crimes-of-the-baath-regime-in-iraq.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-1-the-crimes-of-the-baath-regime-in-iraq.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">The Crimes of the Baath regime in Iraq</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/The%20Crimes%20of%20the%20Baath%20regime%20in%20Iraq.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">The Crimes of the Baath regime in Iraq</a></h4>
               <p class="course-meta"><span>56 pages</span><span class="visually-hidden">, </span><span>8.2 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/The%20Crimes%20of%20the%20Baath%20regime%20in%20Iraq.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> The Crimes of the Baath regime in Iraq</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/The%20Crimes%20of%20the%20Baath%20regime%20in%20Iraq.pdf" type="application/pdf" download="The Crimes of the Baath regime in Iraq.pdf">Download<span class="visually-hidden"> The Crimes of the Baath regime in Iraq, 8.2 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-1-the-crimes-of-the-baath-regime-in-iraq" aria-label="Share link to The Crimes of the Baath regime in Iraq"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/The%20Crimes%20of%20the%20Baath%20regime%20in%20Iraq.pdf" type="application/pdf" download="The Crimes of the Baath regime in Iraq.pdf">Download<span class="visually-hidden"> The Crimes of the Baath regime in Iraq, 8.2 MB</span></a>
             </div>
           </li>
         </ul>
       </section>
       <section class="term" data-term="2">
-        <h3 class="term-title" id="stage-2-sem-2">Semester 2 <span class="ar" lang="ar" dir="rtl">الكورس الثاني</span></h3>
+        <h3 class="term-title" id="stage-2-sem-2">Semester 2</h3>
         <ul class="course-list" role="list">
           <li class="course" id="s2-2-communication-fundamentals" data-stage="2" data-term="2" data-search="communication fundamentals stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-communication-fundamentals.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-2-communication-fundamentals.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Communication Fundamentals</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Communication Fundamentals</a></h4>
               <p class="course-meta"><span>81 pages</span><span class="visually-hidden">, </span><span>5.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Communication Fundamentals</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf" type="application/pdf" download="Communication Fundamentals.pdf">Download<span class="visually-hidden"> Communication Fundamentals, 5.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-2-communication-fundamentals" aria-label="Share link to Communication Fundamentals"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf" type="application/pdf" download="Communication Fundamentals.pdf">Download<span class="visually-hidden"> Communication Fundamentals, 5.1 MB</span></a>
             </div>
           </li>
           <li class="course" id="s2-2-english-language-2" data-stage="2" data-term="2" data-search="english language 2 stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-english-language-2.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-2-english-language-2.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">English Language 2</h4>
-              <p class="course-meta"><span>260 pages</span><span class="visually-hidden">, </span><span>51.9 MB</span><span class="visually-hidden">, </span><span class="stamp">Large file</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> English Language 2</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf" type="application/pdf" download="English Language 2.pdf">Download<span class="visually-hidden"> English Language 2, 51.9 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-2-english-language-2" aria-label="Share link to English Language 2"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">English Language 2</a></h4>
+              <p class="course-meta"><span>260 pages</span><span class="visually-hidden">, </span><span>51.9 MB</span><span class="visually-hidden">, </span><span class="flag">Large file</span></p>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf" type="application/pdf" download="English Language 2.pdf">Download<span class="visually-hidden"> English Language 2, 51.9 MB</span></a>
             </div>
           </li>
           <li class="course" id="s2-2-introduction-to-database-sql" data-stage="2" data-term="2" data-search="introduction to database -sql stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-introduction-to-database-sql.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-2-introduction-to-database-sql.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Introduction to Database -SQL</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Introduction to Database -SQL</a></h4>
               <p class="course-meta"><span>43 pages</span><span class="visually-hidden">, </span><span>465 KB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Introduction to Database -SQL</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf" type="application/pdf" download="Introduction to Database -SQL.pdf">Download<span class="visually-hidden"> Introduction to Database -SQL, 465 KB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-2-introduction-to-database-sql" aria-label="Share link to Introduction to Database -SQL"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf" type="application/pdf" download="Introduction to Database -SQL.pdf">Download<span class="visually-hidden"> Introduction to Database -SQL, 465 KB</span></a>
             </div>
           </li>
           <li class="course" id="s2-2-microprocessors" data-stage="2" data-term="2" data-search="microprocessors stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-microprocessors.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-2-microprocessors.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Microprocessors</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Microprocessors</a></h4>
               <p class="course-meta"><span>61 pages</span><span class="visually-hidden">, </span><span>3.6 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Microprocessors</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf" type="application/pdf" download="Microprocessors.pdf">Download<span class="visually-hidden"> Microprocessors, 3.6 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-2-microprocessors" aria-label="Share link to Microprocessors"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf" type="application/pdf" download="Microprocessors.pdf">Download<span class="visually-hidden"> Microprocessors, 3.6 MB</span></a>
             </div>
           </li>
           <li class="course" id="s2-2-numerical-analysis-and-statistics" data-stage="2" data-term="2" data-search="numerical analysis &amp; statistics stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-numerical-analysis-and-statistics.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-2-numerical-analysis-and-statistics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Numerical Analysis &amp; Statistics</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Numerical%20Analysis%20%26%20Statistics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Numerical Analysis &amp; Statistics</a></h4>
               <p class="course-meta"><span>37 pages</span><span class="visually-hidden">, </span><span>2.4 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Numerical%20Analysis%20%26%20Statistics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Numerical Analysis &amp; Statistics</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Numerical%20Analysis%20%26%20Statistics.pdf" type="application/pdf" download="Numerical Analysis &amp; Statistics.pdf">Download<span class="visually-hidden"> Numerical Analysis &amp; Statistics, 2.4 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-2-numerical-analysis-and-statistics" aria-label="Share link to Numerical Analysis &amp; Statistics"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Numerical%20Analysis%20%26%20Statistics.pdf" type="application/pdf" download="Numerical Analysis &amp; Statistics.pdf">Download<span class="visually-hidden"> Numerical Analysis &amp; Statistics, 2.4 MB</span></a>
             </div>
           </li>
           <li class="course" id="s2-2-object-oriented-programming" data-stage="2" data-term="2" data-search="object oriented programming stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-object-oriented-programming.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s2-2-object-oriented-programming.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Object Oriented Programming</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Object%20Oriented%20Programming.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Object Oriented Programming</a></h4>
               <p class="course-meta"><span>67 pages</span><span class="visually-hidden">, </span><span>6.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Object%20Oriented%20Programming.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Object Oriented Programming</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Object%20Oriented%20Programming.pdf" type="application/pdf" download="Object Oriented Programming.pdf">Download<span class="visually-hidden"> Object Oriented Programming, 6.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s2-2-object-oriented-programming" aria-label="Share link to Object Oriented Programming"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Object%20Oriented%20Programming.pdf" type="application/pdf" download="Object Oriented Programming.pdf">Download<span class="visually-hidden"> Object Oriented Programming, 6.1 MB</span></a>
             </div>
           </li>
         </ul>
@@ -464,160 +324,109 @@
     </section>
 
     <section class="stage" id="stage-3" data-stage="3" aria-labelledby="stage-3-title">
-      <header class="stage-head">
-        <h2 class="stage-title" id="stage-3-title">Stage 3 <span class="ar" lang="ar" dir="rtl">المرحلة الثالثة</span></h2>
-        <p class="stage-meta">12 files · 71.2 MB</p>
-      </header>
+      <h2 class="stage-title" id="stage-3-title">Stage 3 <span class="ar" lang="ar" dir="rtl">المرحلة الثالثة</span></h2>
       <section class="term" data-term="1">
-        <h3 class="term-title" id="stage-3-sem-1">Semester 1 <span class="ar" lang="ar" dir="rtl">الكورس الاول</span></h3>
+        <h3 class="term-title" id="stage-3-sem-1">Semester 1</h3>
         <ul class="course-list" role="list">
           <li class="course" id="s3-1-computer-networks" data-stage="3" data-term="1" data-search="computer networks stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-computer-networks.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-1-computer-networks.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Computer Networks</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Networks.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Computer Networks</a></h4>
               <p class="course-meta"><span>68 pages</span><span class="visually-hidden">, </span><span>3.7 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Networks.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Computer Networks</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Networks.pdf" type="application/pdf" download="Computer Networks.pdf">Download<span class="visually-hidden"> Computer Networks, 3.7 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-1-computer-networks" aria-label="Share link to Computer Networks"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Networks.pdf" type="application/pdf" download="Computer Networks.pdf">Download<span class="visually-hidden"> Computer Networks, 3.7 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-1-digital-forensics" data-stage="3" data-term="1" data-search="digital forensics stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-digital-forensics.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-1-digital-forensics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Digital Forensics</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Digital Forensics</a></h4>
               <p class="course-meta"><span>31 pages</span><span class="visually-hidden">, </span><span>4.3 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Digital Forensics</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf" type="application/pdf" download="Digital Forensics.pdf">Download<span class="visually-hidden"> Digital Forensics, 4.3 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-1-digital-forensics" aria-label="Share link to Digital Forensics"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf" type="application/pdf" download="Digital Forensics.pdf">Download<span class="visually-hidden"> Digital Forensics, 4.3 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-1-digital-signal-processing" data-stage="3" data-term="1" data-search="digital signal processing stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-digital-signal-processing.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-1-digital-signal-processing.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Digital Signal Processing</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Digital Signal Processing</a></h4>
               <p class="course-meta"><span>55 pages</span><span class="visually-hidden">, </span><span>5.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Digital Signal Processing</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf" type="application/pdf" download="Digital Signal Processing.pdf">Download<span class="visually-hidden"> Digital Signal Processing, 5.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-1-digital-signal-processing" aria-label="Share link to Digital Signal Processing"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf" type="application/pdf" download="Digital Signal Processing.pdf">Download<span class="visually-hidden"> Digital Signal Processing, 5.1 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-1-information-security-and-cryptography" data-stage="3" data-term="1" data-search="information security and cryptography stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-information-security-and-cryptography.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-1-information-security-and-cryptography.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Information Security and Cryptography</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Information%20Security%20and%20Cryptography.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Information Security and Cryptography</a></h4>
               <p class="course-meta"><span>102 pages</span><span class="visually-hidden">, </span><span>3.3 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Information%20Security%20and%20Cryptography.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Information Security and Cryptography</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Information%20Security%20and%20Cryptography.pdf" type="application/pdf" download="Information Security and Cryptography.pdf">Download<span class="visually-hidden"> Information Security and Cryptography, 3.3 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-1-information-security-and-cryptography" aria-label="Share link to Information Security and Cryptography"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Information%20Security%20and%20Cryptography.pdf" type="application/pdf" download="Information Security and Cryptography.pdf">Download<span class="visually-hidden"> Information Security and Cryptography, 3.3 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-1-python" data-stage="3" data-term="1" data-search="python stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-python.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-1-python.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Python</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Python</a></h4>
               <p class="course-meta"><span>68 pages</span><span class="visually-hidden">, </span><span>2.5 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Python</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf" type="application/pdf" download="Python.pdf">Download<span class="visually-hidden"> Python, 2.5 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-1-python" aria-label="Share link to Python"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf" type="application/pdf" download="Python.pdf">Download<span class="visually-hidden"> Python, 2.5 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-1-software-engineering" data-stage="3" data-term="1" data-search="software engineering stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-software-engineering.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-1-software-engineering.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Software Engineering</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Software%20Engineering.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Software Engineering</a></h4>
               <p class="course-meta"><span>109 pages</span><span class="visually-hidden">, </span><span>2.2 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Software%20Engineering.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Software Engineering</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Software%20Engineering.pdf" type="application/pdf" download="Software Engineering.pdf">Download<span class="visually-hidden"> Software Engineering, 2.2 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-1-software-engineering" aria-label="Share link to Software Engineering"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Software%20Engineering.pdf" type="application/pdf" download="Software Engineering.pdf">Download<span class="visually-hidden"> Software Engineering, 2.2 MB</span></a>
             </div>
           </li>
         </ul>
       </section>
       <section class="term" data-term="2">
-        <h3 class="term-title" id="stage-3-sem-2">Semester 2 <span class="ar" lang="ar" dir="rtl">الكورس الثاني</span></h3>
+        <h3 class="term-title" id="stage-3-sem-2">Semester 2</h3>
         <ul class="course-list" role="list">
           <li class="course" id="s3-2-artificial-intelligence" data-stage="3" data-term="2" data-search="artificial intelligence stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-artificial-intelligence.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-2-artificial-intelligence.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Artificial Intelligence</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Artificial Intelligence</a></h4>
               <p class="course-meta"><span>111 pages</span><span class="visually-hidden">, </span><span>5.6 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Artificial Intelligence</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf" type="application/pdf" download="Artificial Intelligence.pdf">Download<span class="visually-hidden"> Artificial Intelligence, 5.6 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-2-artificial-intelligence" aria-label="Share link to Artificial Intelligence"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf" type="application/pdf" download="Artificial Intelligence.pdf">Download<span class="visually-hidden"> Artificial Intelligence, 5.6 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-2-cybersecurity-essentials" data-stage="3" data-term="2" data-search="cybersecurity essentials stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-cybersecurity-essentials.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-2-cybersecurity-essentials.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">CyberSecurity Essentials</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/CyberSecurity%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">CyberSecurity Essentials</a></h4>
               <p class="course-meta"><span>43 pages</span><span class="visually-hidden">, </span><span>1.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/CyberSecurity%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> CyberSecurity Essentials</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/CyberSecurity%20Essentials.pdf" type="application/pdf" download="CyberSecurity Essentials.pdf">Download<span class="visually-hidden"> CyberSecurity Essentials, 1.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-2-cybersecurity-essentials" aria-label="Share link to CyberSecurity Essentials"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/CyberSecurity%20Essentials.pdf" type="application/pdf" download="CyberSecurity Essentials.pdf">Download<span class="visually-hidden"> CyberSecurity Essentials, 1.1 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-2-information-theory-and-coding" data-stage="3" data-term="2" data-search="information theory and coding stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-information-theory-and-coding.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-2-information-theory-and-coding.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Information theory and coding</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Information theory and coding</a></h4>
               <p class="course-meta"><span>52 pages</span><span class="visually-hidden">, </span><span>4.2 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Information theory and coding</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf" type="application/pdf" download="Information theory and coding.pdf">Download<span class="visually-hidden"> Information theory and coding, 4.2 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-2-information-theory-and-coding" aria-label="Share link to Information theory and coding"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf" type="application/pdf" download="Information theory and coding.pdf">Download<span class="visually-hidden"> Information theory and coding, 4.2 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-2-network-protocols" data-stage="3" data-term="2" data-search="network protocols stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-network-protocols.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-2-network-protocols.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Network Protocols</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Network Protocols</a></h4>
               <p class="course-meta"><span>72 pages</span><span class="visually-hidden">, </span><span>5.1 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Network Protocols</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf" type="application/pdf" download="Network Protocols.pdf">Download<span class="visually-hidden"> Network Protocols, 5.1 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-2-network-protocols" aria-label="Share link to Network Protocols"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf" type="application/pdf" download="Network Protocols.pdf">Download<span class="visually-hidden"> Network Protocols, 5.1 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-2-operating-system" data-stage="3" data-term="2" data-search="operating system stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-operating-system.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-2-operating-system.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Operating System</h4>
-              <p class="course-meta"><span>1,278 pages</span><span class="visually-hidden">, </span><span>29.7 MB</span><span class="visually-hidden">, </span><span class="stamp">Large file</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Operating%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Operating System</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Operating%20System.pdf" type="application/pdf" download="Operating System.pdf">Download<span class="visually-hidden"> Operating System, 29.7 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-2-operating-system" aria-label="Share link to Operating System"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Operating%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Operating System</a></h4>
+              <p class="course-meta"><span>1,278 pages</span><span class="visually-hidden">, </span><span>29.7 MB</span><span class="visually-hidden">, </span><span class="flag">Large file</span></p>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Operating%20System.pdf" type="application/pdf" download="Operating System.pdf">Download<span class="visually-hidden"> Operating System, 29.7 MB</span></a>
             </div>
           </li>
           <li class="course" id="s3-2-web-design" data-stage="3" data-term="2" data-search="web design stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-web-design.webp" width="120" height="160" alt="" loading="lazy" decoding="async">
+            <img class="course-cover" src="covers/s3-2-web-design.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
             <div class="course-body">
-              <h4 class="course-title">Web Design</h4>
+              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Web%20Design.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Web Design</a></h4>
               <p class="course-meta"><span>99 pages</span><span class="visually-hidden">, </span><span>4.4 MB</span></p>
-              <div class="course-actions">
-                <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Web%20Design.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open<span class="visually-hidden"> Web Design</span></a>
-                <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Web%20Design.pdf" type="application/pdf" download="Web Design.pdf">Download<span class="visually-hidden"> Web Design, 4.4 MB</span></a>
-                <button class="btn btn--icon share" type="button" data-share="s3-2-web-design" aria-label="Share link to Web Design"><svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1 1"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1-1"/></svg></button>
-              </div>
+              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Web%20Design.pdf" type="application/pdf" download="Web Design.pdf">Download<span class="visually-hidden"> Web Design, 4.4 MB</span></a>
             </div>
           </li>
         </ul>
@@ -625,11 +434,8 @@
     </section>
 
     <section class="stage" id="stage-4" data-stage="4" aria-labelledby="stage-4-title">
-      <header class="stage-head">
-        <h2 class="stage-title" id="stage-4-title">Stage 4 <span class="ar" lang="ar" dir="rtl">المرحلة الرابعة</span></h2>
-        <p class="stage-meta">Coming soon</p>
-      </header>
-      <p class="stage-empty">No material uploaded yet. Check back later.</p>
+      <h2 class="stage-title" id="stage-4-title">Stage 4 <span class="ar" lang="ar" dir="rtl">المرحلة الرابعة</span></h2>
+      <p class="stage-empty">No material uploaded yet.</p>
     </section>
         <div class="empty" id="emptyState" hidden>
           <h2 class="empty-title">No courses match your search</h2>
@@ -640,12 +446,10 @@
 
     <footer class="site-footer">
       <div class="wrap site-footer-inner">
-        <p>Files are hosted on GitHub. Large files are flagged so you can wait for Wi-Fi.</p>
-        <p><a href="https://github.com/op-h/DBs">Source on GitHub</a></p>
+        <p>Large files are marked so you can wait for Wi-Fi. <a href="https://github.com/op-h/DBs">Source on GitHub</a></p>
       </div>
     </footer>
 
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <!-- Referenced by aria-describedby on every course link; one copy instead of 37 hidden spans. -->
     <span id="newTabHint" hidden>PDF, opens in a new tab</span>
   </body>

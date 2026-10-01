@@ -15,7 +15,7 @@ transfer sizes below are gzip -9 computed by hand; GitHub Pages serves gzip/br).
 | Third-party requests | 0 | 0 | pass |
 | Critical path (html+css+js) | 35 KB | 23.3 KB | pass |
 | Cover, per file | 20 KB | max 14,516 B, min 1,614 B, mean ~7.3 KB | pass |
-| Covers, all 37 | 300 KB | 271,932 B | pass (tight; ~90% headroom used) |
+| Covers, all 37 | 400 KB | 342,197 B (JPEG q60) | pass. Raised from 300 KB when covers moved to poppler-only JPEG (ADR 0004): one build tool, lazy-loaded, never the LCP element |
 | Covers fetched on first mobile load | 120 KB | 13 files, 104,067 B | pass |
 
 ## Lab results (Lighthouse 12, simulated Moto G Power, slow 4G)

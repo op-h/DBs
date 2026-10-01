@@ -1,48 +1,46 @@
-# CyberSec Library
+# Cyber Security Library
 
 Course PDFs for the Cyber Security department, organised by stage and semester.
 
 **Live site:** https://op-h.github.io/DBs/
 
-- Search every course by name. Filter by stage and semester. Press **Ctrl K** (⌘K on Mac) to jump to search.
-- Each course shows its cover, page count and file size, with large files flagged so you can wait for Wi-Fi.
-- Open in the browser, download, or copy a direct link to share with classmates.
-- Works on phones, tablets and desktops, in light and dark mode, and without JavaScript.
+Search any course, filter by stage, then tap a course to open it or download it. Each course shows
+its cover, page count and size, and large files are marked so you can wait for Wi-Fi. Works on
+phones and desktops, in light and dark mode, and without JavaScript.
 
-## Folder layout
+## Adding or removing a PDF
+
+Just put the PDF in the right folder and push (or upload it on github.com):
 
 ```
 المرحلة الاولى/          Stage 1
   الكورس الاول/           Semester 1
-    Course Name.pdf
+    Course Name.pdf      ← the file name is the course name on the site
   الكورس الثاني/          Semester 2
 المرحلة الثانية/          Stage 2
 المرحلة الثالثة/          Stage 3
 المرحلة الرابعة/          Stage 4
 ```
 
-The file name (without `.pdf`) is the course name shown on the site.
+A GitHub Action (`.github/workflows/update-library.yml`) rebuilds the page, the covers and the
+sizes automatically and republishes the site, usually within two minutes. You don't need to run
+anything on your computer.
 
-## Adding or removing a PDF
+- github.com's upload page accepts files up to 25 MB. Push bigger files with git or GitHub
+  Desktop. GitHub rejects anything over 100 MB, so compress those first.
+- To check the Action, open the repository's **Actions** tab and look at "Update library".
 
-1. Put the PDF in the right `المرحلة …/الكورس …/` folder (or delete it).
-2. Rebuild the page:
+### Building locally (optional)
 
-   ```sh
-   node tools/build.mjs
-   ```
+```sh
+node tools/build.mjs
+```
 
-3. Commit everything that changed (`index.html`, `covers/`, `data/library.json`) and push.
-   Also rebuild after editing `styles.css` or `script.js`: their URLs carry a content hash.
-
-`tools/build.mjs` needs Node 18+. It uses `pdfinfo` (poppler-utils) for page counts and
-ImageMagick (`magick`, with Ghostscript) for cover images. Without them the build still runs,
-reusing cached page counts; new PDFs just won't get a cover.
-
-GitHub rejects files over 100 MB. Compress larger PDFs before adding them.
+This needs Node 18+ and `poppler-utils` (for page counts and covers). It writes `index.html`,
+`covers/` and `data/library.json`.
 
 ## How it is built
 
-No framework and no dependencies. `index.html` is generated from `tools/template.html`, so the
-whole library is real HTML that works without JavaScript; `script.js` adds search, filters,
-shareable URLs and recently opened. Design decisions are in [`docs/`](docs/).
+There's no framework and nothing to install for the site itself. `index.html` is generated from
+`tools/template.html`, so the whole library is real HTML. `script.js` only adds search and the
+stage filter, and `styles.css` holds the design. The decisions behind it are in [`docs/`](docs/).

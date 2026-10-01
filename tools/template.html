@@ -8,18 +8,12 @@
     <meta name="description" content="Course PDFs for the Cyber Security department, organised by stage and semester. {{FILE_COUNT}} files, searchable, free to open or download.">
     <link rel="canonical" href="https://op-h.github.io/DBs/">
     <meta name="color-scheme" content="light dark">
-    <!-- Values are design.md --c-page; media queries follow the OS scheme, the manual toggle only restyles the page. -->
+    <!-- Values are design.md --c-page; the page follows the OS light/dark setting. -->
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F3EC">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171513">
     <script>
-      // Runs before first paint so a saved theme never flashes the wrong colours.
-      // The "js" class lets CSS show JS-only controls on first paint instead of popping them in later (CLS).
+      // Before first paint, so the JS-only search bar is laid out from the start instead of popping in (CLS).
       document.documentElement.classList.add("js");
-      try {
-        const t = localStorage.getItem("theme");
-        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
-        if (JSON.parse(localStorage.getItem("recent") || "[]").length) document.documentElement.classList.add("has-recent");
-      } catch {}
     </script>
     <link rel="stylesheet" href="styles.css?v={{CSS_V}}">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -65,27 +59,11 @@
   <body>
     <a class="skip-link" href="#library">Skip to library</a>
 
-    <header class="site-header">
-      <div class="wrap site-header-inner">
-        <a class="wordmark" href="./">
-          <span class="wordmark-title">CyberSec Library</span>
-          <span class="wordmark-sub">Course material, stages 1–4</span>
-        </a>
-        <button class="theme-toggle" type="button" id="themeToggle">
-          <span class="theme-toggle-label">Theme: <span id="themeValue">System</span></span>
-        </button>
-      </div>
-    </header>
-
     <main id="main">
       <section class="intro wrap">
-        <h1 id="pageTitle">Cyber Security curriculum library</h1>
-        <p class="intro-lede">Every course PDF, organised by stage and semester. Open it in your browser or download it for offline reading.</p>
-        <dl class="stats">
-          <div><dt>Files</dt><dd>{{FILE_COUNT}}</dd></div>
-          <div><dt>Pages</dt><dd>{{TOTAL_PAGES}}</dd></div>
-          <div><dt>Total size</dt><dd>{{TOTAL_SIZE}}</dd></div>
-        </dl>
+        <h1 id="pageTitle">Cyber Security Library</h1>
+        <p class="intro-lede">Course PDFs for every stage and semester. Open one in your browser or download it for offline reading.</p>
+        <p class="intro-meta">{{FILE_COUNT}} courses<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>{{TOTAL_PAGES}} pages<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>{{TOTAL_SIZE}}</p>
         <nav class="stage-nav" aria-label="Jump to stage">
           <ul role="list">
           {{STAGE_NAV}}
@@ -97,8 +75,7 @@
         <div class="wrap controls-inner">
           <div class="search">
             <label class="search-label" for="q">Search courses</label>
-            <input class="search-input" id="q" name="q" type="search" placeholder="Search courses" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-keyshortcuts="Control+K Meta+K">
-            <kbd class="search-hint" aria-hidden="true">Ctrl K</kbd>
+            <input class="search-input" id="q" name="q" type="search" placeholder="Search courses" autocomplete="off" spellcheck="false" enterkeyhint="search">
           </div>
           <fieldset class="segmented" id="stageFilter">
             <legend>Stage</legend>
@@ -108,21 +85,10 @@
             <label><input type="radio" name="stage" value="3"><span>3</span></label>
             <label><input type="radio" name="stage" value="4"><span>4</span></label>
           </fieldset>
-          <fieldset class="segmented" id="termFilter">
-            <legend>Semester</legend>
-            <label><input type="radio" name="term" value="" checked><span>All</span></label>
-            <label><input type="radio" name="term" value="1"><span>1</span></label>
-            <label><input type="radio" name="term" value="2"><span>2</span></label>
-          </fieldset>
           <p class="results" id="results" role="status" aria-live="polite"></p>
           <button class="btn btn--quiet" type="reset" id="resetFilters" hidden>Clear</button>
         </div>
       </form>
-
-      <section class="recent wrap" id="recent" aria-labelledby="recentTitle" hidden>
-        <h2 class="recent-title" id="recentTitle">Recently opened</h2>
-        <ol class="recent-list" id="recentList" role="list"></ol>
-      </section>
 
       <div class="library wrap" id="library" tabindex="-1">
 {{LIBRARY}}
@@ -135,12 +101,10 @@
 
     <footer class="site-footer">
       <div class="wrap site-footer-inner">
-        <p>Files are hosted on GitHub. Large files are flagged so you can wait for Wi-Fi.</p>
-        <p><a href="{{REPO_URL}}">Source on GitHub</a></p>
+        <p>Large files are marked so you can wait for Wi-Fi. <a href="{{REPO_URL}}">Source on GitHub</a></p>
       </div>
     </footer>
 
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <!-- Referenced by aria-describedby on every course link; one copy instead of 37 hidden spans. -->
     <span id="newTabHint" hidden>PDF, opens in a new tab</span>
   </body>

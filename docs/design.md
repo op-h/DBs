@@ -1,5 +1,7 @@
 # Design system: Cyber Security Course Library
 
+> **Update 2026-10-01 (ADR 0004):** the page was simplified. There is no header bar, stats block, theme toggle, recently opened, share button, semester filter, call numbers, small-caps labels or red card rule. The whole course card is the Open link, and Download is a quiet text link. Tokens, type and colour below still apply.
+
 Owner: MUSE. Consumers: PRISM (CSS), GRANITE (a11y review), QUARTZ (font/perf). PRISM implements
 from this doc. Token names are the contract, so don't rename them without routing through MUSE.
 

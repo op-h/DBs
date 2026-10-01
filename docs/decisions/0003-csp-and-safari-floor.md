@@ -9,7 +9,7 @@ SENTRY's concern was that a hand-pasted hash silently breaks when the head scrip
 Ruling: `tools/build.mjs` hashes every executable inline `<script>` in the rendered page and
 writes the tag, so the policy can't drift from the script.
 
-Policy: `default-src 'none'; script-src 'self' <hashes>; style-src 'self'; img-src 'self' data:;
+Policy: `default-src 'none'; script-src 'self' <hashes>; style-src 'self'; img-src 'self' data:; connect-src 'self';
 manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests`.
 `data:` images are allowed because the CSS draws two icons (search, copied check) as data-URI SVG
 masks. `frame-ancestors` is ignored in meta; clickjacking risk is low (no state-changing actions).

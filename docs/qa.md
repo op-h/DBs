@@ -1,5 +1,7 @@
 # QA: browser matrix, test record, release checklist (SENTRY)
 
+> **Update 2026-10-01 (ADR 0004):** theme toggle, share, recently opened, Ctrl/⌘K and the semester filter were removed, and the test suites were updated to match. The defects below (D1–D6) stay fixed. D3 no longer applies because recently opened is gone.
+
 Last run: 2026-10-01, branch `redesign`, against `index.html` built by `node tools/build.mjs`
 (37 files, 5,089 pages, 250.5 MB). Served locally with `python3 -m http.server`. Production PDF
 paths were also checked live on `https://op-h.github.io/DBs/`.

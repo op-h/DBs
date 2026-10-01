@@ -17,7 +17,7 @@
   }
 
   /* Important in the first layer beats every later layer, important or not:
-     JS filtering, the empty state, #recent and #resetFilters all rely on it. */
+     JS filtering, the empty state and #resetFilters rely on it. */
   [hidden] {
     display: none !important;
   }
@@ -165,7 +165,6 @@
 
     --bw-hair: 1px;
     --bw-heavy: 2px;
-    --rule-double: 3px double var(--c-ink);
 
     --shadow: none;
     --z-base: 0;
@@ -180,14 +179,11 @@
     /* Layout-only values (PRISM). Over-estimates on purpose: too much scroll padding is
        harmless, too little lets the sticky bar cover the focused card (WCAG 2.4.11). */
     --controls-h: 0rem;
-    /* Rows of "Recently opened" to reserve before JS fills it (CLS). */
-    --recent-rows: 2;
   }
 
-  /* Dark is declared twice because a media query and an attribute selector cannot share
-     one rule: system preference (unless forced light), and the explicit toggle. */
+  /* The page follows the device's light/dark setting. */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
+    :root {
       color-scheme: dark;
       --c-page: #171513;
       --c-card: #201E1B;
@@ -201,21 +197,6 @@
       --c-accent-hover: #E78F79;
       --c-mark: rgb(224 122 98 / 0.22);
     }
-  }
-
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --c-page: #171513;
-    --c-card: #201E1B;
-    --c-well: #2A2723;
-    --c-ink: #ECE6DA;
-    --c-ink-muted: #A8A194;
-    --c-rule: #34302B;
-    --c-border: #7D766B;
-    --c-accent: #E07A62;
-    --c-on-accent: #171513;
-    --c-accent-hover: #E78F79;
-    --c-mark: rgb(224 122 98 / 0.22);
   }
 
   /* 36px targets only when no coarse pointer is present at all, so touch laptops keep 44px.
@@ -242,7 +223,6 @@
   @media (min-width: 64em) {
     :root {
       --controls-h: 5rem;
-      --recent-rows: 1;
     }
   }
 
@@ -304,11 +284,6 @@
     outline-offset: 2px;
   }
 
-  kbd {
-    font-family: var(--font-sans);
-    font-variant-numeric: tabular-nums lining-nums;
-  }
-
   /* Naskh renders small at equal em; letter-spacing and case transforms break joining. */
   [lang="ar"],
   .ar {
@@ -327,21 +302,6 @@
   .wrap {
     inline-size: min(100% - 2 * var(--gutter), var(--page-max));
     margin-inline: auto;
-  }
-
-  /* One row even at 320px: the wordmark wraps internally, the toggle keeps its size. */
-  .site-header-inner {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-2) var(--space-4);
-    min-block-size: 3.5rem;
-    padding-block: var(--space-2);
-  }
-
-  .site-header-inner > * {
-    min-inline-size: 0;
   }
 
   .intro {
@@ -380,37 +340,27 @@
     padding-block-end: var(--space-8);
   }
 
+  .library > .stage:first-child {
+    margin-block-start: var(--space-6);
+  }
+
   .stage {
-    margin-block-start: var(--space-7);
-    padding-block-start: var(--space-3);
-    border-block-start: var(--bw-heavy) solid var(--c-ink);
-  }
-
-  .stage-head {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-2) var(--space-5);
-  }
-
-  .stage-head > * {
-    min-inline-size: 0;
+    margin-block-start: var(--space-8);
   }
 
   .term {
-    margin-block-start: var(--space-5);
+    margin-block-start: var(--space-6);
   }
 
   .course-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
-    gap: var(--space-4);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+    gap: var(--space-3);
   }
 
   .site-footer {
-    border-block-start: var(--rule-double);
-    padding-block: var(--space-7);
+    border-block-start: var(--bw-hair) solid var(--c-rule);
+    padding-block: var(--space-6);
   }
 
   @media (min-width: 48em) {
@@ -427,53 +377,17 @@
     }
 
     .library > .stage:first-child {
-      margin-block-start: var(--space-5);
+      margin-block-start: var(--space-6);
     }
   }
 
-  /* Stage rail. Rows are implicit; the head spans more rows than a stage can have terms so
-     its height never stretches the first term (row-gap stays 0, terms carry their margins). */
-  @media (min-width: 80em) {
-    .stage {
-      display: grid;
-      grid-template-columns: 14rem minmax(0, 1fr);
-      column-gap: var(--space-6);
-    }
-
-    .stage-head {
-      grid-column: 1;
-      grid-row: 1 / span 9;
-      flex-direction: column;
-      align-items: start;
-      justify-content: start;
-    }
-
-    .stage > :not(.stage-head) {
-      grid-column: 2;
-    }
-
-    .stage > .term:first-of-type {
-      margin-block-start: 0;
-    }
-
-    /* ~3 columns at --page-max, 2 at 1280px; never 4+. */
-    .course-list {
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
-    }
-  }
 }
 
 /* ==========================================================================
    COMPONENTS
    ========================================================================== */
 @layer components {
-  /* ---- Small-caps label voice (Latin only; .ar inside resets case and tracking) ---- */
-  .term-title,
-  .stats dt,
-  .stamp,
-  .recent-title,
-  .segmented legend,
-  .stage-meta,
+  /* ---- Small-caps label (cover placeholder only) ---- */
   .course-cover--empty {
     font-family: var(--font-sans);
     font-size: var(--step--2);
@@ -506,182 +420,37 @@
     white-space: nowrap;
   }
 
-  /* ---- Header ---- */
-  .site-header {
-    border-block-end: var(--rule-double);
-  }
-
-  .wordmark {
-    flex: 1 1 auto;
-    min-inline-size: 0;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    min-block-size: var(--target);
-    color: var(--c-ink);
-    text-decoration: none;
-  }
-
-  .wordmark-title {
-    font-family: var(--font-serif);
-    font-size: var(--step-1);
-    font-weight: 600;
-    line-height: var(--lh-snug);
-  }
-
-  .wordmark-sub {
-    font-size: var(--step--2);
-    color: var(--c-ink-muted);
-  }
-
-  @media (hover: hover) {
-    .wordmark:hover .wordmark-title {
-      text-decoration: underline;
-      text-decoration-thickness: var(--bw-hair);
-      text-underline-offset: 0.2em;
-    }
-  }
-
-  .theme-toggle {
-    flex: none;
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-block-size: var(--target);
-    /* "Theme: System" is the longest state; reserving it stops the header shifting. */
-    min-inline-size: 15ch;
-    padding-inline: var(--space-3);
-    background-color: transparent;
-    color: var(--c-ink);
-    border: var(--bw-hair) solid var(--c-border);
-    border-radius: var(--radius-1);
-    font-size: var(--step--2);
-    font-weight: 600;
-    transition: background-color var(--dur-fast) var(--ease-std);
-  }
-
-  @media (hover: hover) {
-    .theme-toggle:hover {
-      background-color: var(--c-well);
-    }
-  }
-
-  /* Height stays at --target; only the side padding gives way at 320px. */
-  @media (max-width: 22.5em) {
-    .theme-toggle {
-      padding-inline: var(--space-2);
-    }
-  }
-
   /* ---- Intro ---- */
   .intro h1 {
-    max-inline-size: 20ch;
     font-family: var(--font-serif);
     font-size: var(--step-4);
     font-weight: 400;
     line-height: var(--lh-tight);
+    letter-spacing: -0.01em;
   }
 
   .intro-lede {
     max-inline-size: var(--measure);
-    margin-block-start: var(--space-4);
+    margin-block-start: var(--space-3);
     font-size: var(--step-1);
     line-height: var(--lh-snug);
     color: var(--c-ink-muted);
   }
 
-  .stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3) 0;
-    margin-block-start: var(--space-6);
-  }
-
-  .stats > div {
-    padding-inline: var(--space-5);
-  }
-
-  .stats > div:first-child {
-    padding-inline-start: 0;
-  }
-
-  .stats > div + div {
-    border-inline-start: var(--bw-hair) solid var(--c-rule);
-  }
-
-  .stats dt {
+  .intro-meta {
+    margin-block-start: var(--space-4);
+    font-size: var(--step--1);
     color: var(--c-ink-muted);
-  }
-
-  .stats dd {
-    font-size: var(--step-2);
-    line-height: var(--lh-snug);
     font-variant-numeric: tabular-nums lining-nums;
   }
 
-  /* Phones: one compact inline row ("37 files · 5,089 pages · 250.5 MB") instead of
-     stacked blocks, plus a smaller h1 and lede, to keep the controls above the fold. */
   @media (max-width: 39.9375em) {
     .intro h1 {
       font-size: var(--step-3);
     }
 
     .intro-lede {
-      margin-block-start: var(--space-3);
       font-size: var(--step-0);
-    }
-
-    .stats {
-      gap: 0;
-      margin-block-start: var(--space-3);
-      font-size: var(--step--1);
-    }
-
-    .stats > div {
-      display: flex;
-      align-items: baseline;
-      gap: 0.3em;
-      padding-inline: 0;
-    }
-
-    .stats > div + div {
-      border-inline-start: 0;
-    }
-
-    .stats > div + div::before {
-      content: "\00B7";
-      content: "\00B7" / "";
-      order: -2;
-      padding-inline: 0.2em 0.5em;
-      color: var(--c-ink-muted);
-    }
-
-    /* Value first reads as a sentence; both stay in one dt/dd pair for AT. */
-    .stats dd {
-      order: -1;
-      font-size: inherit;
-      line-height: inherit;
-      font-weight: 600;
-    }
-
-    .stats dt {
-      font-size: inherit;
-      font-weight: 400;
-      letter-spacing: normal;
-      text-transform: lowercase;
-    }
-
-    /* "250.5 MB" is self-explanatory, and dropping the label is what lets the row fit 320px.
-       The dt stays in the accessibility tree. */
-    .stats > div:last-child dt {
-      position: absolute;
-      inline-size: 1px;
-      block-size: 1px;
-      margin: -1px;
-      overflow: hidden;
-      clip-path: inset(50%);
-      white-space: nowrap;
     }
   }
 
@@ -763,35 +532,6 @@
   .search-input::placeholder {
     color: var(--c-ink-muted);
     opacity: 1;
-  }
-
-  .search-hint {
-    display: none;
-    position: absolute;
-    inset-block-start: 50%;
-    inset-inline-end: var(--space-3);
-    translate: 0 -50%;
-    padding: 0 var(--space-1);
-    font-size: var(--step--2);
-    line-height: 1.6;
-    color: var(--c-ink-muted);
-    border: var(--bw-hair) solid var(--c-rule);
-    border-radius: var(--radius-1);
-    pointer-events: none;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .search-hint {
-      display: block;
-    }
-
-    .search-input {
-      padding-inline-end: 4.5rem;
-    }
-
-    .search:has(.search-input:focus, .search-input:not(:placeholder-shown)) .search-hint {
-      display: none;
-    }
   }
 
   /* ---- Segmented controls ---- */
@@ -958,23 +698,6 @@
     background-color: var(--c-well);
   }
 
-  .btn--primary {
-    background-color: var(--c-accent);
-    color: var(--c-on-accent);
-    border-color: transparent;
-  }
-
-  .btn--primary:hover,
-  .btn--primary:active {
-    background-color: var(--c-accent-hover);
-  }
-
-  .btn--icon {
-    flex: none;
-    inline-size: var(--target-min);
-    padding: 0;
-  }
-
   .btn--quiet {
     min-block-size: var(--target);
     padding-inline: var(--space-3);
@@ -998,150 +721,28 @@
     }
   }
 
-  /* ---- Recently opened ---- */
-  .recent {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      "title clear"
-      "list  list";
-    align-items: center;
-    gap: var(--space-2) var(--space-4);
-    padding-block-start: var(--space-5);
-  }
-
-  /* Approximate height reserved when the head script saw stored items, so the library does
-     not jump when CIRCUIT unhides and fills the section. */
-  html.has-recent {
-    --recent-reserve: calc(
-      var(--space-5) + var(--target-min) + var(--space-2)
-      + var(--recent-rows) * (var(--thumb-xs) * 4 / 3 + 2 * var(--space-2))
-      + (var(--recent-rows) - 1) * var(--space-2)
-    );
-  }
-
-  html.has-recent .recent {
-    min-block-size: var(--recent-reserve);
-  }
-
-  html.has-recent .recent[hidden] + .library {
-    margin-block-start: var(--recent-reserve);
-  }
-
-  .recent-title {
-    grid-area: title;
-    color: var(--c-ink-muted);
-  }
-
-  .recent-clear {
-    grid-area: clear;
-    min-block-size: var(--target);
-    padding: 0;
-    background: none;
-    border: 0;
-    color: var(--c-accent);
-    font-size: var(--step--1);
-    text-decoration-line: underline;
-    text-decoration-thickness: var(--bw-hair);
-    text-underline-offset: 0.2em;
-  }
-
-  @media (hover: hover) {
-    .recent-clear:hover {
-      text-decoration-thickness: 2px;
-    }
-  }
-
-  .recent-list {
-    grid-area: list;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
-    gap: var(--space-2) var(--space-4);
-    align-self: start;
-  }
-
-  .recent-item {
-    display: grid;
-    grid-template-columns: var(--thumb-xs) minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    align-content: center;
-    column-gap: var(--space-3);
-    min-block-size: var(--target-min);
-    padding-block: var(--space-2);
-    border-block-end: var(--bw-hair) solid var(--c-rule);
-    color: var(--c-ink);
-    text-decoration: none;
-  }
-
-  .recent-cover {
-    grid-row: 1 / span 2;
-    inline-size: var(--thumb-xs);
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    background-color: var(--c-well);
-    border: var(--bw-hair) solid var(--c-rule);
-    border-radius: var(--radius-2);
-  }
-
-  .recent-name {
-    align-self: end;
-    font-size: var(--step--1);
-    font-weight: 600;
-    line-height: var(--lh-snug);
-    overflow-wrap: anywhere;
-  }
-
-  .recent-meta {
-    align-self: start;
-    font-size: var(--step--2);
-    color: var(--c-ink-muted);
-    font-variant-numeric: tabular-nums lining-nums;
-  }
-
-  @media (hover: hover) {
-    .recent-item:hover .recent-name {
-      text-decoration: underline;
-      text-decoration-thickness: var(--bw-hair);
-      text-underline-offset: 0.2em;
-    }
-  }
-
   /* ---- Stage and semester headings ---- */
   .stage-title {
+    padding-block-end: var(--space-3);
+    border-block-end: var(--bw-hair) solid var(--c-rule);
     font-family: var(--font-serif);
     font-size: var(--step-3);
     font-weight: 400;
     line-height: var(--lh-tight);
   }
 
+  /* The folder name students know, kept quiet next to the English heading. */
   .stage-title .ar {
-    display: block;
-    margin-block-start: var(--space-1);
-    font-size: calc(var(--step-1) * 1.08);
-    color: var(--c-ink-muted);
-  }
-
-  .stage-meta {
+    margin-inline-start: 0.4em;
+    font-size: 0.62em;
     color: var(--c-ink-muted);
   }
 
   .term-title {
-    padding-block-end: var(--space-2);
-    margin-block-end: var(--space-4);
-    border-block-end: var(--bw-hair) solid var(--c-rule);
+    margin-block-end: var(--space-3);
+    font-size: var(--step--1);
+    font-weight: 600;
     color: var(--c-ink-muted);
-  }
-
-  .term-title .ar {
-    font-weight: 400;
-  }
-
-  /* The span is RTL, so ::after lands on its visual left: between "Semester 1" and the
-     Arabic. The alt text keeps the dot out of the accessible name. */
-  .term-title .ar::after {
-    content: "\00B7";
-    content: "\00B7" / "";
-    padding-inline: 0.5em;
   }
 
   /* ---- Empty drawer slot (stage or semester with no files) ---- */
@@ -1159,32 +760,27 @@
     color: var(--c-ink-muted);
   }
 
-  @media (min-width: 80em) {
-    .stage > .stage-empty {
-      margin-block-start: 0;
-    }
-  }
-
   /* ---- Course card ----
-     Phone-first: actions span both columns. .course-body uses display:contents so its
-     children can be placed on the card grid; a container query cannot restyle the
-     container itself, so the four explicit rows live here and children pick them. */
+     The title link is stretched over the whole card (::after), so the card is one large
+     target that opens the PDF. Download sits above that layer as the only other control. */
   .course {
-    container: course / inline-size;
+    --thumb: var(--thumb-s);
+    position: relative;
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: var(--thumb) minmax(0, 1fr);
+    align-items: stretch;
     column-gap: var(--space-4);
-    padding: var(--space-4);
+    padding: var(--space-3);
     background-color: var(--c-card);
     border: var(--bw-hair) solid var(--c-rule);
     border-radius: var(--radius-2);
     transition: border-color var(--dur-fast) var(--ease-std);
   }
 
-  @media (max-width: 22.5em) {
+  @media (min-width: 48em) {
     .course {
-      padding: var(--space-3);
+      --thumb: var(--thumb-m);
+      padding: var(--space-4);
     }
   }
 
@@ -1192,24 +788,26 @@
     .course:hover {
       border-color: var(--c-border);
     }
+
+    .course:hover .course-link {
+      text-decoration-line: underline;
+    }
   }
 
-  /* Landing from a shared link: show which card the URL points at. */
+  /* Landing from a #course link: show which card the URL points at. */
   .course:target {
     border-color: var(--c-accent);
   }
 
   .course-cover {
-    --thumb: var(--thumb-s);
-    grid-column: 1;
-    grid-row: 1 / 4;
     inline-size: var(--thumb);
     block-size: auto;
     aspect-ratio: 3 / 4;
-    object-fit: cover;
+    /* Contain, not cover: landscape lecture slides must show whole, not chopped at the sides. */
+    object-fit: contain;
     background-color: var(--c-well);
     border: var(--bw-hair) solid var(--c-rule);
-    border-radius: var(--radius-2);
+    border-radius: var(--radius-1);
   }
 
   .course-cover--empty {
@@ -1219,7 +817,43 @@
   }
 
   .course-body {
-    display: contents;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    min-inline-size: 0;
+  }
+
+  .course-title {
+    font-family: var(--font-serif);
+    font-size: var(--step-1);
+    font-weight: 600;
+    line-height: var(--lh-snug);
+    text-wrap: pretty;
+    overflow-wrap: anywhere;
+  }
+
+  .course-link {
+    color: var(--c-ink);
+    text-decoration-line: none;
+    text-decoration-thickness: var(--bw-hair);
+    text-underline-offset: 0.18em;
+  }
+
+  .course-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-2);
+  }
+
+  /* Ring the whole card rather than the title text, since the whole card is the link. */
+  .course-link:focus-visible {
+    outline: none;
+  }
+
+  .course-link:focus-visible::after {
+    outline: 2px solid var(--c-focus);
+    outline-offset: 2px;
   }
 
   /* Search match. The UA yellow clashes with both themes; a light accent wash plus an
@@ -1232,125 +866,55 @@
     border-radius: var(--radius-1);
   }
 
-  .course-title {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: start;
-    padding-block-end: var(--space-2);
-    margin-block-end: var(--space-2);
-    border-block-end: var(--bw-hair) solid var(--c-accent);
-    font-family: var(--font-serif);
-    font-size: var(--step-1);
-    font-weight: 600;
-    line-height: var(--lh-snug);
-    text-wrap: pretty;
-    overflow-wrap: anywhere;
-  }
-
   .course-meta {
-    grid-column: 2;
-    grid-row: 2;
-    align-self: start;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-1) var(--space-2);
+    gap: 0 var(--space-2);
+    margin-block-start: var(--space-1);
     font-size: var(--step--1);
     color: var(--c-ink-muted);
     font-variant-numeric: tabular-nums lining-nums;
   }
 
-  /* Dot between pages and size only; the stamp stands on its own. */
-  .course-meta > .visually-hidden + span:not(.stamp)::before {
+  .course-meta > .visually-hidden + span::before {
     content: "\00B7";
     content: "\00B7" / "";
     margin-inline-end: var(--space-2);
   }
 
-  .stamp {
-    padding: 0 var(--space-1);
+  .flag {
     color: var(--c-accent);
-    border: var(--bw-hair) solid var(--c-accent);
-    border-radius: var(--radius-1);
-    line-height: 1.5;
   }
 
-  .course-actions {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    display: flex;
-    flex-wrap: wrap;
+  /* Above the stretched link so it stays separately clickable. */
+  .course-download {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    margin-block-start: var(--space-3);
-  }
-
-  .course-actions .btn:not(.btn--icon) {
-    flex: 1 1 0;
-    padding-inline: var(--space-3);
-  }
-
-  @container course (inline-size >= 26rem) {
-    .course-cover {
-      --thumb: var(--thumb-m);
-      grid-row: 1 / -1;
-    }
-
-    .course-body {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      grid-column: 2;
-      grid-row: 1 / -1;
-      min-inline-size: 0;
-    }
-
-    .course-title {
-      align-self: stretch;
-    }
-
-    .course-actions .btn:not(.btn--icon) {
-      flex: 0 0 auto;
-      padding-inline: var(--space-4);
-    }
-  }
-
-  @container course (inline-size >= 34rem) {
-    .course-cover {
-      --thumb: var(--thumb-l);
-    }
-  }
-
-  /* ---- Share / copy-link confirmation ---- */
-  .share.is-copied {
-    color: var(--c-accent);
-    border-color: var(--c-accent);
-  }
-
-  .share.is-copied svg {
-    display: none;
-  }
-
-  .share.is-copied::before {
-    content: "";
-    inline-size: 20px;
-    block-size: 20px;
-    background-color: currentColor;
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
-  }
-
-  .share-done {
+    min-block-size: var(--target);
+    margin-block-start: auto;
+    padding-block-start: var(--space-2);
+    color: var(--c-ink-muted);
     font-size: var(--step--1);
     font-weight: 600;
-    color: var(--c-accent);
-    animation: fade-in var(--dur-base) var(--ease-out) both;
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-std);
   }
 
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
+  .course-download::before {
+    content: "";
+    inline-size: 16px;
+    block-size: 16px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-5-5 5 5 5-5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-5-5 5 5 5-5M5 20h14'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  .course-download:hover {
+    color: var(--c-accent);
   }
 
   /* ---- No-results state ---- */
@@ -1392,38 +956,6 @@
     min-block-size: 1.5rem;
     padding-block: var(--space-1);
   }
-
-  /* ---- Toast (status region for theme / share announcements) ---- */
-  .toast {
-    position: fixed;
-    inset-block-end: max(var(--space-4), env(safe-area-inset-bottom));
-    inset-inline-end: var(--gutter);
-    z-index: calc(var(--z-sticky) + 1);
-    max-inline-size: min(24rem, 100vw - 2 * var(--gutter));
-    padding: var(--space-2) var(--space-3);
-    background-color: var(--c-card);
-    color: var(--c-ink);
-    border: var(--bw-hair) solid var(--c-border);
-    border-radius: var(--radius-1);
-    font-size: var(--step--1);
-    pointer-events: none;
-  }
-
-  /* Bound to :not(:empty) so the fade restarts each time a message arrives. */
-  .toast:not(:empty) {
-    animation: fade-in var(--dur-base) var(--ease-out);
-  }
-
-  /* Clipped, not display:none, so the live region stays in the accessibility tree and
-     screen readers still announce the first message written into it. */
-  .toast:empty {
-    padding: 0;
-    border: 0;
-    inline-size: 1px;
-    block-size: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-  }
 }
 
 /* ==========================================================================
@@ -1443,10 +975,7 @@
   }
 
   /* JS-only UI, hidden on first paint without JS instead of popping in later (ADR 0002 §3). */
-  html:not(.js) .controls,
-  html:not(.js) .theme-toggle,
-  html:not(.js) .share,
-  html:not(.js) .recent {
+  html:not(.js) .controls {
     display: none;
   }
 
@@ -1470,32 +999,16 @@
 
     /* Mask icons paint with background-color, which forced-colors would otherwise erase. */
     .search::before,
-    .share.is-copied::before {
+    .course-download::before {
       forced-color-adjust: none;
       background-color: CanvasText;
-    }
-
-    .share.is-copied::before {
-      background-color: ButtonText;
-    }
-
-    .course-title {
-      border-block-end-color: CanvasText;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .share-done,
-    .toast {
-      animation: none;
     }
   }
 
   /* ---- Print: students print reading lists ---- */
   @media print {
-    /* Paper is not a theme: force ink on white regardless of the saved theme. */
-    :root,
-    :root[data-theme] {
+    /* Paper is not a theme: force ink on white even in dark mode. */
+    :root {
       color-scheme: light;
       --c-page: white;
       --c-card: white;
@@ -1506,15 +1019,11 @@
     }
 
     .skip-link,
-    .site-header .theme-toggle,
     .stage-nav,
     .controls,
-    .recent,
-    .course-actions,
+    .course-download,
     .course-cover,
-    .share-done,
-    .empty,
-    .toast {
+    .empty {
       display: none !important;
     }
 
@@ -1522,7 +1031,6 @@
       font-size: 11pt;
     }
 
-    .stats,
     .intro {
       padding-block: 0 1rem;
     }
@@ -1533,7 +1041,7 @@
       break-inside: auto;
     }
 
-    .stage-head,
+    .stage-title,
     .term-title {
       break-after: avoid;
     }
@@ -1553,6 +1061,10 @@
 
     .course-body {
       display: block;
+    }
+
+    .course-link::after {
+      content: none;
     }
 
     .course-title {
