@@ -14,7 +14,6 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const COVERS = join(ROOT, "covers");
 const MANIFEST = join(ROOT, "data", "library.json");
 const TEMPLATE = join(ROOT, "tools", "template.html");
-const REPO_URL = "https://github.com/op-h/DBs";
 
 // Folder names are Arabic ordinals; map them to numbers so ordering and URLs stay ASCII.
 const STAGES = ["المرحلة الاولى", "المرحلة الثانية", "المرحلة الثالثة", "المرحلة الرابعة"];
@@ -439,7 +438,6 @@ function build() {
     "{{MAP}}": renderMap(cur, stages),
     "{{MARK}}": renderMark(),
     "{{LIBRARY}}": stages.map((s) => renderStage(s, cur)).join("\n"),
-    "{{REPO_URL}}": REPO_URL
   };
 
   let html = readFileSync(TEMPLATE, "utf8");

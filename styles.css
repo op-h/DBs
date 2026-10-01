@@ -352,11 +352,6 @@
       padding-block: var(--space-5) var(--space-4);
     }
 
-    /* Phones get straight to the library; the title and counts say enough. */
-    .intro-lede {
-      display: none;
-    }
-
     /* Same width as the search field above it. */
     .segmented {
       flex: 1 1 100%;
@@ -483,13 +478,6 @@
     }
   }
 
-  .intro-lede {
-    max-inline-size: var(--measure);
-    margin-block-start: var(--space-4);
-    font-size: var(--step-1);
-    line-height: var(--lh-snug);
-    color: var(--c-ink-muted);
-  }
 
   .intro-meta {
     margin-block-start: var(--space-4);
@@ -1328,7 +1316,6 @@
   .credit-line {
     position: relative;
     min-block-size: var(--target);
-    margin-block-start: var(--space-3);
   }
 
   .credit {
