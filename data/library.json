@@ -59,26 +59,16 @@
   ],
   "files": [
     {
-      "id": "s1-1-democracy-and-human-rights",
-      "name": "Democracy & Human Rights",
-      "path": "المرحلة الاولى/الكورس الاول/Democracy & Human Rights.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf",
-      "size": 4634333,
-      "pages": 77,
-      "cover": "covers/s1-1-democracy-and-human-rights.jpg",
+      "id": "s1-1-introduction-to-information-system",
+      "name": "Introduction to Information System",
+      "path": "المرحلة الاولى/الكورس الاول/Introduction to Information System.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf",
+      "size": 3159371,
+      "pages": 124,
+      "cover": "covers/s1-1-introduction-to-information-system.jpg",
       "stage": 1,
-      "term": 1
-    },
-    {
-      "id": "s1-1-engineering-drawing",
-      "name": "Engineering Drawing",
-      "path": "المرحلة الاولى/الكورس الاول/Engineering Drawing.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf",
-      "size": 1230264,
-      "pages": 63,
-      "cover": "covers/s1-1-engineering-drawing.jpg",
-      "stage": 1,
-      "term": 1
+      "term": 1,
+      "code": "CSTE1101"
     },
     {
       "id": "s1-1-fundamental-of-electrical-eng",
@@ -89,29 +79,8 @@
       "pages": 74,
       "cover": "covers/s1-1-fundamental-of-electrical-eng.jpg",
       "stage": 1,
-      "term": 1
-    },
-    {
-      "id": "s1-1-introduction-to-information-system",
-      "name": "Introduction to Information System",
-      "path": "المرحلة الاولى/الكورس الاول/Introduction to Information System.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf",
-      "size": 3159371,
-      "pages": 124,
-      "cover": "covers/s1-1-introduction-to-information-system.jpg",
-      "stage": 1,
-      "term": 1
-    },
-    {
-      "id": "s1-1-mathematics-1",
-      "name": "Mathematics 1",
-      "path": "المرحلة الاولى/الكورس الاول/Mathematics 1.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf",
-      "size": 2920205,
-      "pages": 45,
-      "cover": "covers/s1-1-mathematics-1.jpg",
-      "stage": 1,
-      "term": 1
+      "term": 1,
+      "code": "CSTE1102"
     },
     {
       "id": "s1-1-programming-essentials",
@@ -122,18 +91,44 @@
       "pages": 93,
       "cover": "covers/s1-1-programming-essentials.jpg",
       "stage": 1,
-      "term": 1
+      "term": 1,
+      "code": "CSTE1103"
     },
     {
-      "id": "s1-2-arabic-language-1",
-      "name": "Arabic Language 1",
-      "path": "المرحلة الاولى/الكورس الثاني/Arabic Language 1.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf",
-      "size": 2483873,
-      "pages": 83,
-      "cover": "covers/s1-2-arabic-language-1.jpg",
+      "id": "s1-1-mathematics-1",
+      "name": "Mathematics 1",
+      "path": "المرحلة الاولى/الكورس الاول/Mathematics 1.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf",
+      "size": 2920205,
+      "pages": 45,
+      "cover": "covers/s1-1-mathematics-1.jpg",
       "stage": 1,
-      "term": 2
+      "term": 1,
+      "code": "CSTE1104"
+    },
+    {
+      "id": "s1-1-engineering-drawing",
+      "name": "Engineering Drawing",
+      "path": "المرحلة الاولى/الكورس الاول/Engineering Drawing.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf",
+      "size": 1230264,
+      "pages": 63,
+      "cover": "covers/s1-1-engineering-drawing.jpg",
+      "stage": 1,
+      "term": 1,
+      "code": "CSTE1105"
+    },
+    {
+      "id": "s1-1-democracy-and-human-rights",
+      "name": "Democracy & Human Rights",
+      "path": "المرحلة الاولى/الكورس الاول/Democracy & Human Rights.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf",
+      "size": 4634333,
+      "pages": 77,
+      "cover": "covers/s1-1-democracy-and-human-rights.jpg",
+      "stage": 1,
+      "term": 1,
+      "code": "CSTE1106"
     },
     {
       "id": "s1-2-digital-logic-design",
@@ -144,29 +139,8 @@
       "pages": 73,
       "cover": "covers/s1-2-digital-logic-design.jpg",
       "stage": 1,
-      "term": 2
-    },
-    {
-      "id": "s1-2-engineering-workshops",
-      "name": "Engineering Workshops",
-      "path": "المرحلة الاولى/الكورس الثاني/Engineering Workshops.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf",
-      "size": 3293525,
-      "pages": 96,
-      "cover": "covers/s1-2-engineering-workshops.jpg",
-      "stage": 1,
-      "term": 2
-    },
-    {
-      "id": "s1-2-english-language-1",
-      "name": "English Language 1",
-      "path": "المرحلة الاولى/الكورس الثاني/English Language 1.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf",
-      "size": 30503117,
-      "pages": 140,
-      "cover": "covers/s1-2-english-language-1.jpg",
-      "stage": 1,
-      "term": 2
+      "term": 2,
+      "code": "CSTE1201"
     },
     {
       "id": "s1-2-ethics-for-the-information-age",
@@ -177,7 +151,8 @@
       "pages": 29,
       "cover": "covers/s1-2-ethics-for-the-information-age.jpg",
       "stage": 1,
-      "term": 2
+      "term": 2,
+      "code": "CSTE1202"
     },
     {
       "id": "s1-2-general-physics",
@@ -188,7 +163,8 @@
       "pages": 197,
       "cover": "covers/s1-2-general-physics.jpg",
       "stage": 1,
-      "term": 2
+      "term": 2,
+      "code": "CSTE1203"
     },
     {
       "id": "s1-2-mathematics-2",
@@ -199,40 +175,44 @@
       "pages": 24,
       "cover": "covers/s1-2-mathematics-2.jpg",
       "stage": 1,
-      "term": 2
+      "term": 2,
+      "code": "CSTE1204"
     },
     {
-      "id": "s2-1-computer-organization-and-architecture",
-      "name": "Computer Organization & Architecture",
-      "path": "المرحلة الثانية/الكورس الاول/Computer Organization & Architecture.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf",
-      "size": 7486329,
-      "pages": 149,
-      "cover": "covers/s2-1-computer-organization-and-architecture.jpg",
-      "stage": 2,
-      "term": 1
+      "id": "s1-2-engineering-workshops",
+      "name": "Engineering Workshops",
+      "path": "المرحلة الاولى/الكورس الثاني/Engineering Workshops.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf",
+      "size": 3293525,
+      "pages": 96,
+      "cover": "covers/s1-2-engineering-workshops.jpg",
+      "stage": 1,
+      "term": 2,
+      "code": "CSTE1205"
     },
     {
-      "id": "s2-1-data-structure-and-algorithms",
-      "name": "Data Structure & Algorithms",
-      "path": "المرحلة الثانية/الكورس الاول/Data Structure & Algorithms.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf",
-      "size": 2104721,
-      "pages": 171,
-      "cover": "covers/s2-1-data-structure-and-algorithms.jpg",
-      "stage": 2,
-      "term": 1
+      "id": "s1-2-arabic-language-1",
+      "name": "Arabic Language 1",
+      "path": "المرحلة الاولى/الكورس الثاني/Arabic Language 1.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf",
+      "size": 2483873,
+      "pages": 83,
+      "cover": "covers/s1-2-arabic-language-1.jpg",
+      "stage": 1,
+      "term": 2,
+      "code": "CSTE1206"
     },
     {
-      "id": "s2-1-electronics-fundamentals",
-      "name": "Electronics Fundamentals",
-      "path": "المرحلة الثانية/الكورس الاول/Electronics Fundamentals.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf",
-      "size": 2227045,
-      "pages": 112,
-      "cover": "covers/s2-1-electronics-fundamentals.jpg",
-      "stage": 2,
-      "term": 1
+      "id": "s1-2-english-language-1",
+      "name": "English Language 1",
+      "path": "المرحلة الاولى/الكورس الثاني/English Language 1.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf",
+      "size": 30503117,
+      "pages": 140,
+      "cover": "covers/s1-2-english-language-1.jpg",
+      "stage": 1,
+      "term": 2,
+      "code": "CSTE1207"
     },
     {
       "id": "s2-1-engineering-mathematics",
@@ -243,7 +223,20 @@
       "pages": 42,
       "cover": "covers/s2-1-engineering-mathematics.jpg",
       "stage": 2,
-      "term": 1
+      "term": 1,
+      "code": "CSTE2101"
+    },
+    {
+      "id": "s2-1-electronics-fundamentals",
+      "name": "Electronics Fundamentals",
+      "path": "المرحلة الثانية/الكورس الاول/Electronics Fundamentals.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf",
+      "size": 2227045,
+      "pages": 112,
+      "cover": "covers/s2-1-electronics-fundamentals.jpg",
+      "stage": 2,
+      "term": 1,
+      "code": "CSTE2102"
     },
     {
       "id": "s2-1-linux-essentials",
@@ -254,7 +247,32 @@
       "pages": 804,
       "cover": "covers/s2-1-linux-essentials.jpg",
       "stage": 2,
-      "term": 1
+      "term": 1,
+      "code": "CSTE2103"
+    },
+    {
+      "id": "s2-1-computer-organization-and-architecture",
+      "name": "Computer Organization & Architecture",
+      "path": "المرحلة الثانية/الكورس الاول/Computer Organization & Architecture.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf",
+      "size": 7486329,
+      "pages": 149,
+      "cover": "covers/s2-1-computer-organization-and-architecture.jpg",
+      "stage": 2,
+      "term": 1,
+      "code": "CSTE2104"
+    },
+    {
+      "id": "s2-1-data-structure-and-algorithms",
+      "name": "Data Structure & Algorithms",
+      "path": "المرحلة الثانية/الكورس الاول/Data Structure & Algorithms.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf",
+      "size": 2104721,
+      "pages": 171,
+      "cover": "covers/s2-1-data-structure-and-algorithms.jpg",
+      "stage": 2,
+      "term": 1,
+      "code": "CSTE2105"
     },
     {
       "id": "s2-1-the-crimes-of-the-baath-regime-in-iraq",
@@ -265,51 +283,8 @@
       "pages": 56,
       "cover": "covers/s2-1-the-crimes-of-the-baath-regime-in-iraq.jpg",
       "stage": 2,
-      "term": 1
-    },
-    {
-      "id": "s2-2-communication-fundamentals",
-      "name": "Communication Fundamentals",
-      "path": "المرحلة الثانية/الكورس الثاني/Communication Fundamentals.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf",
-      "size": 5365727,
-      "pages": 81,
-      "cover": "covers/s2-2-communication-fundamentals.jpg",
-      "stage": 2,
-      "term": 2
-    },
-    {
-      "id": "s2-2-english-language-2",
-      "name": "English Language 2",
-      "path": "المرحلة الثانية/الكورس الثاني/English Language 2.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf",
-      "size": 54444525,
-      "pages": 260,
-      "cover": "covers/s2-2-english-language-2.jpg",
-      "stage": 2,
-      "term": 2
-    },
-    {
-      "id": "s2-2-introduction-to-database-sql",
-      "name": "Introduction to Database -SQL",
-      "path": "المرحلة الثانية/الكورس الثاني/Introduction to Database -SQL.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf",
-      "size": 476456,
-      "pages": 43,
-      "cover": "covers/s2-2-introduction-to-database-sql.jpg",
-      "stage": 2,
-      "term": 2
-    },
-    {
-      "id": "s2-2-microprocessors",
-      "name": "Microprocessors",
-      "path": "المرحلة الثانية/الكورس الثاني/Microprocessors.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf",
-      "size": 3808488,
-      "pages": 61,
-      "cover": "covers/s2-2-microprocessors.jpg",
-      "stage": 2,
-      "term": 2
+      "term": 1,
+      "code": "CSTE2106"
     },
     {
       "id": "s2-2-numerical-analysis-and-statistics",
@@ -320,7 +295,8 @@
       "pages": 37,
       "cover": "covers/s2-2-numerical-analysis-and-statistics.jpg",
       "stage": 2,
-      "term": 2
+      "term": 2,
+      "code": "CSTE2201"
     },
     {
       "id": "s2-2-object-oriented-programming",
@@ -331,7 +307,56 @@
       "pages": 67,
       "cover": "covers/s2-2-object-oriented-programming.jpg",
       "stage": 2,
-      "term": 2
+      "term": 2,
+      "code": "CSTE2202"
+    },
+    {
+      "id": "s2-2-microprocessors",
+      "name": "Microprocessors",
+      "path": "المرحلة الثانية/الكورس الثاني/Microprocessors.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf",
+      "size": 3808488,
+      "pages": 61,
+      "cover": "covers/s2-2-microprocessors.jpg",
+      "stage": 2,
+      "term": 2,
+      "code": "CSTE2203"
+    },
+    {
+      "id": "s2-2-communication-fundamentals",
+      "name": "Communication Fundamentals",
+      "path": "المرحلة الثانية/الكورس الثاني/Communication Fundamentals.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf",
+      "size": 5365727,
+      "pages": 81,
+      "cover": "covers/s2-2-communication-fundamentals.jpg",
+      "stage": 2,
+      "term": 2,
+      "code": "CSTE2204"
+    },
+    {
+      "id": "s2-2-introduction-to-database-sql",
+      "name": "Introduction to Database -SQL",
+      "path": "المرحلة الثانية/الكورس الثاني/Introduction to Database -SQL.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf",
+      "size": 476456,
+      "pages": 43,
+      "cover": "covers/s2-2-introduction-to-database-sql.jpg",
+      "stage": 2,
+      "term": 2,
+      "code": "CSTE2205"
+    },
+    {
+      "id": "s2-2-english-language-2",
+      "name": "English Language 2",
+      "path": "المرحلة الثانية/الكورس الثاني/English Language 2.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf",
+      "size": 54444525,
+      "pages": 260,
+      "cover": "covers/s2-2-english-language-2.jpg",
+      "stage": 2,
+      "term": 2,
+      "code": "CSTE2206"
     },
     {
       "id": "s3-1-computer-networks",
@@ -342,29 +367,8 @@
       "pages": 68,
       "cover": "covers/s3-1-computer-networks.jpg",
       "stage": 3,
-      "term": 1
-    },
-    {
-      "id": "s3-1-digital-forensics",
-      "name": "Digital Forensics",
-      "path": "المرحلة الثالثة/الكورس الاول/Digital Forensics.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf",
-      "size": 4515671,
-      "pages": 31,
-      "cover": "covers/s3-1-digital-forensics.jpg",
-      "stage": 3,
-      "term": 1
-    },
-    {
-      "id": "s3-1-digital-signal-processing",
-      "name": "Digital Signal Processing",
-      "path": "المرحلة الثالثة/الكورس الاول/Digital Signal Processing.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf",
-      "size": 5399568,
-      "pages": 55,
-      "cover": "covers/s3-1-digital-signal-processing.jpg",
-      "stage": 3,
-      "term": 1
+      "term": 1,
+      "code": "CSTE3101"
     },
     {
       "id": "s3-1-information-security-and-cryptography",
@@ -375,18 +379,20 @@
       "pages": 102,
       "cover": "covers/s3-1-information-security-and-cryptography.jpg",
       "stage": 3,
-      "term": 1
+      "term": 1,
+      "code": "CSTE3102"
     },
     {
-      "id": "s3-1-python",
-      "name": "Python",
-      "path": "المرحلة الثالثة/الكورس الاول/Python.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf",
-      "size": 2606625,
-      "pages": 68,
-      "cover": "covers/s3-1-python.jpg",
+      "id": "s3-1-digital-signal-processing",
+      "name": "Digital Signal Processing",
+      "path": "المرحلة الثالثة/الكورس الاول/Digital Signal Processing.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf",
+      "size": 5399568,
+      "pages": 55,
+      "cover": "covers/s3-1-digital-signal-processing.jpg",
       "stage": 3,
-      "term": 1
+      "term": 1,
+      "code": "CSTE3103"
     },
     {
       "id": "s3-1-software-engineering",
@@ -397,18 +403,32 @@
       "pages": 109,
       "cover": "covers/s3-1-software-engineering.jpg",
       "stage": 3,
-      "term": 1
+      "term": 1,
+      "code": "CSTE3104"
     },
     {
-      "id": "s3-2-artificial-intelligence",
-      "name": "Artificial Intelligence",
-      "path": "المرحلة الثالثة/الكورس الثاني/Artificial Intelligence.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf",
-      "size": 5834477,
-      "pages": 111,
-      "cover": "covers/s3-2-artificial-intelligence.jpg",
+      "id": "s3-1-python",
+      "name": "Python",
+      "path": "المرحلة الثالثة/الكورس الاول/Python.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf",
+      "size": 2606625,
+      "pages": 68,
+      "cover": "covers/s3-1-python.jpg",
       "stage": 3,
-      "term": 2
+      "term": 1,
+      "code": "CSTE3105"
+    },
+    {
+      "id": "s3-1-digital-forensics",
+      "name": "Digital Forensics",
+      "path": "المرحلة الثالثة/الكورس الاول/Digital Forensics.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf",
+      "size": 4515671,
+      "pages": 31,
+      "cover": "covers/s3-1-digital-forensics.jpg",
+      "stage": 3,
+      "term": 1,
+      "code": "CSTE3106"
     },
     {
       "id": "s3-2-cybersecurity-essentials",
@@ -419,29 +439,20 @@
       "pages": 43,
       "cover": "covers/s3-2-cybersecurity-essentials.jpg",
       "stage": 3,
-      "term": 2
+      "term": 2,
+      "code": "CSTE3201"
     },
     {
-      "id": "s3-2-information-theory-and-coding",
-      "name": "Information theory and coding",
-      "path": "المرحلة الثالثة/الكورس الثاني/Information theory and coding.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf",
-      "size": 4392568,
-      "pages": 52,
-      "cover": "covers/s3-2-information-theory-and-coding.jpg",
+      "id": "s3-2-artificial-intelligence",
+      "name": "Artificial Intelligence",
+      "path": "المرحلة الثالثة/الكورس الثاني/Artificial Intelligence.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf",
+      "size": 5834477,
+      "pages": 111,
+      "cover": "covers/s3-2-artificial-intelligence.jpg",
       "stage": 3,
-      "term": 2
-    },
-    {
-      "id": "s3-2-network-protocols",
-      "name": "Network Protocols",
-      "path": "المرحلة الثالثة/الكورس الثاني/Network Protocols.pdf",
-      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf",
-      "size": 5298877,
-      "pages": 72,
-      "cover": "covers/s3-2-network-protocols.jpg",
-      "stage": 3,
-      "term": 2
+      "term": 2,
+      "code": "CSTE3202"
     },
     {
       "id": "s3-2-operating-system",
@@ -452,7 +463,8 @@
       "pages": 1278,
       "cover": "covers/s3-2-operating-system.jpg",
       "stage": 3,
-      "term": 2
+      "term": 2,
+      "code": "CSTE3203"
     },
     {
       "id": "s3-2-web-design",
@@ -463,7 +475,32 @@
       "pages": 99,
       "cover": "covers/s3-2-web-design.jpg",
       "stage": 3,
-      "term": 2
+      "term": 2,
+      "code": "CSTE3204"
+    },
+    {
+      "id": "s3-2-network-protocols",
+      "name": "Network Protocols",
+      "path": "المرحلة الثالثة/الكورس الثاني/Network Protocols.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf",
+      "size": 5298877,
+      "pages": 72,
+      "cover": "covers/s3-2-network-protocols.jpg",
+      "stage": 3,
+      "term": 2,
+      "code": "CSTE3205"
+    },
+    {
+      "id": "s3-2-information-theory-and-coding",
+      "name": "Information theory and coding",
+      "path": "المرحلة الثالثة/الكورس الثاني/Information theory and coding.pdf",
+      "href": "%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf",
+      "size": 4392568,
+      "pages": 52,
+      "cover": "covers/s3-2-information-theory-and-coding.jpg",
+      "stage": 3,
+      "term": 2,
+      "code": "CSTE3207"
     }
   ]
 }

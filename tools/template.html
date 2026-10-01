@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     {{CSP}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cyber Security Curriculum Library</title>
-    <meta name="description" content="Course PDFs for the Cyber Security department, organised by stage and semester. {{FILE_COUNT}} files, searchable, free to open or download.">
+    <title>Cyber Security Library · CSTE</title>
+    <meta name="description" content="Lecture PDFs for the Cybersecurity Technology Engineering department, mapped to the official curriculum by stage and semester. {{FILE_COUNT}} PDFs, searchable by name or module code.">
     <link rel="canonical" href="https://op-h.github.io/DBs/">
     <meta name="color-scheme" content="light dark">
     <!-- Values are design.md --c-page; the page follows the OS light/dark setting. -->
@@ -15,17 +15,18 @@
       // Before first paint, so the JS-only search bar is laid out from the start instead of popping in (CLS).
       document.documentElement.classList.add("js");
     </script>
+    <link rel="preload" href="fonts/GeistPixel-Square.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css?v={{CSS_V}}">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="CyberSec Library">
-    <meta property="og:title" content="Cyber Security Curriculum Library">
-    <meta property="og:description" content="Course PDFs for the Cyber Security department, organised by stage and semester. {{FILE_COUNT}} files, searchable, free to open or download.">
+    <meta property="og:title" content="Cyber Security Library · CSTE">
+    <meta property="og:description" content="Lecture PDFs for the Cybersecurity Technology Engineering department, mapped to the official curriculum by stage and semester. {{FILE_COUNT}} PDFs, searchable by name or module code.">
     <meta property="og:url" content="https://op-h.github.io/DBs/">
     <meta property="og:locale" content="en_GB">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Cyber Security Curriculum Library">
-    <meta name="twitter:description" content="Course PDFs for the Cyber Security department, organised by stage and semester. {{FILE_COUNT}} files, searchable, free to open or download.">
+    <meta name="twitter:title" content="Cyber Security Library · CSTE">
+    <meta name="twitter:description" content="Lecture PDFs for the Cybersecurity Technology Engineering department, mapped to the official curriculum by stage and semester. {{FILE_COUNT}} PDFs, searchable by name or module code.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -61,9 +62,11 @@
 
     <main id="main">
       <section class="intro wrap">
-        <h1 id="pageTitle">Cyber Security Library</h1>
-        <p class="intro-lede">Course PDFs for every stage and semester. Open one in your browser or download it for offline reading.</p>
-        <p class="intro-meta">{{FILE_COUNT}} courses<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>{{TOTAL_PAGES}} pages<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>{{TOTAL_SIZE}}</p>
+        {{MARK}}
+        <p class="eyebrow">CSTE Department · Cybersecurity Technology Engineering</p>
+        <h1 id="pageTitle">Cyber Security Library<span class="cursor" aria-hidden="true"></span></h1>
+        <p class="intro-lede">Lecture PDFs for every stage and semester, mapped to the official curriculum. Open one in your browser or download it for offline reading.</p>
+        <p class="intro-meta">{{FILE_COUNT}} PDFs<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>{{TOTAL_PAGES}} pages<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>{{TOTAL_SIZE}}</p>
         <nav class="stage-nav" aria-label="Jump to stage">
           <ul role="list">
           {{STAGE_NAV}}
@@ -71,11 +74,14 @@
         </nav>
       </section>
 
+      <div class="wrap map-wrap">{{MAP}}
+      </div>
+
       <form class="controls" id="controls" role="search" aria-label="Search and filter the library">
         <div class="wrap controls-inner">
           <div class="search">
             <label class="search-label" for="q">Search courses</label>
-            <input class="search-input" id="q" name="q" type="search" placeholder="Search courses" autocomplete="off" spellcheck="false" enterkeyhint="search">
+            <input class="search-input" id="q" name="q" type="search" placeholder="Search name or code" autocomplete="off" spellcheck="false" enterkeyhint="search">
           </div>
           <fieldset class="segmented" id="stageFilter">
             <legend>Stage</legend>
@@ -86,7 +92,7 @@
             <label><input type="radio" name="stage" value="4"><span>4</span></label>
           </fieldset>
           <p class="results" id="results" role="status" aria-live="polite"></p>
-          <button class="btn btn--quiet" type="reset" id="resetFilters" hidden>Clear</button>
+          <button class="btn btn--quiet" type="button" id="resetFilters" hidden>Clear search</button>
         </div>
       </form>
 
@@ -94,7 +100,7 @@
 {{LIBRARY}}
         <div class="empty" id="emptyState" hidden>
           <h2 class="empty-title">No courses match your search</h2>
-          <p>Try a shorter word, check the spelling, or <button class="link-button" type="button" id="emptyReset">clear the search and filters</button>.</p>
+          <p>Try a shorter word or a module code, or <button class="link-button" type="button" id="emptyReset">clear the search</button>.</p>
         </div>
       </div>
     </main>

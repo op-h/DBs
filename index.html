@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-8cCZ+iEkutUOe0FOSKgRsSOCB29dDasWtrSFuwWB/fg='; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-8cCZ+iEkutUOe0FOSKgRsSOCB29dDasWtrSFuwWB/fg='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cyber Security Curriculum Library</title>
-    <meta name="description" content="Course PDFs for the Cyber Security department, organised by stage and semester. 37 files, searchable, free to open or download.">
+    <title>Cyber Security Library · CSTE</title>
+    <meta name="description" content="Lecture PDFs for the Cybersecurity Technology Engineering department, mapped to the official curriculum by stage and semester. 37 PDFs, searchable by name or module code.">
     <link rel="canonical" href="https://op-h.github.io/DBs/">
     <meta name="color-scheme" content="light dark">
     <!-- Values are design.md --c-page; the page follows the OS light/dark setting. -->
@@ -15,17 +15,18 @@
       // Before first paint, so the JS-only search bar is laid out from the start instead of popping in (CLS).
       document.documentElement.classList.add("js");
     </script>
-    <link rel="stylesheet" href="styles.css?v=803c5ddc82">
+    <link rel="preload" href="fonts/GeistPixel-Square.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css?v=7430f81898">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="CyberSec Library">
-    <meta property="og:title" content="Cyber Security Curriculum Library">
-    <meta property="og:description" content="Course PDFs for the Cyber Security department, organised by stage and semester. 37 files, searchable, free to open or download.">
+    <meta property="og:title" content="Cyber Security Library · CSTE">
+    <meta property="og:description" content="Lecture PDFs for the Cybersecurity Technology Engineering department, mapped to the official curriculum by stage and semester. 37 PDFs, searchable by name or module code.">
     <meta property="og:url" content="https://op-h.github.io/DBs/">
     <meta property="og:locale" content="en_GB">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Cyber Security Curriculum Library">
-    <meta name="twitter:description" content="Course PDFs for the Cyber Security department, organised by stage and semester. 37 files, searchable, free to open or download.">
+    <meta name="twitter:title" content="Cyber Security Library · CSTE">
+    <meta name="twitter:description" content="Lecture PDFs for the Cybersecurity Technology Engineering department, mapped to the official curriculum by stage and semester. 37 PDFs, searchable by name or module code.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -54,16 +55,18 @@
       ]
     }
     </script>
-    <script src="script.js?v=fdbe41f1b6" defer></script>
+    <script src="script.js?v=2b293cd9dc" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#library">Skip to library</a>
 
     <main id="main">
       <section class="intro wrap">
-        <h1 id="pageTitle">Cyber Security Library</h1>
-        <p class="intro-lede">Course PDFs for every stage and semester. Open one in your browser or download it for offline reading.</p>
-        <p class="intro-meta">37 courses<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>5,089 pages<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>250.5 MB</p>
+        <svg class="mark" viewBox="0 0 16 16" width="64" height="64" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><rect class="px ink d6" x="2" y="0" width="1" height="1"/><rect class="px ink d5" x="3" y="0" width="1" height="1"/><rect class="px ink d4" x="4" y="0" width="1" height="1"/><rect class="px ink d3" x="5" y="0" width="1" height="1"/><rect class="px ink d2" x="6" y="0" width="1" height="1"/><rect class="px ink d1" x="7" y="0" width="1" height="1"/><rect class="px ink d0" x="8" y="0" width="1" height="1"/><rect class="px ink d7" x="9" y="0" width="1" height="1"/><rect class="px ink d6" x="10" y="0" width="1" height="1"/><rect class="px ink d5" x="11" y="0" width="1" height="1"/><rect class="px ink d3" x="2" y="1" width="1" height="1"/><rect class="px ink d2" x="11" y="1" width="1" height="1"/><rect class="px ink d1" x="12" y="1" width="1" height="1"/><rect class="px ink d0" x="2" y="2" width="1" height="1"/><rect class="px accent d6" x="4" y="2" width="1" height="1"/><rect class="px accent d5" x="5" y="2" width="1" height="1"/><rect class="px ink d7" x="11" y="2" width="1" height="1"/><rect class="px ink d5" x="13" y="2" width="1" height="1"/><rect class="px ink d5" x="2" y="3" width="1" height="1"/><rect class="px accent d3" x="4" y="3" width="1" height="1"/><rect class="px accent d2" x="5" y="3" width="1" height="1"/><rect class="px ink d4" x="11" y="3" width="1" height="1"/><rect class="px ink d3" x="12" y="3" width="1" height="1"/><rect class="px ink d2" x="13" y="3" width="1" height="1"/><rect class="px ink d1" x="14" y="3" width="1" height="1"/><rect class="px ink d2" x="2" y="4" width="1" height="1"/><rect class="px accent d0" x="4" y="4" width="1" height="1"/><rect class="px accent d7" x="5" y="4" width="1" height="1"/><rect class="px ink d6" x="14" y="4" width="1" height="1"/><rect class="px ink d7" x="2" y="5" width="1" height="1"/><rect class="px accent d5" x="4" y="5" width="1" height="1"/><rect class="px line d2" x="7" y="5" width="1" height="1"/><rect class="px line d1" x="8" y="5" width="1" height="1"/><rect class="px line d0" x="9" y="5" width="1" height="1"/><rect class="px line d7" x="10" y="5" width="1" height="1"/><rect class="px line d6" x="11" y="5" width="1" height="1"/><rect class="px line d5" x="12" y="5" width="1" height="1"/><rect class="px ink d3" x="14" y="5" width="1" height="1"/><rect class="px ink d4" x="2" y="6" width="1" height="1"/><rect class="px ink d0" x="14" y="6" width="1" height="1"/><rect class="px ink d1" x="2" y="7" width="1" height="1"/><rect class="px line d7" x="4" y="7" width="1" height="1"/><rect class="px line d6" x="5" y="7" width="1" height="1"/><rect class="px line d5" x="6" y="7" width="1" height="1"/><rect class="px line d4" x="7" y="7" width="1" height="1"/><rect class="px line d3" x="8" y="7" width="1" height="1"/><rect class="px line d2" x="9" y="7" width="1" height="1"/><rect class="px line d1" x="10" y="7" width="1" height="1"/><rect class="px line d0" x="11" y="7" width="1" height="1"/><rect class="px ink d5" x="14" y="7" width="1" height="1"/><rect class="px ink d6" x="2" y="8" width="1" height="1"/><rect class="px ink d2" x="14" y="8" width="1" height="1"/><rect class="px ink d3" x="2" y="9" width="1" height="1"/><rect class="px line d1" x="4" y="9" width="1" height="1"/><rect class="px line d0" x="5" y="9" width="1" height="1"/><rect class="px line d7" x="6" y="9" width="1" height="1"/><rect class="px line d6" x="7" y="9" width="1" height="1"/><rect class="px line d5" x="8" y="9" width="1" height="1"/><rect class="px line d4" x="9" y="9" width="1" height="1"/><rect class="px ink d7" x="14" y="9" width="1" height="1"/><rect class="px ink d0" x="2" y="10" width="1" height="1"/><rect class="px ink d4" x="14" y="10" width="1" height="1"/><rect class="px ink d5" x="2" y="11" width="1" height="1"/><rect class="px line d3" x="4" y="11" width="1" height="1"/><rect class="px line d2" x="5" y="11" width="1" height="1"/><rect class="px line d1" x="6" y="11" width="1" height="1"/><rect class="px line d0" x="7" y="11" width="1" height="1"/><rect class="px line d7" x="8" y="11" width="1" height="1"/><rect class="px line d6" x="9" y="11" width="1" height="1"/><rect class="px line d5" x="10" y="11" width="1" height="1"/><rect class="px line d4" x="11" y="11" width="1" height="1"/><rect class="px line d3" x="12" y="11" width="1" height="1"/><rect class="px ink d1" x="14" y="11" width="1" height="1"/><rect class="px ink d2" x="2" y="12" width="1" height="1"/><rect class="px ink d6" x="14" y="12" width="1" height="1"/><rect class="px ink d7" x="2" y="13" width="1" height="1"/><rect class="px line d5" x="4" y="13" width="1" height="1"/><rect class="px line d4" x="5" y="13" width="1" height="1"/><rect class="px line d3" x="6" y="13" width="1" height="1"/><rect class="px line d2" x="7" y="13" width="1" height="1"/><rect class="px line d1" x="8" y="13" width="1" height="1"/><rect class="px ink d3" x="14" y="13" width="1" height="1"/><rect class="px ink d4" x="2" y="14" width="1" height="1"/><rect class="px ink d0" x="14" y="14" width="1" height="1"/><rect class="px ink d1" x="2" y="15" width="1" height="1"/><rect class="px ink d0" x="3" y="15" width="1" height="1"/><rect class="px ink d7" x="4" y="15" width="1" height="1"/><rect class="px ink d6" x="5" y="15" width="1" height="1"/><rect class="px ink d5" x="6" y="15" width="1" height="1"/><rect class="px ink d4" x="7" y="15" width="1" height="1"/><rect class="px ink d3" x="8" y="15" width="1" height="1"/><rect class="px ink d2" x="9" y="15" width="1" height="1"/><rect class="px ink d1" x="10" y="15" width="1" height="1"/><rect class="px ink d0" x="11" y="15" width="1" height="1"/><rect class="px ink d7" x="12" y="15" width="1" height="1"/><rect class="px ink d6" x="13" y="15" width="1" height="1"/><rect class="px ink d5" x="14" y="15" width="1" height="1"/></svg>
+        <p class="eyebrow">CSTE Department · Cybersecurity Technology Engineering</p>
+        <h1 id="pageTitle">Cyber Security Library<span class="cursor" aria-hidden="true"></span></h1>
+        <p class="intro-lede">Lecture PDFs for every stage and semester, mapped to the official curriculum. Open one in your browser or download it for offline reading.</p>
+        <p class="intro-meta">37 PDFs<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>5,089 pages<span aria-hidden="true"> · </span><span class="visually-hidden">, </span>250.5 MB</p>
         <nav class="stage-nav" aria-label="Jump to stage">
           <ul role="list">
           <li><a href="#stage-1">Stage 1 <span class="count">13<span class="visually-hidden"> files</span></span></a></li>
@@ -74,11 +77,131 @@
         </nav>
       </section>
 
+      <div class="wrap map-wrap">
+      <details class="map" id="map" open>
+        <summary class="map-summary">
+          <h2 class="map-title" id="mapTitle">Curriculum map</h2>
+          <span class="map-sub">8 semesters · 240 ECTS · 37 of 53 modules have a PDF</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="map-body">
+          <p class="map-hint" aria-hidden="true">Swipe for stages 2–4 →</p>
+          <div class="map-grid" id="mapGrid" aria-label="Curriculum by stage">
+          <section class="map-stage" aria-labelledby="map-stage-1">
+            <h3 class="map-stage-title" id="map-stage-1">Stage 1 <span class="ar" lang="ar" dir="rtl">المرحلة الاولى</span></h3>
+            <div class="map-sem">
+              <h4 class="map-sem-title">Semester 1 <span class="map-sem-ects">30 ECTS</span></h4>
+              <ul class="map-list" role="list">
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1101</code><span class="map-name">Introduction to Information System</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Fundamental%20of%20Electrical%20Eng%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1102</code><span class="map-name">Fundamental of Electrical Eng.</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Programming%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1103</code><span class="map-name">Programming Essentials</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="S"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1104</code><span class="map-name">Mathematics I</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, support</span></a></li>
+                <li class="map-item" data-type="S"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1105</code><span class="map-name">Engineering Drawing</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, support</span></a></li>
+                <li class="map-item" data-type="B"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1106</code><span class="map-name">Democracy &amp; Human Rights</span><span class="map-ects">2<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, basic</span></a></li>
+              </ul>
+            </div>
+            <div class="map-sem">
+              <h4 class="map-sem-title">Semester 2 <span class="map-sem-ects">30 ECTS</span></h4>
+              <ul class="map-list" role="list">
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Digital%20Logic%20Design%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1201</code><span class="map-name">Digital Logic Design</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Ethics%20for%20the%20Information%20Age.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1202</code><span class="map-name">Ethics for the Information Age</span><span class="map-ects">4<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="S"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/General%20Physics%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1203</code><span class="map-name">General Physics</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, support</span></a></li>
+                <li class="map-item" data-type="S"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Mathematics%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1204</code><span class="map-name">Mathematics II</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, support</span></a></li>
+                <li class="map-item" data-type="S"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1205</code><span class="map-name">Engineering Workshops</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, support</span></a></li>
+                <li class="map-item" data-type="B"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1206</code><span class="map-name">Arabic Language</span><span class="map-ects">2<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, basic</span></a></li>
+                <li class="map-item" data-type="B"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE1207</code><span class="map-name">English Language I</span><span class="map-ects">2<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, basic</span></a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="map-stage" aria-labelledby="map-stage-2">
+            <h3 class="map-stage-title" id="map-stage-2">Stage 2 <span class="ar" lang="ar" dir="rtl">المرحلة الثانية</span></h3>
+            <div class="map-sem">
+              <h4 class="map-sem-title">Semester 1 <span class="map-sem-ects">30 ECTS</span></h4>
+              <ul class="map-list" role="list">
+                <li class="map-item" data-type="S"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Mathematics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2101</code><span class="map-name">Engineering Mathematics</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, support</span></a></li>
+                <li class="map-item" data-type="S"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2102</code><span class="map-name">Electronics Fundamentals</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, support</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Linux%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2103</code><span class="map-name">Linux Essentials</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2104</code><span class="map-name">Computer Organization &amp; Architecture</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2105</code><span class="map-name">Data Structure &amp; Algorithms</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="B"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/The%20Crimes%20of%20the%20Baath%20regime%20in%20Iraq.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2106</code><span class="map-name">The Crimes of the Baath regime in Iraq</span><span class="map-ects">2<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, basic</span></a></li>
+              </ul>
+            </div>
+            <div class="map-sem">
+              <h4 class="map-sem-title">Semester 2 <span class="map-sem-ects">30 ECTS</span></h4>
+              <ul class="map-list" role="list">
+                <li class="map-item" data-type="S"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Numerical%20Analysis%20%26%20Statistics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2201</code><span class="map-name">Numerical Analysis &amp; Statistics</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, support</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Object%20Oriented%20Programming.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2202</code><span class="map-name">Object Oriented Programming</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2203</code><span class="map-name">Microprocessors</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2204</code><span class="map-name">Communication Fundamentals</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2205</code><span class="map-name">Introduction to Database - SQL</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="B"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE2206</code><span class="map-name">English Language II</span><span class="map-ects">2<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, basic</span></a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="map-stage" aria-labelledby="map-stage-3">
+            <h3 class="map-stage-title" id="map-stage-3">Stage 3 <span class="ar" lang="ar" dir="rtl">المرحلة الثالثة</span></h3>
+            <div class="map-sem">
+              <h4 class="map-sem-title">Semester 1 <span class="map-sem-ects">30 ECTS</span></h4>
+              <ul class="map-list" role="list">
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Networks.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3101</code><span class="map-name">Computer Network Fundamentals</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Information%20Security%20and%20Cryptography.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3102</code><span class="map-name">Information Security &amp; Cryptography</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3103</code><span class="map-name">Digital Signal Processing</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Software%20Engineering.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3104</code><span class="map-name">Software Engineering</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3105</code><span class="map-name">Python Programming</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item map-item--group" data-type="E"><span class="map-link is-group"><code class="map-code">CSTE31XX</code><span class="map-name">Elective I <span class="muted">· choose one</span></span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span></span><ul class="map-options" role="list"><li class="map-item" data-type="E"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3106</code><span class="map-name">Digital Forensics</span><span class="visually-hidden">, elective</span></a></li><li class="map-item" data-type="E"><span class="map-link is-missing"><code class="map-code">CSTE3107</code><span class="map-name">Multimedia Security</span><span class="visually-hidden">, elective, no PDF yet</span></span></li></ul></li>
+              </ul>
+            </div>
+            <div class="map-sem">
+              <h4 class="map-sem-title">Semester 2 <span class="map-sem-ects">30 ECTS</span></h4>
+              <ul class="map-list" role="list">
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/CyberSecurity%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3201</code><span class="map-name">Cybersecurity Essentials</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3202</code><span class="map-name">Artificial Intelligence</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Operating%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3203</code><span class="map-name">Operating Systems</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Web%20Design.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3204</code><span class="map-name">Web Design</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item" data-type="C"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3205</code><span class="map-name">Computer Network Protocols</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core</span></a></li>
+                <li class="map-item map-item--group" data-type="E"><span class="map-link is-group"><code class="map-code">CSTE32XX</code><span class="map-name">Elective II <span class="muted">· choose one</span></span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span></span><ul class="map-options" role="list"><li class="map-item" data-type="E"><span class="map-link is-missing"><code class="map-code">CSTE3206</code><span class="map-name">Wireless Networks Security</span><span class="visually-hidden">, elective, no PDF yet</span></span></li><li class="map-item" data-type="E"><a class="map-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint"><code class="map-code">CSTE3207</code><span class="map-name">Information Theory and Coding</span><span class="visually-hidden">, elective</span></a></li></ul></li>
+              </ul>
+            </div>
+          </section>
+          <section class="map-stage" aria-labelledby="map-stage-4">
+            <h3 class="map-stage-title" id="map-stage-4">Stage 4 <span class="ar" lang="ar" dir="rtl">المرحلة الرابعة</span></h3>
+            <div class="map-sem">
+              <h4 class="map-sem-title">Semester 1 <span class="map-sem-ects">30 ECTS</span></h4>
+              <ul class="map-list" role="list">
+                <li class="map-item" data-type="C"><span class="map-link is-missing"><code class="map-code">CSTE4101</code><span class="map-name">Advanced Cybersecurity</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core, no PDF yet</span></span></li>
+                <li class="map-item" data-type="C"><span class="map-link is-missing"><code class="map-code">CSTE4102</code><span class="map-name">Network Security</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core, no PDF yet</span></span></li>
+                <li class="map-item" data-type="C"><span class="map-link is-missing"><code class="map-code">CSTE4103</code><span class="map-name">Cloud Computing</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core, no PDF yet</span></span></li>
+                <li class="map-item" data-type="C"><span class="map-link is-missing"><code class="map-code">CSTE4104</code><span class="map-name">Cybersecurity Governance</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core, no PDF yet</span></span></li>
+                <li class="map-item" data-type="S"><span class="map-link is-missing"><code class="map-code">CSTE4105</code><span class="map-name">Project Preparation</span><span class="map-ects">2<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, support, no PDF yet</span></span></li>
+                <li class="map-item map-item--group" data-type="E"><span class="map-link is-group"><code class="map-code">CSTE41XX</code><span class="map-name">Elective III <span class="muted">· choose one</span></span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span></span><ul class="map-options" role="list"><li class="map-item" data-type="E"><span class="map-link is-missing"><code class="map-code">CSTE4106</code><span class="map-name">Biometric Security</span><span class="visually-hidden">, elective, no PDF yet</span></span></li><li class="map-item" data-type="E"><span class="map-link is-missing"><code class="map-code">CSTE4107</code><span class="map-name">Web Applications Security</span><span class="visually-hidden">, elective, no PDF yet</span></span></li></ul></li>
+              </ul>
+            </div>
+            <div class="map-sem">
+              <h4 class="map-sem-title">Semester 2 <span class="map-sem-ects">30 ECTS</span></h4>
+              <ul class="map-list" role="list">
+                <li class="map-item" data-type="C"><span class="map-link is-missing"><code class="map-code">CSTE4201</code><span class="map-name">Ethical Hacking &amp; Penetration Testing</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core, no PDF yet</span></span></li>
+                <li class="map-item" data-type="C"><span class="map-link is-missing"><code class="map-code">CSTE4202</code><span class="map-name">IoT Security</span><span class="map-ects">6<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core, no PDF yet</span></span></li>
+                <li class="map-item" data-type="C"><span class="map-link is-missing"><code class="map-code">CSTE4203</code><span class="map-name">Mobile Security</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core, no PDF yet</span></span></li>
+                <li class="map-item" data-type="B"><span class="map-link is-missing"><code class="map-code">CSTE4204</code><span class="map-name">Professional Ethics</span><span class="map-ects">3<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, basic, no PDF yet</span></span></li>
+                <li class="map-item" data-type="C"><span class="map-link is-missing"><code class="map-code">CSTE4205</code><span class="map-name">Final Project</span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span><span class="visually-hidden">, core, no PDF yet</span></span></li>
+                <li class="map-item map-item--group" data-type="E"><span class="map-link is-group"><code class="map-code">CSTE42XX</code><span class="map-name">Elective IV <span class="muted">· choose one</span></span><span class="map-ects">5<span class="visually-hidden"> ECTS</span></span></span><ul class="map-options" role="list"><li class="map-item" data-type="E"><span class="map-link is-missing"><code class="map-code">CSTE4206</code><span class="map-name">Machine Learning Systems</span><span class="visually-hidden">, elective, no PDF yet</span></span></li><li class="map-item" data-type="E"><span class="map-link is-missing"><code class="map-code">CSTE4207</code><span class="map-name">Cloud Security</span><span class="visually-hidden">, elective, no PDF yet</span></span></li></ul></li>
+              </ul>
+            </div>
+          </section>
+          </div>
+          <div class="map-foot">
+            <ul class="legend" role="list"><li><span class="map-type" data-type="C" aria-hidden="true"></span>Core</li><li><span class="map-type" data-type="S" aria-hidden="true"></span>Support</li><li><span class="map-type" data-type="B" aria-hidden="true"></span>Basic</li><li><span class="map-type" data-type="E" aria-hidden="true"></span>Elective</li><li><span class="legend-pdf" aria-hidden="true"></span>Links to PDF</li><li><span class="legend-missing" aria-hidden="true"></span>Not uploaded yet</li></ul>
+            <p class="map-source">From the official <a href="curriculum.pdf" type="application/pdf">Program Curriculum (2023 - 2024), Revision 3.1</a> (PDF), Middle Technical University. Students also complete 4 weeks of summer internship to fulfil the degree requirements.</p>
+          </div>
+        </div>
+      </details>
+      </div>
+
       <form class="controls" id="controls" role="search" aria-label="Search and filter the library">
         <div class="wrap controls-inner">
           <div class="search">
             <label class="search-label" for="q">Search courses</label>
-            <input class="search-input" id="q" name="q" type="search" placeholder="Search courses" autocomplete="off" spellcheck="false" enterkeyhint="search">
+            <input class="search-input" id="q" name="q" type="search" placeholder="Search name or code" autocomplete="off" spellcheck="false" enterkeyhint="search">
           </div>
           <fieldset class="segmented" id="stageFilter">
             <legend>Stage</legend>
@@ -89,357 +212,862 @@
             <label><input type="radio" name="stage" value="4"><span>4</span></label>
           </fieldset>
           <p class="results" id="results" role="status" aria-live="polite"></p>
-          <button class="btn btn--quiet" type="reset" id="resetFilters" hidden>Clear</button>
+          <button class="btn btn--quiet" type="button" id="resetFilters" hidden>Clear search</button>
         </div>
       </form>
 
       <div class="library wrap" id="library" tabindex="-1">
 
-    <section class="stage" id="stage-1" data-stage="1" aria-labelledby="stage-1-title">
-      <h2 class="stage-title" id="stage-1-title">Stage 1 <span class="ar" lang="ar" dir="rtl">المرحلة الاولى</span></h2>
-      <section class="term" data-term="1">
-        <h3 class="term-title" id="stage-1-sem-1">Semester 1</h3>
-        <ul class="course-list" role="list">
-          <li class="course" id="s1-1-democracy-and-human-rights" data-stage="1" data-term="1" data-search="democracy &amp; human rights stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-democracy-and-human-rights.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Democracy &amp; Human Rights</a></h4>
-              <p class="course-meta"><span>77 pages</span><span class="visually-hidden">, </span><span>4.4 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf" type="application/pdf" download="Democracy &amp; Human Rights.pdf">Download<span class="visually-hidden"> Democracy &amp; Human Rights, 4.4 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-1-engineering-drawing" data-stage="1" data-term="1" data-search="engineering drawing stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-engineering-drawing.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Engineering Drawing</a></h4>
-              <p class="course-meta"><span>63 pages</span><span class="visually-hidden">, </span><span>1.2 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf" type="application/pdf" download="Engineering Drawing.pdf">Download<span class="visually-hidden"> Engineering Drawing, 1.2 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-1-fundamental-of-electrical-eng" data-stage="1" data-term="1" data-search="fundamental of electrical eng stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-fundamental-of-electrical-eng.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Fundamental%20of%20Electrical%20Eng%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Fundamental of Electrical Eng</a></h4>
-              <p class="course-meta"><span>74 pages</span><span class="visually-hidden">, </span><span>8.9 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Fundamental%20of%20Electrical%20Eng%20.pdf" type="application/pdf" download="Fundamental of Electrical Eng.pdf">Download<span class="visually-hidden"> Fundamental of Electrical Eng, 8.9 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-1-introduction-to-information-system" data-stage="1" data-term="1" data-search="introduction to information system stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-introduction-to-information-system.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Introduction to Information System</a></h4>
-              <p class="course-meta"><span>124 pages</span><span class="visually-hidden">, </span><span>3.0 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf" type="application/pdf" download="Introduction to Information System.pdf">Download<span class="visually-hidden"> Introduction to Information System, 3.0 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-1-mathematics-1" data-stage="1" data-term="1" data-search="mathematics 1 stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-mathematics-1.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Mathematics 1</a></h4>
-              <p class="course-meta"><span>45 pages</span><span class="visually-hidden">, </span><span>2.8 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf" type="application/pdf" download="Mathematics 1.pdf">Download<span class="visually-hidden"> Mathematics 1, 2.8 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-1-programming-essentials" data-stage="1" data-term="1" data-search="programming essentials stage1 semester1 المرحلة الاولى الكورس الاول">
-            <img class="course-cover" src="covers/s1-1-programming-essentials.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Programming%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Programming Essentials</a></h4>
-              <p class="course-meta"><span>93 pages</span><span class="visually-hidden">, </span><span>3.0 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Programming%20Essentials.pdf" type="application/pdf" download="Programming Essentials.pdf">Download<span class="visually-hidden"> Programming Essentials, 3.0 MB</span></a>
-            </div>
-          </li>
-        </ul>
-      </section>
-      <section class="term" data-term="2">
-        <h3 class="term-title" id="stage-1-sem-2">Semester 2</h3>
-        <ul class="course-list" role="list">
-          <li class="course" id="s1-2-arabic-language-1" data-stage="1" data-term="2" data-search="arabic language 1 stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-arabic-language-1.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Arabic Language 1</a></h4>
-              <p class="course-meta"><span>83 pages</span><span class="visually-hidden">, </span><span>2.4 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf" type="application/pdf" download="Arabic Language 1.pdf">Download<span class="visually-hidden"> Arabic Language 1, 2.4 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-2-digital-logic-design" data-stage="1" data-term="2" data-search="digital logic design stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-digital-logic-design.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Digital%20Logic%20Design%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Digital Logic Design</a></h4>
-              <p class="course-meta"><span>73 pages</span><span class="visually-hidden">, </span><span>4.7 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Digital%20Logic%20Design%20.pdf" type="application/pdf" download="Digital Logic Design.pdf">Download<span class="visually-hidden"> Digital Logic Design, 4.7 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-2-engineering-workshops" data-stage="1" data-term="2" data-search="engineering workshops stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-engineering-workshops.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Engineering Workshops</a></h4>
-              <p class="course-meta"><span>96 pages</span><span class="visually-hidden">, </span><span>3.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf" type="application/pdf" download="Engineering Workshops.pdf">Download<span class="visually-hidden"> Engineering Workshops, 3.1 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-2-english-language-1" data-stage="1" data-term="2" data-search="english language 1 stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-english-language-1.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">English Language 1</a></h4>
-              <p class="course-meta"><span>140 pages</span><span class="visually-hidden">, </span><span>29.1 MB</span><span class="visually-hidden">, </span><span class="flag">Large file</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf" type="application/pdf" download="English Language 1.pdf">Download<span class="visually-hidden"> English Language 1, 29.1 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-2-ethics-for-the-information-age" data-stage="1" data-term="2" data-search="ethics for the information age stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-ethics-for-the-information-age.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Ethics%20for%20the%20Information%20Age.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Ethics for the Information Age</a></h4>
-              <p class="course-meta"><span>29 pages</span><span class="visually-hidden">, </span><span>4.3 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Ethics%20for%20the%20Information%20Age.pdf" type="application/pdf" download="Ethics for the Information Age.pdf">Download<span class="visually-hidden"> Ethics for the Information Age, 4.3 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-2-general-physics" data-stage="1" data-term="2" data-search="general physics stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-general-physics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/General%20Physics%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">General Physics</a></h4>
-              <p class="course-meta"><span>197 pages</span><span class="visually-hidden">, </span><span>7.2 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/General%20Physics%20.pdf" type="application/pdf" download="General Physics.pdf">Download<span class="visually-hidden"> General Physics, 7.2 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s1-2-mathematics-2" data-stage="1" data-term="2" data-search="mathematics 2 stage1 semester2 المرحلة الاولى الكورس الثاني">
-            <img class="course-cover" src="covers/s1-2-mathematics-2.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Mathematics%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Mathematics 2</a></h4>
-              <p class="course-meta"><span>24 pages</span><span class="visually-hidden">, </span><span>2.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Mathematics%202.pdf" type="application/pdf" download="Mathematics 2.pdf">Download<span class="visually-hidden"> Mathematics 2, 2.1 MB</span></a>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </section>
+      <details class="stage" id="stage-1" data-stage="1">
+        <summary class="stage-summary">
+          <h2 class="stage-title" id="stage-1-title">Stage 1 <span class="ar" lang="ar" dir="rtl">المرحلة الاولى</span></h2>
+          <span class="stage-count">13 PDFs · 76.1 MB</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="stage-body">
+          <section class="term" data-term="1">
+            <h3 class="term-title" id="stage-1-sem-1">Semester 1 <span class="term-ects">30 ECTS</span></h3>
+            <ul class="course-list" role="list">
+            <li class="course" id="s1-1-introduction-to-information-system" data-stage="1" data-term="1" data-search="introduction to information system introduction to information system cste1101 مقدمة في نظم المعلومات stage1 semester1 المرحلة الاولى الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1101</code>
+                  <span class="course-title">Introduction to Information System</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>3.0 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-1-introduction-to-information-system.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">مقدمة في نظم المعلومات</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>124 pages · 3.0 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Introduction to Information System</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Introduction%20to%20Information%20System.pdf" type="application/pdf" download="Introduction to Information System.pdf">Download<span class="visually-hidden"> Introduction to Information System, 3.0 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-1-fundamental-of-electrical-eng" data-stage="1" data-term="1" data-search="fundamental of electrical eng fundamental of electrical eng. cste1102 أسس الهندسة الكهربائية stage1 semester1 المرحلة الاولى الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1102</code>
+                  <span class="course-title">Fundamental of Electrical Eng.</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>8.9 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-1-fundamental-of-electrical-eng.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">أسس الهندسة الكهربائية</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>74 pages · 8.9 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Fundamental%20of%20Electrical%20Eng%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Fundamental of Electrical Eng.</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Fundamental%20of%20Electrical%20Eng%20.pdf" type="application/pdf" download="Fundamental of Electrical Eng.pdf">Download<span class="visually-hidden"> Fundamental of Electrical Eng., 8.9 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-1-programming-essentials" data-stage="1" data-term="1" data-search="programming essentials programming essentials cste1103 أساسيات البرمجة stage1 semester1 المرحلة الاولى الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1103</code>
+                  <span class="course-title">Programming Essentials</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>3.0 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-1-programming-essentials.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">أساسيات البرمجة</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>93 pages · 3.0 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Programming%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Programming Essentials</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Programming%20Essentials.pdf" type="application/pdf" download="Programming Essentials.pdf">Download<span class="visually-hidden"> Programming Essentials, 3.0 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-1-mathematics-1" data-stage="1" data-term="1" data-search="mathematics 1 mathematics i cste1104 الرياضيات i stage1 semester1 المرحلة الاولى الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1104</code>
+                  <span class="course-title">Mathematics I</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>2.8 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-1-mathematics-1.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">الرياضيات I</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Support</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(63 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>45 pages · 2.8 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Mathematics I</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Mathematics%201.pdf" type="application/pdf" download="Mathematics 1.pdf">Download<span class="visually-hidden"> Mathematics I, 2.8 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-1-engineering-drawing" data-stage="1" data-term="1" data-search="engineering drawing engineering drawing cste1105 الرسم الهندسي stage1 semester1 المرحلة الاولى الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1105</code>
+                  <span class="course-title">Engineering Drawing</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>1.2 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-1-engineering-drawing.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">الرسم الهندسي</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Support</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(63 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>63 pages · 1.2 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Engineering Drawing</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Drawing.pdf" type="application/pdf" download="Engineering Drawing.pdf">Download<span class="visually-hidden"> Engineering Drawing, 1.2 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-1-democracy-and-human-rights" data-stage="1" data-term="1" data-search="democracy &amp; human rights democracy &amp; human rights cste1106 الديمقراطية وحقوق الإنسان stage1 semester1 المرحلة الاولى الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1106</code>
+                  <span class="course-title">Democracy &amp; Human Rights</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>4.4 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-1-democracy-and-human-rights.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">الديمقراطية وحقوق الإنسان</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Basic</dd></div><div><dt>ECTS</dt><dd>2</dd></div><div><dt>Workload</dt><dd>50 h <span class="muted">(33 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>Arabic</dd></div><div><dt>File</dt><dd>77 pages · 4.4 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Democracy &amp; Human Rights</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Democracy%20%26%20Human%20Rights.pdf" type="application/pdf" download="Democracy &amp; Human Rights.pdf">Download<span class="visually-hidden"> Democracy &amp; Human Rights, 4.4 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            </ul>
+          </section>
+          <section class="term" data-term="2">
+            <h3 class="term-title" id="stage-1-sem-2">Semester 2 <span class="term-ects">30 ECTS</span></h3>
+            <ul class="course-list" role="list">
+            <li class="course" id="s1-2-digital-logic-design" data-stage="1" data-term="2" data-search="digital logic design digital logic design cste1201 التصميم المنطقي الرقمي stage1 semester2 المرحلة الاولى الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1201</code>
+                  <span class="course-title">Digital Logic Design</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>4.7 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-2-digital-logic-design.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">التصميم المنطقي الرقمي</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>73 pages · 4.7 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Digital%20Logic%20Design%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Digital Logic Design</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Digital%20Logic%20Design%20.pdf" type="application/pdf" download="Digital Logic Design.pdf">Download<span class="visually-hidden"> Digital Logic Design, 4.7 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-2-ethics-for-the-information-age" data-stage="1" data-term="2" data-search="ethics for the information age ethics for the information age cste1202 أخلاقيات عصر المعلومات stage1 semester2 المرحلة الاولى الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1202</code>
+                  <span class="course-title">Ethics for the Information Age</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>4.3 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-2-ethics-for-the-information-age.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">أخلاقيات عصر المعلومات</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>4</dd></div><div><dt>Workload</dt><dd>100 h <span class="muted">(48 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>29 pages · 4.3 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Ethics%20for%20the%20Information%20Age.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Ethics for the Information Age</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Ethics%20for%20the%20Information%20Age.pdf" type="application/pdf" download="Ethics for the Information Age.pdf">Download<span class="visually-hidden"> Ethics for the Information Age, 4.3 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-2-general-physics" data-stage="1" data-term="2" data-search="general physics general physics cste1203 الفيزياء العامة stage1 semester2 المرحلة الاولى الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1203</code>
+                  <span class="course-title">General Physics</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>7.2 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-2-general-physics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">الفيزياء العامة</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Support</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>197 pages · 7.2 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/General%20Physics%20.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> General Physics</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/General%20Physics%20.pdf" type="application/pdf" download="General Physics.pdf">Download<span class="visually-hidden"> General Physics, 7.2 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-2-mathematics-2" data-stage="1" data-term="2" data-search="mathematics 2 mathematics ii cste1204 الرياضيات ii stage1 semester2 المرحلة الاولى الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1204</code>
+                  <span class="course-title">Mathematics II</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>2.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-2-mathematics-2.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">الرياضيات II</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Support</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(78 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE1104</code> Mathematics I</span></dd></div><div><dt>File</dt><dd>24 pages · 2.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Mathematics%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Mathematics II</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Mathematics%202.pdf" type="application/pdf" download="Mathematics 2.pdf">Download<span class="visually-hidden"> Mathematics II, 2.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-2-engineering-workshops" data-stage="1" data-term="2" data-search="engineering workshops engineering workshops cste1205 الورش الهندسية stage1 semester2 المرحلة الاولى الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1205</code>
+                  <span class="course-title">Engineering Workshops</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>3.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-2-engineering-workshops.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">الورش الهندسية</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Support</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(64 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>Arabic</dd></div><div><dt>File</dt><dd>96 pages · 3.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Engineering Workshops</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Engineering%20Workshops.pdf" type="application/pdf" download="Engineering Workshops.pdf">Download<span class="visually-hidden"> Engineering Workshops, 3.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-2-arabic-language-1" data-stage="1" data-term="2" data-search="arabic language 1 arabic language cste1206 اللغة العربية stage1 semester2 المرحلة الاولى الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1206</code>
+                  <span class="course-title">Arabic Language</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>2.4 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-2-arabic-language-1.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">اللغة العربية</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Basic</dd></div><div><dt>ECTS</dt><dd>2</dd></div><div><dt>Workload</dt><dd>50 h <span class="muted">(33 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>Arabic</dd></div><div><dt>File</dt><dd>83 pages · 2.4 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Arabic Language</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Arabic%20Language%201.pdf" type="application/pdf" download="Arabic Language 1.pdf">Download<span class="visually-hidden"> Arabic Language, 2.4 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s1-2-english-language-1" data-stage="1" data-term="2" data-search="english language 1 english language i cste1207 اللغة الإنكليزية i stage1 semester2 المرحلة الاولى الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE1207</code>
+                  <span class="course-title">English Language I</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>29.1 MB<span class="visually-hidden">, </span><span class="flag">Large</span></span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s1-2-english-language-1.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">اللغة الإنكليزية I</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Basic</dd></div><div><dt>ECTS</dt><dd>2</dd></div><div><dt>Workload</dt><dd>50 h <span class="muted">(33 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>140 pages · 29.1 MB <span class="flag">Large file, best on Wi-Fi</span></dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> English Language I</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%A7%D9%88%D9%84%D9%89/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%201.pdf" type="application/pdf" download="English Language 1.pdf">Download<span class="visually-hidden"> English Language I, 29.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            </ul>
+          </section>
+        </div>
+      </details>
 
-    <section class="stage" id="stage-2" data-stage="2" aria-labelledby="stage-2-title">
-      <h2 class="stage-title" id="stage-2-title">Stage 2 <span class="ar" lang="ar" dir="rtl">المرحلة الثانية</span></h2>
-      <section class="term" data-term="1">
-        <h3 class="term-title" id="stage-2-sem-1">Semester 1</h3>
-        <ul class="course-list" role="list">
-          <li class="course" id="s2-1-computer-organization-and-architecture" data-stage="2" data-term="1" data-search="computer organization &amp; architecture stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-computer-organization-and-architecture.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Computer Organization &amp; Architecture</a></h4>
-              <p class="course-meta"><span>149 pages</span><span class="visually-hidden">, </span><span>7.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf" type="application/pdf" download="Computer Organization &amp; Architecture.pdf">Download<span class="visually-hidden"> Computer Organization &amp; Architecture, 7.1 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-1-data-structure-and-algorithms" data-stage="2" data-term="1" data-search="data structure &amp; algorithms stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-data-structure-and-algorithms.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Data Structure &amp; Algorithms</a></h4>
-              <p class="course-meta"><span>171 pages</span><span class="visually-hidden">, </span><span>2.0 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf" type="application/pdf" download="Data Structure &amp; Algorithms.pdf">Download<span class="visually-hidden"> Data Structure &amp; Algorithms, 2.0 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-1-electronics-fundamentals" data-stage="2" data-term="1" data-search="electronics fundamentals stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-electronics-fundamentals.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Electronics Fundamentals</a></h4>
-              <p class="course-meta"><span>112 pages</span><span class="visually-hidden">, </span><span>2.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf" type="application/pdf" download="Electronics Fundamentals.pdf">Download<span class="visually-hidden"> Electronics Fundamentals, 2.1 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-1-engineering-mathematics" data-stage="2" data-term="1" data-search="engineering mathematics stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-engineering-mathematics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Mathematics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Engineering Mathematics</a></h4>
-              <p class="course-meta"><span>42 pages</span><span class="visually-hidden">, </span><span>2.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Mathematics.pdf" type="application/pdf" download="Engineering Mathematics.pdf">Download<span class="visually-hidden"> Engineering Mathematics, 2.1 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-1-linux-essentials" data-stage="2" data-term="1" data-search="linux essentials stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-linux-essentials.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Linux%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Linux Essentials</a></h4>
-              <p class="course-meta"><span>804 pages</span><span class="visually-hidden">, </span><span>12.0 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Linux%20Essentials.pdf" type="application/pdf" download="Linux Essentials.pdf">Download<span class="visually-hidden"> Linux Essentials, 12.0 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-1-the-crimes-of-the-baath-regime-in-iraq" data-stage="2" data-term="1" data-search="the crimes of the baath regime in iraq stage2 semester1 المرحلة الثانية الكورس الاول">
-            <img class="course-cover" src="covers/s2-1-the-crimes-of-the-baath-regime-in-iraq.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/The%20Crimes%20of%20the%20Baath%20regime%20in%20Iraq.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">The Crimes of the Baath regime in Iraq</a></h4>
-              <p class="course-meta"><span>56 pages</span><span class="visually-hidden">, </span><span>8.2 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/The%20Crimes%20of%20the%20Baath%20regime%20in%20Iraq.pdf" type="application/pdf" download="The Crimes of the Baath regime in Iraq.pdf">Download<span class="visually-hidden"> The Crimes of the Baath regime in Iraq, 8.2 MB</span></a>
-            </div>
-          </li>
-        </ul>
-      </section>
-      <section class="term" data-term="2">
-        <h3 class="term-title" id="stage-2-sem-2">Semester 2</h3>
-        <ul class="course-list" role="list">
-          <li class="course" id="s2-2-communication-fundamentals" data-stage="2" data-term="2" data-search="communication fundamentals stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-communication-fundamentals.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Communication Fundamentals</a></h4>
-              <p class="course-meta"><span>81 pages</span><span class="visually-hidden">, </span><span>5.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf" type="application/pdf" download="Communication Fundamentals.pdf">Download<span class="visually-hidden"> Communication Fundamentals, 5.1 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-2-english-language-2" data-stage="2" data-term="2" data-search="english language 2 stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-english-language-2.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">English Language 2</a></h4>
-              <p class="course-meta"><span>260 pages</span><span class="visually-hidden">, </span><span>51.9 MB</span><span class="visually-hidden">, </span><span class="flag">Large file</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf" type="application/pdf" download="English Language 2.pdf">Download<span class="visually-hidden"> English Language 2, 51.9 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-2-introduction-to-database-sql" data-stage="2" data-term="2" data-search="introduction to database -sql stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-introduction-to-database-sql.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Introduction to Database -SQL</a></h4>
-              <p class="course-meta"><span>43 pages</span><span class="visually-hidden">, </span><span>465 KB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf" type="application/pdf" download="Introduction to Database -SQL.pdf">Download<span class="visually-hidden"> Introduction to Database -SQL, 465 KB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-2-microprocessors" data-stage="2" data-term="2" data-search="microprocessors stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-microprocessors.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Microprocessors</a></h4>
-              <p class="course-meta"><span>61 pages</span><span class="visually-hidden">, </span><span>3.6 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf" type="application/pdf" download="Microprocessors.pdf">Download<span class="visually-hidden"> Microprocessors, 3.6 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-2-numerical-analysis-and-statistics" data-stage="2" data-term="2" data-search="numerical analysis &amp; statistics stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-numerical-analysis-and-statistics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Numerical%20Analysis%20%26%20Statistics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Numerical Analysis &amp; Statistics</a></h4>
-              <p class="course-meta"><span>37 pages</span><span class="visually-hidden">, </span><span>2.4 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Numerical%20Analysis%20%26%20Statistics.pdf" type="application/pdf" download="Numerical Analysis &amp; Statistics.pdf">Download<span class="visually-hidden"> Numerical Analysis &amp; Statistics, 2.4 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s2-2-object-oriented-programming" data-stage="2" data-term="2" data-search="object oriented programming stage2 semester2 المرحلة الثانية الكورس الثاني">
-            <img class="course-cover" src="covers/s2-2-object-oriented-programming.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Object%20Oriented%20Programming.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Object Oriented Programming</a></h4>
-              <p class="course-meta"><span>67 pages</span><span class="visually-hidden">, </span><span>6.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Object%20Oriented%20Programming.pdf" type="application/pdf" download="Object Oriented Programming.pdf">Download<span class="visually-hidden"> Object Oriented Programming, 6.1 MB</span></a>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </section>
+      <details class="stage" id="stage-2" data-stage="2">
+        <summary class="stage-summary">
+          <h2 class="stage-title" id="stage-2-title">Stage 2 <span class="ar" lang="ar" dir="rtl">المرحلة الثانية</span></h2>
+          <span class="stage-count">12 PDFs · 103.2 MB</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="stage-body">
+          <section class="term" data-term="1">
+            <h3 class="term-title" id="stage-2-sem-1">Semester 1 <span class="term-ects">30 ECTS</span></h3>
+            <ul class="course-list" role="list">
+            <li class="course" id="s2-1-engineering-mathematics" data-stage="2" data-term="1" data-search="engineering mathematics engineering mathematics cste2101 الرياضيات الهندسية stage2 semester1 المرحلة الثانية الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2101</code>
+                  <span class="course-title">Engineering Mathematics</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>2.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-1-engineering-mathematics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">الرياضيات الهندسية</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Support</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(63 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE1204</code> Mathematics II</span></dd></div><div><dt>File</dt><dd>42 pages · 2.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Mathematics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Engineering Mathematics</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Engineering%20Mathematics.pdf" type="application/pdf" download="Engineering Mathematics.pdf">Download<span class="visually-hidden"> Engineering Mathematics, 2.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-1-electronics-fundamentals" data-stage="2" data-term="1" data-search="electronics fundamentals electronics fundamentals cste2102 أسس الإلكترونيك stage2 semester1 المرحلة الثانية الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2102</code>
+                  <span class="course-title">Electronics Fundamentals</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>2.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-1-electronics-fundamentals.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">أسس الإلكترونيك</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Support</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE1102</code> Fundamental of Electrical Eng.</span></dd></div><div><dt>File</dt><dd>112 pages · 2.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Electronics Fundamentals</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Electronics%20Fundamentals.pdf" type="application/pdf" download="Electronics Fundamentals.pdf">Download<span class="visually-hidden"> Electronics Fundamentals, 2.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-1-linux-essentials" data-stage="2" data-term="1" data-search="linux essentials linux essentials cste2103 مبادئ اللينوكس stage2 semester1 المرحلة الثانية الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2103</code>
+                  <span class="course-title">Linux Essentials</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>12.0 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-1-linux-essentials.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">مبادئ اللينوكس</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>804 pages · 12.0 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Linux%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Linux Essentials</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Linux%20Essentials.pdf" type="application/pdf" download="Linux Essentials.pdf">Download<span class="visually-hidden"> Linux Essentials, 12.0 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-1-computer-organization-and-architecture" data-stage="2" data-term="1" data-search="computer organization &amp; architecture computer organization &amp; architecture cste2104 تركيب ومعمارية الحاسوب stage2 semester1 المرحلة الثانية الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2104</code>
+                  <span class="course-title">Computer Organization &amp; Architecture</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>7.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-1-computer-organization-and-architecture.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">تركيب ومعمارية الحاسوب</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>149 pages · 7.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Computer Organization &amp; Architecture</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Organization%20%26%20Architecture.pdf" type="application/pdf" download="Computer Organization &amp; Architecture.pdf">Download<span class="visually-hidden"> Computer Organization &amp; Architecture, 7.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-1-data-structure-and-algorithms" data-stage="2" data-term="1" data-search="data structure &amp; algorithms data structure &amp; algorithms cste2105 هياكل البيانات والخوارزميات stage2 semester1 المرحلة الثانية الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2105</code>
+                  <span class="course-title">Data Structure &amp; Algorithms</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>2.0 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-1-data-structure-and-algorithms.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">هياكل البيانات والخوارزميات</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE1103</code> Programming Essentials</span></dd></div><div><dt>File</dt><dd>171 pages · 2.0 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Data Structure &amp; Algorithms</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Data%20Structure%20%26%20Algorithms.pdf" type="application/pdf" download="Data Structure &amp; Algorithms.pdf">Download<span class="visually-hidden"> Data Structure &amp; Algorithms, 2.0 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-1-the-crimes-of-the-baath-regime-in-iraq" data-stage="2" data-term="1" data-search="the crimes of the baath regime in iraq the crimes of the baath regime in iraq cste2106 جرائم نظام البعث في العراق stage2 semester1 المرحلة الثانية الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2106</code>
+                  <span class="course-title">The Crimes of the Baath regime in Iraq</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>8.2 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-1-the-crimes-of-the-baath-regime-in-iraq.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">جرائم نظام البعث في العراق</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Basic</dd></div><div><dt>ECTS</dt><dd>2</dd></div><div><dt>Workload</dt><dd>50 h <span class="muted">(33 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>Arabic</dd></div><div><dt>File</dt><dd>56 pages · 8.2 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/The%20Crimes%20of%20the%20Baath%20regime%20in%20Iraq.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> The Crimes of the Baath regime in Iraq</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/The%20Crimes%20of%20the%20Baath%20regime%20in%20Iraq.pdf" type="application/pdf" download="The Crimes of the Baath regime in Iraq.pdf">Download<span class="visually-hidden"> The Crimes of the Baath regime in Iraq, 8.2 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            </ul>
+          </section>
+          <section class="term" data-term="2">
+            <h3 class="term-title" id="stage-2-sem-2">Semester 2 <span class="term-ects">30 ECTS</span></h3>
+            <ul class="course-list" role="list">
+            <li class="course" id="s2-2-numerical-analysis-and-statistics" data-stage="2" data-term="2" data-search="numerical analysis &amp; statistics numerical analysis &amp; statistics cste2201 التحليلات العددية والإحصاء stage2 semester2 المرحلة الثانية الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2201</code>
+                  <span class="course-title">Numerical Analysis &amp; Statistics</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>2.4 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-2-numerical-analysis-and-statistics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">التحليلات العددية والإحصاء</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Support</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(63 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE1104</code> Mathematics I</span>, <span><code>CSTE1204</code> Mathematics II</span></dd></div><div><dt>File</dt><dd>37 pages · 2.4 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Numerical%20Analysis%20%26%20Statistics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Numerical Analysis &amp; Statistics</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Numerical%20Analysis%20%26%20Statistics.pdf" type="application/pdf" download="Numerical Analysis &amp; Statistics.pdf">Download<span class="visually-hidden"> Numerical Analysis &amp; Statistics, 2.4 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-2-object-oriented-programming" data-stage="2" data-term="2" data-search="object oriented programming object oriented programming cste2202 البرمجة الشيئية stage2 semester2 المرحلة الثانية الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2202</code>
+                  <span class="course-title">Object Oriented Programming</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>6.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-2-object-oriented-programming.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">البرمجة الشيئية</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>67 pages · 6.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Object%20Oriented%20Programming.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Object Oriented Programming</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Object%20Oriented%20Programming.pdf" type="application/pdf" download="Object Oriented Programming.pdf">Download<span class="visually-hidden"> Object Oriented Programming, 6.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-2-microprocessors" data-stage="2" data-term="2" data-search="microprocessors microprocessors cste2203 المعالجات الدقيقة stage2 semester2 المرحلة الثانية الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2203</code>
+                  <span class="course-title">Microprocessors</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>3.6 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-2-microprocessors.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">المعالجات الدقيقة</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(94 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE2104</code> Computer Organization &amp; Architecture</span></dd></div><div><dt>File</dt><dd>61 pages · 3.6 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Microprocessors</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Microprocessors.pdf" type="application/pdf" download="Microprocessors.pdf">Download<span class="visually-hidden"> Microprocessors, 3.6 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-2-communication-fundamentals" data-stage="2" data-term="2" data-search="communication fundamentals communication fundamentals cste2204 أسس الاتصالات stage2 semester2 المرحلة الثانية الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2204</code>
+                  <span class="course-title">Communication Fundamentals</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>5.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-2-communication-fundamentals.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">أسس الاتصالات</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>6</dd></div><div><dt>Workload</dt><dd>150 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>81 pages · 5.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Communication Fundamentals</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Communication%20Fundamentals.pdf" type="application/pdf" download="Communication Fundamentals.pdf">Download<span class="visually-hidden"> Communication Fundamentals, 5.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-2-introduction-to-database-sql" data-stage="2" data-term="2" data-search="introduction to database -sql introduction to database - sql cste2205 مقدمة في قواعد البيانات stage2 semester2 المرحلة الثانية الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2205</code>
+                  <span class="course-title">Introduction to Database - SQL</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>465 KB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-2-introduction-to-database-sql.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">مقدمة في قواعد البيانات</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE2105</code> Data Structure &amp; Algorithms</span></dd></div><div><dt>File</dt><dd>43 pages · 465 KB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Introduction to Database - SQL</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Introduction%20to%20Database%20-SQL.pdf" type="application/pdf" download="Introduction to Database -SQL.pdf">Download<span class="visually-hidden"> Introduction to Database - SQL, 465 KB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s2-2-english-language-2" data-stage="2" data-term="2" data-search="english language 2 english language ii cste2206 اللغة الإنكليزية ii stage2 semester2 المرحلة الثانية الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE2206</code>
+                  <span class="course-title">English Language II</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>51.9 MB<span class="visually-hidden">, </span><span class="flag">Large</span></span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s2-2-english-language-2.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">اللغة الإنكليزية II</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Basic</dd></div><div><dt>ECTS</dt><dd>2</dd></div><div><dt>Workload</dt><dd>50 h <span class="muted">(33 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE1106</code> Democracy &amp; Human Rights</span></dd></div><div><dt>File</dt><dd>260 pages · 51.9 MB <span class="flag">Large file, best on Wi-Fi</span></dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> English Language II</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/English%20Language%202.pdf" type="application/pdf" download="English Language 2.pdf">Download<span class="visually-hidden"> English Language II, 51.9 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            </ul>
+          </section>
+        </div>
+      </details>
 
-    <section class="stage" id="stage-3" data-stage="3" aria-labelledby="stage-3-title">
-      <h2 class="stage-title" id="stage-3-title">Stage 3 <span class="ar" lang="ar" dir="rtl">المرحلة الثالثة</span></h2>
-      <section class="term" data-term="1">
-        <h3 class="term-title" id="stage-3-sem-1">Semester 1</h3>
-        <ul class="course-list" role="list">
-          <li class="course" id="s3-1-computer-networks" data-stage="3" data-term="1" data-search="computer networks stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-computer-networks.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Networks.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Computer Networks</a></h4>
-              <p class="course-meta"><span>68 pages</span><span class="visually-hidden">, </span><span>3.7 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Networks.pdf" type="application/pdf" download="Computer Networks.pdf">Download<span class="visually-hidden"> Computer Networks, 3.7 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-1-digital-forensics" data-stage="3" data-term="1" data-search="digital forensics stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-digital-forensics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Digital Forensics</a></h4>
-              <p class="course-meta"><span>31 pages</span><span class="visually-hidden">, </span><span>4.3 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf" type="application/pdf" download="Digital Forensics.pdf">Download<span class="visually-hidden"> Digital Forensics, 4.3 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-1-digital-signal-processing" data-stage="3" data-term="1" data-search="digital signal processing stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-digital-signal-processing.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Digital Signal Processing</a></h4>
-              <p class="course-meta"><span>55 pages</span><span class="visually-hidden">, </span><span>5.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf" type="application/pdf" download="Digital Signal Processing.pdf">Download<span class="visually-hidden"> Digital Signal Processing, 5.1 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-1-information-security-and-cryptography" data-stage="3" data-term="1" data-search="information security and cryptography stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-information-security-and-cryptography.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Information%20Security%20and%20Cryptography.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Information Security and Cryptography</a></h4>
-              <p class="course-meta"><span>102 pages</span><span class="visually-hidden">, </span><span>3.3 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Information%20Security%20and%20Cryptography.pdf" type="application/pdf" download="Information Security and Cryptography.pdf">Download<span class="visually-hidden"> Information Security and Cryptography, 3.3 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-1-python" data-stage="3" data-term="1" data-search="python stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-python.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Python</a></h4>
-              <p class="course-meta"><span>68 pages</span><span class="visually-hidden">, </span><span>2.5 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf" type="application/pdf" download="Python.pdf">Download<span class="visually-hidden"> Python, 2.5 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-1-software-engineering" data-stage="3" data-term="1" data-search="software engineering stage3 semester1 المرحلة الثالثة الكورس الاول">
-            <img class="course-cover" src="covers/s3-1-software-engineering.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Software%20Engineering.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Software Engineering</a></h4>
-              <p class="course-meta"><span>109 pages</span><span class="visually-hidden">, </span><span>2.2 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Software%20Engineering.pdf" type="application/pdf" download="Software Engineering.pdf">Download<span class="visually-hidden"> Software Engineering, 2.2 MB</span></a>
-            </div>
-          </li>
-        </ul>
-      </section>
-      <section class="term" data-term="2">
-        <h3 class="term-title" id="stage-3-sem-2">Semester 2</h3>
-        <ul class="course-list" role="list">
-          <li class="course" id="s3-2-artificial-intelligence" data-stage="3" data-term="2" data-search="artificial intelligence stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-artificial-intelligence.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Artificial Intelligence</a></h4>
-              <p class="course-meta"><span>111 pages</span><span class="visually-hidden">, </span><span>5.6 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf" type="application/pdf" download="Artificial Intelligence.pdf">Download<span class="visually-hidden"> Artificial Intelligence, 5.6 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-2-cybersecurity-essentials" data-stage="3" data-term="2" data-search="cybersecurity essentials stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-cybersecurity-essentials.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/CyberSecurity%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">CyberSecurity Essentials</a></h4>
-              <p class="course-meta"><span>43 pages</span><span class="visually-hidden">, </span><span>1.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/CyberSecurity%20Essentials.pdf" type="application/pdf" download="CyberSecurity Essentials.pdf">Download<span class="visually-hidden"> CyberSecurity Essentials, 1.1 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-2-information-theory-and-coding" data-stage="3" data-term="2" data-search="information theory and coding stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-information-theory-and-coding.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Information theory and coding</a></h4>
-              <p class="course-meta"><span>52 pages</span><span class="visually-hidden">, </span><span>4.2 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf" type="application/pdf" download="Information theory and coding.pdf">Download<span class="visually-hidden"> Information theory and coding, 4.2 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-2-network-protocols" data-stage="3" data-term="2" data-search="network protocols stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-network-protocols.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Network Protocols</a></h4>
-              <p class="course-meta"><span>72 pages</span><span class="visually-hidden">, </span><span>5.1 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf" type="application/pdf" download="Network Protocols.pdf">Download<span class="visually-hidden"> Network Protocols, 5.1 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-2-operating-system" data-stage="3" data-term="2" data-search="operating system stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-operating-system.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Operating%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Operating System</a></h4>
-              <p class="course-meta"><span>1,278 pages</span><span class="visually-hidden">, </span><span>29.7 MB</span><span class="visually-hidden">, </span><span class="flag">Large file</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Operating%20System.pdf" type="application/pdf" download="Operating System.pdf">Download<span class="visually-hidden"> Operating System, 29.7 MB</span></a>
-            </div>
-          </li>
-          <li class="course" id="s3-2-web-design" data-stage="3" data-term="2" data-search="web design stage3 semester2 المرحلة الثالثة الكورس الثاني">
-            <img class="course-cover" src="covers/s3-2-web-design.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Web%20Design.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Web Design</a></h4>
-              <p class="course-meta"><span>99 pages</span><span class="visually-hidden">, </span><span>4.4 MB</span></p>
-              <a class="course-download" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Web%20Design.pdf" type="application/pdf" download="Web Design.pdf">Download<span class="visually-hidden"> Web Design, 4.4 MB</span></a>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </section>
+      <details class="stage" id="stage-3" data-stage="3">
+        <summary class="stage-summary">
+          <h2 class="stage-title" id="stage-3-title">Stage 3 <span class="ar" lang="ar" dir="rtl">المرحلة الثالثة</span></h2>
+          <span class="stage-count">12 PDFs · 71.2 MB</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="stage-body">
+          <section class="term" data-term="1">
+            <h3 class="term-title" id="stage-3-sem-1">Semester 1 <span class="term-ects">30 ECTS</span></h3>
+            <ul class="course-list" role="list">
+            <li class="course" id="s3-1-computer-networks" data-stage="3" data-term="1" data-search="computer networks computer network fundamentals cste3101 أساسيات شبكات الحاسوب stage3 semester1 المرحلة الثالثة الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3101</code>
+                  <span class="course-title">Computer Network Fundamentals</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>3.7 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-1-computer-networks.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">أساسيات شبكات الحاسوب</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>68 pages · 3.7 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Networks.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Computer Network Fundamentals</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Computer%20Networks.pdf" type="application/pdf" download="Computer Networks.pdf">Download<span class="visually-hidden"> Computer Network Fundamentals, 3.7 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-1-information-security-and-cryptography" data-stage="3" data-term="1" data-search="information security and cryptography information security &amp; cryptography cste3102 أمنية المعلومات stage3 semester1 المرحلة الثالثة الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3102</code>
+                  <span class="course-title">Information Security &amp; Cryptography</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>3.3 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-1-information-security-and-cryptography.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">أمنية المعلومات</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>102 pages · 3.3 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Information%20Security%20and%20Cryptography.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Information Security &amp; Cryptography</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Information%20Security%20and%20Cryptography.pdf" type="application/pdf" download="Information Security and Cryptography.pdf">Download<span class="visually-hidden"> Information Security &amp; Cryptography, 3.3 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-1-digital-signal-processing" data-stage="3" data-term="1" data-search="digital signal processing digital signal processing cste3103 معالجة الإشارة الرقمية stage3 semester1 المرحلة الثالثة الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3103</code>
+                  <span class="course-title">Digital Signal Processing</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>5.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-1-digital-signal-processing.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">معالجة الإشارة الرقمية</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>55 pages · 5.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Digital Signal Processing</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Signal%20Processing.pdf" type="application/pdf" download="Digital Signal Processing.pdf">Download<span class="visually-hidden"> Digital Signal Processing, 5.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-1-software-engineering" data-stage="3" data-term="1" data-search="software engineering software engineering cste3104 هندسة البرمجيات stage3 semester1 المرحلة الثالثة الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3104</code>
+                  <span class="course-title">Software Engineering</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>2.2 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-1-software-engineering.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">هندسة البرمجيات</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>109 pages · 2.2 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Software%20Engineering.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Software Engineering</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Software%20Engineering.pdf" type="application/pdf" download="Software Engineering.pdf">Download<span class="visually-hidden"> Software Engineering, 2.2 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-1-python" data-stage="3" data-term="1" data-search="python python programming cste3105 البرمجة بلغة البايثون stage3 semester1 المرحلة الثالثة الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3105</code>
+                  <span class="course-title">Python Programming</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>2.5 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-1-python.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">البرمجة بلغة البايثون</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>68 pages · 2.5 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Python Programming</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Python.pdf" type="application/pdf" download="Python.pdf">Download<span class="visually-hidden"> Python Programming, 2.5 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-1-digital-forensics" data-stage="3" data-term="1" data-search="digital forensics digital forensics cste3106 التحليل الجنائي الرقمي stage3 semester1 المرحلة الثالثة الكورس الاول">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3106</code>
+                  <span class="course-title">Digital Forensics</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>4.3 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-1-digital-forensics.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">التحليل الجنائي الرقمي</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Elective · option for Elective I</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>31 pages · 4.3 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Digital Forensics</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84/Digital%20Forensics.pdf" type="application/pdf" download="Digital Forensics.pdf">Download<span class="visually-hidden"> Digital Forensics, 4.3 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            </ul>
+          </section>
+          <section class="term" data-term="2">
+            <h3 class="term-title" id="stage-3-sem-2">Semester 2 <span class="term-ects">30 ECTS</span></h3>
+            <ul class="course-list" role="list">
+            <li class="course" id="s3-2-cybersecurity-essentials" data-stage="3" data-term="2" data-search="cybersecurity essentials cybersecurity essentials cste3201 أساسيات الأمن السيبراني stage3 semester2 المرحلة الثالثة الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3201</code>
+                  <span class="course-title">Cybersecurity Essentials</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>1.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-2-cybersecurity-essentials.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">أساسيات الأمن السيبراني</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>43 pages · 1.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/CyberSecurity%20Essentials.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Cybersecurity Essentials</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/CyberSecurity%20Essentials.pdf" type="application/pdf" download="CyberSecurity Essentials.pdf">Download<span class="visually-hidden"> Cybersecurity Essentials, 1.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-2-artificial-intelligence" data-stage="3" data-term="2" data-search="artificial intelligence artificial intelligence cste3202 الذكاء الاصطناعي stage3 semester2 المرحلة الثالثة الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3202</code>
+                  <span class="course-title">Artificial Intelligence</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>5.6 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-2-artificial-intelligence.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">الذكاء الاصطناعي</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE3105</code> Python Programming</span></dd></div><div><dt>File</dt><dd>111 pages · 5.6 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Artificial Intelligence</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Artificial%20Intelligence.pdf" type="application/pdf" download="Artificial Intelligence.pdf">Download<span class="visually-hidden"> Artificial Intelligence, 5.6 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-2-operating-system" data-stage="3" data-term="2" data-search="operating system operating systems cste3203 أنظمة التشغيل stage3 semester2 المرحلة الثالثة الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3203</code>
+                  <span class="course-title">Operating Systems</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>29.7 MB<span class="visually-hidden">, </span><span class="flag">Large</span></span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-2-operating-system.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">أنظمة التشغيل</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>1,278 pages · 29.7 MB <span class="flag">Large file, best on Wi-Fi</span></dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Operating%20System.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Operating Systems</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Operating%20System.pdf" type="application/pdf" download="Operating System.pdf">Download<span class="visually-hidden"> Operating Systems, 29.7 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-2-web-design" data-stage="3" data-term="2" data-search="web design web design cste3204 تصميم المواقع الإلكترونية stage3 semester2 المرحلة الثالثة الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3204</code>
+                  <span class="course-title">Web Design</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>4.4 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-2-web-design.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">تصميم المواقع الإلكترونية</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>99 pages · 4.4 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Web%20Design.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Web Design</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Web%20Design.pdf" type="application/pdf" download="Web Design.pdf">Download<span class="visually-hidden"> Web Design, 4.4 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-2-network-protocols" data-stage="3" data-term="2" data-search="network protocols computer network protocols cste3205 بروتوكولات شبكات الحاسوب stage3 semester2 المرحلة الثالثة الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3205</code>
+                  <span class="course-title">Computer Network Protocols</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>5.1 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-2-network-protocols.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">بروتوكولات شبكات الحاسوب</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Core</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>Requires</dt><dd><span><code>CSTE2206</code> English Language II</span></dd></div><div><dt>File</dt><dd>72 pages · 5.1 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Computer Network Protocols</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Network%20Protocols.pdf" type="application/pdf" download="Network Protocols.pdf">Download<span class="visually-hidden"> Computer Network Protocols, 5.1 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            <li class="course" id="s3-2-information-theory-and-coding" data-stage="3" data-term="2" data-search="information theory and coding information theory and coding cste3207 نظرية المعلومات والترميز stage3 semester2 المرحلة الثالثة الكورس الثاني">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">CSTE3207</code>
+                  <span class="course-title">Information Theory and Coding</span>
+                  <span class="course-meta"><span class="visually-hidden">, </span>4.2 MB</span>
+                  <span class="chev" aria-hidden="true"></span>
+                </summary>
+                <div class="preview">
+                  <img class="preview-cover" src="covers/s3-2-information-theory-and-coding.jpg" width="120" height="160" alt="" loading="lazy" decoding="async">
+                  <div class="preview-info">
+                    <p class="preview-ar" lang="ar" dir="rtl">نظرية المعلومات والترميز</p>
+                    <dl class="facts"><div><dt>Type</dt><dd>Elective · option for Elective II</dd></div><div><dt>ECTS</dt><dd>5</dd></div><div><dt>Workload</dt><dd>125 h <span class="muted">(79 h scheduled)</span></dd></div><div><dt>Taught in</dt><dd>English</dd></div><div><dt>File</dt><dd>52 pages · 4.2 MB</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF<span class="visually-hidden"> Information Theory and Coding</span></a>
+                      <a class="btn" href="%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9/%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A/Information%20theory%20and%20coding.pdf" type="application/pdf" download="Information theory and coding.pdf">Download<span class="visually-hidden"> Information Theory and Coding, 4.2 MB</span></a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>
+            </ul>
+          </section>
+        </div>
+      </details>
 
-    <section class="stage" id="stage-4" data-stage="4" aria-labelledby="stage-4-title">
-      <h2 class="stage-title" id="stage-4-title">Stage 4 <span class="ar" lang="ar" dir="rtl">المرحلة الرابعة</span></h2>
-      <p class="stage-empty">No material uploaded yet.</p>
-    </section>
+      <details class="stage" id="stage-4" data-stage="4">
+        <summary class="stage-summary">
+          <h2 class="stage-title" id="stage-4-title">Stage 4 <span class="ar" lang="ar" dir="rtl">المرحلة الرابعة</span></h2>
+          <span class="stage-count">No PDFs yet</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="stage-body">
+          <p class="stage-empty">No material uploaded yet. The modules for this stage are listed in the curriculum map above.</p>
+        </div>
+      </details>
         <div class="empty" id="emptyState" hidden>
           <h2 class="empty-title">No courses match your search</h2>
-          <p>Try a shorter word, check the spelling, or <button class="link-button" type="button" id="emptyReset">clear the search and filters</button>.</p>
+          <p>Try a shorter word or a module code, or <button class="link-button" type="button" id="emptyReset">clear the search</button>.</p>
         </div>
       </div>
     </main>

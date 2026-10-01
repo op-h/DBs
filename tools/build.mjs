@@ -134,73 +134,284 @@ function scan() {
   return stages;
 }
 
+// ---------- curriculum ----------
+// data/curriculum.json is hand-transcribed from the department's official curriculum PDF
+// (curriculum.pdf). Each module names the PDF file that holds its material, if any.
+
+const CURRICULUM_PATH = join(ROOT, "data", "curriculum.json");
+
+function loadCurriculum() {
+  if (!existsSync(CURRICULUM_PATH)) return null;
+  const cur = JSON.parse(readFileSync(CURRICULUM_PATH, "utf8"));
+  const byCode = new Map();
+  for (const sem of cur.semesters) {
+    sem.stage = Math.ceil(sem.n / 2);
+    sem.term = sem.n % 2 ? 1 : 2;
+    for (const m of sem.modules) {
+      byCode.set(m.code, m);
+      for (const o of m.options || []) {
+        o.slot = m;
+        byCode.set(o.code, o);
+      }
+    }
+  }
+  cur.byCode = byCode;
+  return cur;
+}
+
+// Attach each PDF to its module (and each module to its PDF). Unmatched PDFs still render;
+// they just have no code or curriculum facts.
+function linkCurriculum(cur, stages) {
+  if (!cur) return;
+  for (const sem of cur.semesters) {
+    const files = stages[sem.stage - 1].terms[sem.term - 1].files;
+    const entries = sem.modules.flatMap((m) => (m.options ? m.options : [m]));
+    for (const entry of entries) {
+      if (!entry.file) continue;
+      const file = files.find((f) => f.name === entry.file);
+      if (!file) {
+        console.warn(`  ! curriculum: no PDF named "${entry.file}" in stage ${sem.stage} semester ${sem.term}`);
+        continue;
+      }
+      entry.pdf = file;
+      file.module = entry;
+    }
+  }
+  for (const f of stages.flatMap((s) => s.terms.flatMap((t) => t.files))) {
+    if (!f.module) console.warn(`  ! curriculum: "${f.path}" is not linked to a module (add "file" in data/curriculum.json)`);
+  }
+}
+
 // ---------- markup ----------
 
-function renderCourse(file) {
+const vh = (text) => `<span class="visually-hidden">${text}</span>`;
+const chevron = `<span class="chev" aria-hidden="true"></span>`;
+
+function moduleFacts(mod, cur) {
+  if (!mod) return "";
+  const slot = mod.slot || mod;
+  const type = cur.types[slot.type] || slot.type;
+  const prereq = (mod.prereq || slot.prereq || [])
+    .map((code) => {
+      const p = cur.byCode.get(code);
+      return `<span><code>${code}</code> ${p ? escapeHtml(p.name) : ""}</span>`;
+    })
+    .join(", ");
+  const facts = [
+    ["Type", mod.slot ? `${type} · option for ${escapeHtml(slot.name)}` : type],
+    ["ECTS", String(slot.ects)],
+    ["Workload", `${slot.swl} h <span class="muted">(${slot.sswl} h scheduled)</span>`],
+    ["Taught in", slot.lang]
+  ];
+  if (prereq) facts.push(["Requires", prereq]);
+  return facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+}
+
+function renderCourse(file, cur) {
   const size = formatSize(file.size);
   const large = file.size >= LARGE_FILE_BYTES;
+  const mod = file.module;
+  const title = escapeHtml(mod ? mod.name : file.name);
+  const code = mod ? mod.code : "";
   const pages = file.pages ? `${file.pages.toLocaleString("en")} pages` : "";
   // "stage1"/"semester2" are single words so script.js can match them without a bare number
-  // leaking across fields; the Arabic folder names let students search in Arabic too.
-  const search = `${file.name} stage${file.stage} semester${file.term} ${STAGES[file.stage - 1]} ${TERMS[file.term - 1]}`.toLowerCase();
+  // leaking across fields; Arabic names let students search in Arabic too.
+  const search = [file.name, mod?.name, code, mod?.ar, `stage${file.stage}`, `semester${file.term}`, STAGES[file.stage - 1], TERMS[file.term - 1]]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
   const cover = file.cover
-    ? `<img class="course-cover" src="${file.cover}" width="120" height="160" alt="" loading="lazy" decoding="async">`
-    : `<span class="course-cover course-cover--empty" aria-hidden="true">PDF</span>`;
+    ? `<img class="preview-cover" src="${file.cover}" width="120" height="160" alt="" loading="lazy" decoding="async">`
+    : `<span class="preview-cover preview-cover--empty" aria-hidden="true">PDF</span>`;
 
-  const name = escapeHtml(file.name);
-  const sep = '<span class="visually-hidden">, </span>';
-
-  // The whole card opens the PDF: the title link is stretched over it in CSS, which gives one
-  // big, obvious target and no wall of buttons. Download is the only other control.
-  // See docs/decisions/0004-simplify.md.
+  // Collapsed, a course is one quiet row; opening it shows the preview with the actions.
+  // name="course" makes the rows an exclusive accordion where supported (one open at a time).
   return `
-          <li class="course" id="${file.id}" data-stage="${file.stage}" data-term="${file.term}" data-search="${escapeHtml(search)}">
-            ${cover}
-            <div class="course-body">
-              <h4 class="course-title"><a class="course-link" href="${file.href}" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">${name}</a></h4>
-              <p class="course-meta">${pages ? `<span>${pages}</span>${sep}` : ""}<span>${size}</span>${large ? `${sep}<span class="flag">Large file</span>` : ""}</p>
-              <a class="course-download" href="${file.href}" type="application/pdf" download="${name}.pdf">Download<span class="visually-hidden"> ${name}, ${size}</span></a>
-            </div>
-          </li>`;
+            <li class="course" id="${file.id}" data-stage="${file.stage}" data-term="${file.term}" data-search="${escapeHtml(search)}">
+              <details class="course-item" name="course">
+                <summary class="course-row">
+                  <code class="course-code">${code || "PDF"}</code>
+                  <span class="course-title">${title}</span>
+                  <span class="course-meta">${vh(", ")}${size}${large ? `${vh(", ")}<span class="flag">Large</span>` : ""}</span>
+                  ${chevron}
+                </summary>
+                <div class="preview">
+                  ${cover}
+                  <div class="preview-info">
+                    ${mod?.ar ? `<p class="preview-ar" lang="ar" dir="rtl">${escapeHtml(mod.ar)}</p>` : ""}
+                    <dl class="facts">${moduleFacts(mod, cur)}<div><dt>File</dt><dd>${pages ? `${pages} · ` : ""}${size}${large ? ` <span class="flag">Large file, best on Wi-Fi</span>` : ""}</dd></div></dl>
+                    <div class="preview-actions">
+                      <a class="btn btn--primary" href="${file.href}" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">Open PDF${vh(` ${title}`)}</a>
+                      <a class="btn" href="${file.href}" type="application/pdf" download="${escapeHtml(file.name)}.pdf">Download${vh(` ${title}, ${size}`)}</a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </li>`;
 }
 
-function renderTerm(stage, term) {
-  const id = `stage-${stage.n}-sem-${term.n}`;
-  const body = term.files.length
-    ? `<ul class="course-list" role="list">${term.files.map(renderCourse).join("")}
-        </ul>`
-    : `<p class="term-empty">No material uploaded yet.</p>`;
-  // No accessible name on purpose: eight extra "region" landmarks would bury the useful ones.
+function renderTerm(stage, term, cur) {
+  const sem = cur?.semesters.find((s) => s.stage === stage.n && s.term === term.n);
+  const ects = sem ? sem.modules.reduce((a, m) => a + m.ects, 0) : 0;
   return `
-      <section class="term" data-term="${term.n}">
-        <h3 class="term-title" id="${id}">Semester ${term.n}</h3>
-        ${body}
-      </section>`;
+          <section class="term" data-term="${term.n}">
+            <h3 class="term-title" id="stage-${stage.n}-sem-${term.n}">Semester ${term.n}${ects ? ` <span class="term-ects">${ects} ECTS</span>` : ""}</h3>
+            ${term.files.length
+              ? `<ul class="course-list" role="list">${term.files.map((f) => renderCourse(f, cur)).join("")}
+            </ul>`
+              : `<p class="term-empty">No material uploaded yet.</p>`}
+          </section>`;
 }
 
-function renderStage(stage) {
+function renderStage(stage, cur) {
   const files = stage.terms.flatMap((t) => t.files);
-  const terms = files.length
-    ? stage.terms.map((t) => renderTerm(stage, t)).join("")
+  const size = files.reduce((sum, f) => sum + f.size, 0);
+  const count = files.length ? `${files.length} PDFs · ${formatSize(size)}` : "No PDFs yet";
+  const body = files.length
+    ? stage.terms.map((t) => renderTerm(stage, t, cur)).join("")
     : `
-      <p class="stage-empty">No material uploaded yet.</p>`;
+          <p class="stage-empty">No material uploaded yet. The modules for this stage are listed in the curriculum map above.</p>`;
   return `
-    <section class="stage" id="stage-${stage.n}" data-stage="${stage.n}" aria-labelledby="stage-${stage.n}-title">
-      <h2 class="stage-title" id="stage-${stage.n}-title">Stage ${stage.n} <span class="ar" lang="ar" dir="rtl">${stage.ar}</span></h2>${terms}
-    </section>`;
+      <details class="stage" id="stage-${stage.n}" data-stage="${stage.n}">
+        <summary class="stage-summary">
+          <h2 class="stage-title" id="stage-${stage.n}-title">Stage ${stage.n} <span class="ar" lang="ar" dir="rtl">${stage.ar}</span></h2>
+          <span class="stage-count">${count}</span>
+          ${chevron}
+        </summary>
+        <div class="stage-body">${body}
+        </div>
+      </details>`;
 }
 
 function renderStageNav(stages) {
   return stages
     .map((s) => {
       const count = s.terms.reduce((n, t) => n + t.files.length, 0);
-      return `<li><a href="#stage-${s.n}">Stage ${s.n} <span class="count">${count}<span class="visually-hidden"> ${count === 1 ? "file" : "files"}</span></span></a></li>`;
+      return `<li><a href="#stage-${s.n}">Stage ${s.n} <span class="count">${count}${vh(count === 1 ? " file" : " files")}</span></a></li>`;
     })
     .join("\n          ");
 }
 
+function renderMapEntry(entry, cur, { ects } = {}) {
+  const type = (entry.slot || entry).type;
+  const typeName = (cur.types[type] || type).toLowerCase();
+  const inner = `<code class="map-code">${entry.code}</code><span class="map-name">${escapeHtml(entry.name)}</span>${ects ? `<span class="map-ects">${ects}${vh(" ECTS")}</span>` : ""}${vh(`, ${typeName}${entry.pdf ? "" : ", no PDF yet"}`)}`;
+  return entry.pdf
+    ? `<a class="map-link" href="${entry.pdf.href}" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">${inner}</a>`
+    : `<span class="map-link is-missing">${inner}</span>`;
+}
+
+function renderMap(cur, stages) {
+  if (!cur) return "";
+  const entries = cur.semesters.flatMap((s) => s.modules.flatMap((m) => (m.options ? m.options : [m])));
+  const withPdf = entries.filter((e) => e.pdf).length;
+  const totalEcts = cur.semesters.reduce((a, s) => a + s.modules.reduce((b, m) => b + m.ects, 0), 0);
+
+  const columns = stages
+    .map((stage) => {
+      const sems = cur.semesters.filter((s) => s.stage === stage.n);
+      return `
+          <section class="map-stage" aria-labelledby="map-stage-${stage.n}">
+            <h3 class="map-stage-title" id="map-stage-${stage.n}">Stage ${stage.n} <span class="ar" lang="ar" dir="rtl">${stage.ar}</span></h3>${sems
+              .map((sem) => {
+                const ects = sem.modules.reduce((a, m) => a + m.ects, 0);
+                const items = sem.modules
+                  .map((m) => {
+                    if (!m.options) return `<li class="map-item" data-type="${m.type}">${renderMapEntry(m, cur, { ects: m.ects })}</li>`;
+                    const opts = m.options.map((o) => `<li class="map-item" data-type="${m.type}">${renderMapEntry(o, cur)}</li>`).join("");
+                    return `<li class="map-item map-item--group" data-type="${m.type}"><span class="map-link is-group"><code class="map-code">${m.code}</code><span class="map-name">${escapeHtml(m.name)} <span class="muted">· choose one</span></span><span class="map-ects">${m.ects}${vh(" ECTS")}</span></span><ul class="map-options" role="list">${opts}</ul></li>`;
+                  })
+                  .join("\n                ");
+                return `
+            <div class="map-sem">
+              <h4 class="map-sem-title">Semester ${sem.term} <span class="map-sem-ects">${ects} ECTS</span></h4>
+              <ul class="map-list" role="list">
+                ${items}
+              </ul>
+            </div>`;
+              })
+              .join("")}
+          </section>`;
+    })
+    .join("");
+
+  const legend = Object.entries(cur.types)
+    .map(([k, v]) => `<li><span class="map-type" data-type="${k}" aria-hidden="true"></span>${v}</li>`)
+    .join("");
+
+  return `
+      <details class="map" id="map" open>
+        <summary class="map-summary">
+          <h2 class="map-title" id="mapTitle">Curriculum map</h2>
+          <span class="map-sub">${cur.semesters.length} semesters · ${totalEcts} ECTS · ${withPdf} of ${entries.length} modules have a PDF</span>
+          ${chevron}
+        </summary>
+        <div class="map-body">
+          <p class="map-hint" aria-hidden="true">Swipe for stages 2–4 →</p>
+          <div class="map-grid" id="mapGrid" aria-label="Curriculum by stage">${columns}
+          </div>
+          <div class="map-foot">
+            <ul class="legend" role="list">${legend}<li><span class="legend-pdf" aria-hidden="true"></span>Links to PDF</li><li><span class="legend-missing" aria-hidden="true"></span>Not uploaded yet</li></ul>
+            <p class="map-source">From the official <a href="${cur.source.pdf}" type="application/pdf">${escapeHtml(cur.source.title)}</a> (PDF), ${escapeHtml(cur.source.university)}. ${escapeHtml(cur.source.note)}</p>
+          </div>
+        </div>
+      </details>`;
+}
+
+// ---------- pixel mark ----------
+// One small pixel-art page (the library's mark), drawn as SVG rects so it stays crisp at any
+// size. Shared by the page header and favicon.svg. '#' ink, '=' text lines, '+' accent ribbon.
+const MARK = [
+  "..##########....",
+  "..#........##...",
+  "..#.++.....#.#..",
+  "..#.++.....####.",
+  "..#.++........#.",
+  "..#.+..======.#.",
+  "..#...........#.",
+  "..#.========..#.",
+  "..#...........#.",
+  "..#.======....#.",
+  "..#...........#.",
+  "..#.=========.#.",
+  "..#...........#.",
+  "..#.=====.....#.",
+  "..#...........#.",
+  "..#############.",
+];
+
+function markRects(classFor) {
+  const rects = [];
+  MARK.forEach((row, y) =>
+    [...row].forEach((ch, x) => {
+      if (ch !== ".") rects.push(classFor(ch, x, y));
+    })
+  );
+  return rects.join("");
+}
+
+function renderMark() {
+  // Each pixel gets one of 8 delay buckets so the mark "assembles" in a dissolve on load.
+  // Classes, not inline styles: the CSP forbids style attributes.
+  const kind = { "#": "ink", "=": "line", "+": "accent" };
+  const rects = markRects((ch, x, y) => `<rect class="px ${kind[ch]} d${(x * 7 + y * 13) % 8}" x="${x}" y="${y}" width="1" height="1"/>`);
+  return `<svg class="mark" viewBox="0 0 16 16" width="64" height="64" aria-hidden="true" focusable="false" shape-rendering="crispEdges">${rects}</svg>`;
+}
+
+function renderFavicon() {
+  const fill = { "#": "#1C1A17", "=": "#5C574E", "+": "#9E2B25" };
+  const rects = markRects((ch, x, y) => `<rect x="${x}" y="${y}" width="1" height="1" fill="${fill[ch]}"/>`);
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="3" y="1" width="12" height="15" fill="#F6F3EC"/>${rects}</svg>\n`;
+}
+
 function build() {
   const stages = scan();
+  const cur = loadCurriculum();
+  linkCurriculum(cur, stages);
+  // Curriculum order (by module code) reads like the timetable; unmatched files go last.
+  for (const t of stages.flatMap((st) => st.terms)) {
+    t.files.sort((a, b) => (a.module?.code ?? "~" + a.name).localeCompare(b.module?.code ?? "~" + b.name, "en"));
+  }
   const files = stages.flatMap((s) => s.terms.flatMap((t) => t.files));
   const totalSize = files.reduce((sum, f) => sum + f.size, 0);
   const totalPages = files.reduce((sum, f) => sum + (f.pages || 0), 0);
@@ -212,7 +423,7 @@ function build() {
     JSON.stringify(
       {
         stages: stages.map(({ n, ar, terms }) => ({ n, ar, terms: terms.map(({ n: tn, ar: tar }) => ({ n: tn, ar: tar })) })),
-        files: files.map(({ id, name, path, href, size, pages, cover, stage, term }) => ({ id, name, path, href, size, pages, cover, stage, term }))
+        files: files.map(({ id, name, path, href, size, pages, cover, stage, term, module }) => ({ id, name, path, href, size, pages, cover, stage, term, code: module?.code ?? null }))
       },
       null,
       2
@@ -229,7 +440,9 @@ function build() {
     "{{TOTAL_SIZE}}": formatSize(totalSize),
     "{{TOTAL_PAGES}}": totalPages.toLocaleString("en"),
     "{{STAGE_NAV}}": renderStageNav(stages),
-    "{{LIBRARY}}": stages.map(renderStage).join("\n"),
+    "{{MAP}}": renderMap(cur, stages),
+    "{{MARK}}": renderMark(),
+    "{{LIBRARY}}": stages.map((s) => renderStage(s, cur)).join("\n"),
     "{{REPO_URL}}": REPO_URL
   };
 
@@ -240,11 +453,12 @@ function build() {
   // means editing the head script can never silently break the policy (see docs/qa.md).
   const inline = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
   const hashes = inline.map((code) => `'sha256-${createHash("sha256").update(code).digest("base64")}'`).join(" ");
-  const csp = `default-src 'none'; script-src 'self' ${hashes}; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests`;
+  const csp = `default-src 'none'; script-src 'self' ${hashes}; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests`;
   html = html.replace("{{CSP}}", `<meta http-equiv="Content-Security-Policy" content="${csp}">`);
   const leftover = html.match(/\{\{[A-Z_]+\}\}/);
   if (leftover) throw new Error(`Unreplaced template token ${leftover[0]}`);
   writeFileSync(join(ROOT, "index.html"), html);
+  writeFileSync(join(ROOT, "favicon.svg"), renderFavicon());
 
   console.log(`Built ${files.length} files across ${stagesWithFiles} stages (${formatSize(totalSize)}, ${totalPages} pages).`);
   if (!HAS_POPPLER) console.log("  note: poppler-utils not found; new PDFs get no page count or cover");

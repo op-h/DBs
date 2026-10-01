@@ -4,9 +4,13 @@ Course PDFs for the Cyber Security department, organised by stage and semester.
 
 **Live site:** https://op-h.github.io/DBs/
 
-Search any course, filter by stage, then tap a course to open it or download it. Each course shows
-its cover, page count and size, and large files are marked so you can wait for Wi-Fi. Works on
-phones and desktops, in light and dark mode, and without JavaScript.
+- **Curriculum map** at the top shows all 4 stages and 8 semesters from the official curriculum
+  (codes, ECTS, module type) and links each module straight to its PDF.
+- **Library** below: stages fold open, and each lecture opens into a preview with its cover,
+  curriculum details, Open and Download.
+- Search by name, module code (e.g. `CSTE2103`) or Arabic name, or filter by stage.
+
+It works on phones and desktops, in light and dark mode, and without JavaScript.
 
 ## Adding or removing a PDF
 
@@ -21,6 +25,10 @@ Just put the PDF in the right folder and push (or upload it on github.com):
 المرحلة الثالثة/          Stage 3
 المرحلة الرابعة/          Stage 4
 ```
+
+To show its curriculum details (code, ECTS and so on), the PDF's name, without `.pdf`, must
+appear as `"file"` on its module in `data/curriculum.json`. The Action log warns about any PDF that
+isn't linked.
 
 A GitHub Action (`.github/workflows/update-library.yml`) rebuilds the page, the covers and the
 sizes automatically and republishes the site, usually within two minutes. You don't need to run

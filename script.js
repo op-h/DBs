@@ -22,8 +22,7 @@
     term: el.dataset.term || "",
     haystack: normalise(el.dataset.search || el.textContent),
     words: normalise(el.dataset.search || el.textContent).split(/[^\p{L}\p{N}]+/u).filter(Boolean),
-    // Highlight inside the link, not the heading, so the link element itself is never replaced.
-    title: $(".course-link", el) || $(".course-title", el),
+    title: $(".course-title", el),
   }));
   const terms = $$(".term");
   const stages = $$(".stage");
@@ -81,9 +80,6 @@
     };
   }
 
-  function isFiltered(state) {
-    return Boolean(normalise(state.q) || state.stage || state.term);
-  }
 
   // Pure computation: decide visibility for everything, touching no DOM, so the write
   // phase below is a single uninterrupted batch (no read/write interleaving).
@@ -178,10 +174,53 @@
     titleEl.replaceChildren(frag);
   }
 
-  function resultsText(shown, filtered) {
+  function resultsText(shown, searching) {
     const noun = total === 1 ? "course" : "courses";
-    // Unfiltered, the count already sits in the intro; repeating it in the bar is noise.
-    return filtered ? `${shown} of ${total} ${noun}` : "";
+    // Only a search needs a count; a stage choice is already obvious from what's open.
+    return searching ? `${shown} of ${total} ${noun}` : "";
+  }
+
+  // ---------- stage drop-downs ----------
+  // While searching or picking a stage, the stages that hold results open by themselves so
+  // the matches are visible. When the filter goes away, only those auto-opened stages close
+  // again; a stage the student opened (or closed) by hand is left as they set it.
+
+  const autoOpened = new Set();
+  const expectedOpen = new Map();
+
+  function setOpen(details, open) {
+    expectedOpen.set(details, open);
+    details.open = open;
+  }
+
+  function syncStageOpen(state, hasQuery) {
+    for (const s of stages) {
+      const want = !s.hidden && (hasQuery || Boolean(state.stage));
+      if (want && !s.open) {
+        autoOpened.add(s);
+        setOpen(s, true);
+      } else if (!want && autoOpened.has(s)) {
+        autoOpened.delete(s);
+        setOpen(s, false);
+      }
+    }
+  }
+
+  for (const s of stages) {
+    s.addEventListener("toggle", () => {
+      // A toggle we didn't cause means the student took over this stage.
+      if (expectedOpen.get(s) !== s.open) autoOpened.delete(s);
+      expectedOpen.set(s, s.open);
+    });
+  }
+
+  // name="course" already makes course rows exclusive in current browsers; this covers older ones.
+  if (!("name" in HTMLDetailsElement.prototype)) {
+    document.addEventListener("toggle", (e) => {
+      const d = e.target;
+      if (!(d instanceof HTMLDetailsElement) || !d.open || !d.classList.contains("course-item")) return;
+      for (const other of $$(".course-item[open]")) if (other !== d) other.open = false;
+    }, true);
   }
 
   let resultsTimer = 0;
@@ -190,13 +229,13 @@
     clearTimeout(resultsTimer);
     // The DOM filters instantly; only the live region waits, so a screen reader hears the
     // settled count once instead of one announcement per keystroke.
-    if (immediate) resultsEl.textContent = text;
+    // Clearing is immediate: a stale "1 of 37" lingering after the search is gone is just noise.
+    if (immediate || !text) resultsEl.textContent = text;
     else resultsTimer = setTimeout(() => { resultsEl.textContent = text; }, 400);
   }
 
   function applyFilters({ immediateResults = false } = {}) {
     const state = readState();
-    const filtered = isFiltered(state);
     const v = computeVisibility(state);
 
     for (const c of courses) {
@@ -212,9 +251,12 @@
       const text = q ? `No courses match “${q}”` : emptyTitleDefault;
       if (emptyTitle.textContent !== text) emptyTitle.textContent = text;
     }
-    if (resetBtn) setHidden(resetBtn, !filtered);
+    const searching = v.tokens.length > 0;
+    // "Clear search" is for the search box only; choosing a stage needs no clear button.
+    if (resetBtn) setHidden(resetBtn, !state.q.trim());
+    syncStageOpen(state, searching);
 
-    updateResults(resultsText(v.shown, filtered), immediateResults);
+    updateResults(resultsText(v.shown, searching), immediateResults);
     return state;
   }
 
@@ -284,6 +326,15 @@
       try { history.replaceState(history.state, "", location.pathname + location.hash); } catch { /* optional */ }
     }
 
+    // Open every drop-down between the page and the target so it can actually be seen.
+    let opened = false;
+    for (let d = target.closest("details"); d; d = d.parentElement && d.parentElement.closest("details")) {
+      if (!d.open) { setOpen(d, true); opened = true; }
+    }
+    const item = target.classList.contains("course") ? $(".course-item", target) : null;
+    if (item && !item.open) { item.open = true; opened = true; }
+    if (target.matches("details.stage") && !target.open) { setOpen(target, true); opened = true; }
+
     if (target.classList.contains("course")) {
       clearTimeout(targetTimer);
       if (lastTarget) lastTarget.classList.remove("is-target");
@@ -293,7 +344,7 @@
     }
     // The browser's fragment scroll ran (or failed) while filters hid the target, or ran
     // before ?q= filtering reshuffled the layout above it.
-    if (wasHidden || scroll) target.scrollIntoView({ block: "start" });
+    if (wasHidden || scroll || opened) target.scrollIntoView({ block: "start" });
   }
 
   // ---------- keyboard ----------
@@ -323,29 +374,46 @@
     form.addEventListener("input", onFilterChange);
     // Radios fire "change" (and "input"); listening to both is harmless — applyFilters is idempotent.
     form.addEventListener("change", onFilterChange);
-    form.addEventListener("reset", () => {
-      // "reset" fires before the controls are restored, so filter on the next task.
-      setTimeout(() => {
-        onFilterChange();
-        if (qInput && document.activeElement === document.body) qInput.focus();
-      }, 0);
-    });
   }
 
-  if (resetBtn) {
-    // The button hides itself once filters clear; keep focus from falling to <body>.
-    resetBtn.addEventListener("click", () => setTimeout(() => qInput && qInput.focus(), 0));
+  // Both buttons clear the search only (the stage choice stays) and keep focus in the field,
+  // since the button that was clicked hides itself.
+  function clearSearch() {
+    if (!qInput) return;
+    qInput.value = "";
+    onFilterChange();
+    qInput.focus();
   }
 
+  if (resetBtn) resetBtn.addEventListener("click", clearSearch);
   const emptyReset = $("#emptyReset");
-  if (emptyReset) {
-    emptyReset.addEventListener("click", () => {
-      if (form) form.reset();
-      clearControls();
-      onFilterChange();
-      if (qInput) qInput.focus();
-    });
+  if (emptyReset) emptyReset.addEventListener("click", clearSearch);
+
+  // On phones the map scrolls sideways; a scrollable region must be reachable by keyboard,
+  // but on desktop (no overflow) an empty tab stop would just be in the way.
+  const mapGrid = $("#mapGrid");
+  function syncMapScroll() {
+    if (!mapGrid) return;
+    const scrolls = mapGrid.scrollWidth > mapGrid.clientWidth + 1;
+    if (scrolls) { mapGrid.tabIndex = 0; mapGrid.setAttribute("role", "region"); }
+    else { mapGrid.removeAttribute("tabindex"); mapGrid.removeAttribute("role"); }
   }
+  syncMapScroll();
+  window.addEventListener("resize", syncMapScroll);
+  const mapDetails = $("#map");
+  if (mapDetails) mapDetails.addEventListener("toggle", syncMapScroll);
+
+  // Printing: closed drop-downs would print as bare headings, so open the stages for the
+  // printout and put them back afterwards.
+  let printOpened = [];
+  window.addEventListener("beforeprint", () => {
+    printOpened = stages.filter((s) => !s.open && !s.hidden);
+    printOpened.forEach((s) => setOpen(s, true));
+  });
+  window.addEventListener("afterprint", () => {
+    printOpened.forEach((s) => setOpen(s, false));
+    printOpened = [];
+  });
 
   if (qInput) qInput.addEventListener("keydown", onSearchKeydown);
 
