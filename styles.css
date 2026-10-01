@@ -479,12 +479,6 @@
   }
 
 
-  .intro-meta {
-    margin-block-start: var(--space-4);
-    font-family: var(--font-pixel);
-    font-size: var(--px-s);
-    color: var(--c-ink);
-  }
 
   /* Without JS the stage filter isn't there; these jump links stand in for it. */
   .stage-nav {
