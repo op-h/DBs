@@ -1391,21 +1391,23 @@
       transform: translateX(6px);
     }
 
+    /* visibility, not opacity: the gone-frame is truly hidden, so contrast checkers that
+       sample mid-animation don't read it as faint text. */
     100% {
       clip-path: inset(50% 0 50% 0);
-      opacity: 0;
+      visibility: hidden;
     }
   }
 
   @keyframes glitch-in {
     0% {
       clip-path: inset(50% 0 50% 0);
-      opacity: 0;
+      visibility: hidden;
     }
 
     20% {
       clip-path: inset(40% 0 35% 0);
-      opacity: 1;
+      visibility: visible;
       transform: translateX(5px);
       text-shadow: 3px 0 var(--c-ink-muted), -3px 0 var(--c-accent);
     }
