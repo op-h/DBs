@@ -74,9 +74,6 @@
         </nav>
       </section>
 
-      <div class="wrap map-wrap">{{MAP}}
-      </div>
-
       <form class="controls" id="controls" role="search" aria-label="Search and filter the library">
         <div class="wrap controls-inner">
           <div class="search">
@@ -103,11 +100,16 @@
           <p>Try a shorter word or a module code, or <button class="link-button" type="button" id="emptyReset">clear the search</button>.</p>
         </div>
       </div>
+
+      <div class="wrap map-wrap">{{MAP}}
+      </div>
     </main>
 
     <footer class="site-footer">
       <div class="wrap site-footer-inner">
         <p>Large files are marked so you can wait for Wi-Fi. <a href="{{REPO_URL}}">Source on GitHub</a></p>
+        <!-- The credit wanders along this line with a glitch (script.js); hover or focus holds it still. -->
+        <p class="credit-line" id="creditLine"><a class="credit" id="credit" href="https://t.me/op_h11" target="_blank" rel="noopener">Done by OPH<span class="visually-hidden"> (Telegram, opens in a new tab)</span></a></p>
       </div>
     </footer>
 

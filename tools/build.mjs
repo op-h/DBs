@@ -136,7 +136,7 @@ function scan() {
 
 // ---------- curriculum ----------
 // data/curriculum.json is hand-transcribed from the department's official curriculum PDF
-// (curriculum.pdf). Each module names the PDF file that holds its material, if any.
+// (Program Curriculum 2023-2024, Rev. 3.1). Each module names the PDF file that holds its material, if any.
 
 const CURRICULUM_PATH = join(ROOT, "data", "curriculum.json");
 
@@ -292,68 +292,64 @@ function renderStageNav(stages) {
     .join("\n          ");
 }
 
-function renderMapEntry(entry, cur, { ects } = {}) {
-  const type = (entry.slot || entry).type;
-  const typeName = (cur.types[type] || type).toLowerCase();
-  const inner = `<code class="map-code">${entry.code}</code><span class="map-name">${escapeHtml(entry.name)}</span>${ects ? `<span class="map-ects">${ects}${vh(" ECTS")}</span>` : ""}${vh(`, ${typeName}${entry.pdf ? "" : ", no PDF yet"}`)}`;
+function renderMapEntry(entry) {
+  const name = escapeHtml(entry.name);
   return entry.pdf
-    ? `<a class="map-link" href="${entry.pdf.href}" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">${inner}</a>`
-    : `<span class="map-link is-missing">${inner}</span>`;
+    ? `<a class="map-link" href="${entry.pdf.href}" type="application/pdf" target="_blank" rel="noopener" aria-describedby="newTabHint">${name}</a>`
+    : `<span class="map-link is-missing">${name}${vh(", not uploaded yet")}</span>`;
 }
 
+// A route map: the four stages are stations on one line, each with its two semester stops and
+// the modules taught there. Names only; codes, credits and types live in the course previews,
+// so the map stays quiet.
 function renderMap(cur, stages) {
   if (!cur) return "";
   const entries = cur.semesters.flatMap((s) => s.modules.flatMap((m) => (m.options ? m.options : [m])));
   const withPdf = entries.filter((e) => e.pdf).length;
   const totalEcts = cur.semesters.reduce((a, s) => a + s.modules.reduce((b, m) => b + m.ects, 0), 0);
 
-  const columns = stages
+  const stations = stages
     .map((stage) => {
       const sems = cur.semesters.filter((s) => s.stage === stage.n);
+      const hasPdf = sems.some((s) => s.modules.some((m) => m.pdf || (m.options || []).some((o) => o.pdf)));
+      const stops = sems
+        .map((sem) => {
+          const items = sem.modules
+            .map((m) =>
+              m.options
+                ? `<li class="map-elective"><span class="map-elective-label">${escapeHtml(m.name)}:</span> ${m.options.map((o) => renderMapEntry(o)).join(' <span class="muted">or</span> ')}</li>`
+                : `<li>${renderMapEntry(m)}</li>`
+            )
+            .join("\n                  ");
+          return `
+              <li class="map-stop">
+                <h4 class="map-stop-title">Semester ${sem.term}</h4>
+                <ul class="map-list" role="list">
+                  ${items}
+                </ul>
+              </li>`;
+        })
+        .join("");
       return `
-          <section class="map-stage" aria-labelledby="map-stage-${stage.n}">
-            <h3 class="map-stage-title" id="map-stage-${stage.n}">Stage ${stage.n} <span class="ar" lang="ar" dir="rtl">${stage.ar}</span></h3>${sems
-              .map((sem) => {
-                const ects = sem.modules.reduce((a, m) => a + m.ects, 0);
-                const items = sem.modules
-                  .map((m) => {
-                    if (!m.options) return `<li class="map-item" data-type="${m.type}">${renderMapEntry(m, cur, { ects: m.ects })}</li>`;
-                    const opts = m.options.map((o) => `<li class="map-item" data-type="${m.type}">${renderMapEntry(o, cur)}</li>`).join("");
-                    return `<li class="map-item map-item--group" data-type="${m.type}"><span class="map-link is-group"><code class="map-code">${m.code}</code><span class="map-name">${escapeHtml(m.name)} <span class="muted">· choose one</span></span><span class="map-ects">${m.ects}${vh(" ECTS")}</span></span><ul class="map-options" role="list">${opts}</ul></li>`;
-                  })
-                  .join("\n                ");
-                return `
-            <div class="map-sem">
-              <h4 class="map-sem-title">Semester ${sem.term} <span class="map-sem-ects">${ects} ECTS</span></h4>
-              <ul class="map-list" role="list">
-                ${items}
-              </ul>
-            </div>`;
-              })
-              .join("")}
-          </section>`;
+          <li class="map-station${hasPdf ? "" : " is-ahead"}">
+            <h3 class="map-station-title"><span class="map-node" aria-hidden="true"></span>Stage ${stage.n} <span class="ar" lang="ar" dir="rtl">${stage.ar}</span></h3>
+            <ol class="map-stops" role="list">${stops}
+            </ol>
+          </li>`;
     })
-    .join("");
-
-  const legend = Object.entries(cur.types)
-    .map(([k, v]) => `<li><span class="map-type" data-type="${k}" aria-hidden="true"></span>${v}</li>`)
     .join("");
 
   return `
       <details class="map" id="map" open>
         <summary class="map-summary">
           <h2 class="map-title" id="mapTitle">Curriculum map</h2>
-          <span class="map-sub">${cur.semesters.length} semesters · ${totalEcts} ECTS · ${withPdf} of ${entries.length} modules have a PDF</span>
+          <span class="map-sub">${cur.semesters.length} semesters · ${totalEcts} ECTS · ${withPdf} of ${entries.length} modules uploaded</span>
           ${chevron}
         </summary>
         <div class="map-body">
-          <p class="map-hint" aria-hidden="true">Swipe for stages 2–4 →</p>
-          <div class="map-grid" id="mapGrid" aria-label="Curriculum by stage">${columns}
-          </div>
-          <div class="map-foot">
-            <ul class="legend" role="list">${legend}<li><span class="legend-pdf" aria-hidden="true"></span>Links to PDF</li><li><span class="legend-missing" aria-hidden="true"></span>Not uploaded yet</li></ul>
-            <p class="map-source">From the official <a href="${cur.source.pdf}" type="application/pdf">${escapeHtml(cur.source.title)}</a> (PDF), ${escapeHtml(cur.source.university)}. ${escapeHtml(cur.source.note)}</p>
-          </div>
+          <ol class="map-route" role="list">${stations}
+          </ol>
+          <ul class="legend" role="list"><li><span class="legend-dot is-on" aria-hidden="true"></span>PDF available</li><li><span class="legend-dot" aria-hidden="true"></span>Not uploaded yet</li></ul>
         </div>
       </details>`;
 }
@@ -399,7 +395,7 @@ function renderMark() {
 }
 
 function renderFavicon() {
-  const fill = { "#": "#1C1A17", "=": "#5C574E", "+": "#9E2B25" };
+  const fill = { "#": "#1C1A17", "=": "#5C574E", "+": "#1F6B45" };
   const rects = markRects((ch, x, y) => `<rect x="${x}" y="${y}" width="1" height="1" fill="${fill[ch]}"/>`);
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="3" y="1" width="12" height="15" fill="#F6F3EC"/>${rects}</svg>\n`;
 }

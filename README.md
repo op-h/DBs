@@ -4,10 +4,10 @@ Course PDFs for the Cyber Security department, organised by stage and semester.
 
 **Live site:** https://op-h.github.io/DBs/
 
-- **Curriculum map** at the top shows all 4 stages and 8 semesters from the official curriculum
-  (codes, ECTS, module type) and links each module straight to its PDF.
-- **Library** below: stages fold open, and each lecture opens into a preview with its cover,
-  curriculum details, Open and Download.
+- **Library:** stages fold open, and each lecture opens into a preview with its cover,
+  curriculum details (code, ECTS, type, workload), Open and Download.
+- **Curriculum map** at the bottom: a route through all 4 stages and 8 semesters that links
+  each module straight to its PDF.
 - Search by name, module code (e.g. `CSTE2103`) or Arabic name, or filter by stage.
 
 It works on phones and desktops, in light and dark mode, and without JavaScript.

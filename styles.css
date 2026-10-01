@@ -113,11 +113,12 @@
     --c-ink-muted: #5C574E;
     --c-rule: #DCD6CA;
     --c-border: #7A746A;
-    --c-accent: #9E2B25;
+    /* Forest green: 5.4:1 or better as text on every surface, 6.5:1 under white text. */
+    --c-accent: #1F6B45;
     --c-on-accent: #FFFFFF;
     /* Precomputed rather than color-mix(): Safari < 16.2 drops the whole value. */
-    --c-accent-hover: #781E1A;
-    --c-mark: rgb(158 43 37 / 0.16);
+    --c-accent-hover: #15522F;
+    --c-mark: rgb(31 107 69 / 0.16);
     --c-shadow: rgb(28 26 23 / 0.18);
     --c-focus: var(--c-accent);
 
@@ -177,10 +178,11 @@
       --c-ink-muted: #A8A194;
       --c-rule: #34302B;
       --c-border: #7D766B;
-      --c-accent: #E07A62;
+      /* Mint: 6.9:1 or better as text on every dark surface, 8.4:1 under page-coloured text. */
+      --c-accent: #5BC48A;
       --c-on-accent: #171513;
-      --c-accent-hover: #E78F79;
-      --c-mark: rgb(224 122 98 / 0.22);
+      --c-accent-hover: #7DD3A3;
+      --c-mark: rgb(91 196 138 / 0.22);
       --c-shadow: rgb(0 0 0 / 0.45);
     }
   }
@@ -297,12 +299,29 @@
     inset-block-start: 0;
     z-index: var(--z-sticky);
     background-color: var(--c-page);
-    border-block: var(--px) solid var(--c-ink);
+  }
+
+  /* No rule under the bar: a 4px dithered band dissolves it into the page instead, so rows
+     sliding underneath fade out pixel by pixel rather than being cut by a line. */
+  .controls::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 100%;
+    block-size: 8px;
+    background:
+      repeating-conic-gradient(var(--c-page) 0 25%, transparent 0 50%) 0 0 / 4px 4px,
+      linear-gradient(var(--c-page) 0 4px, transparent 4px);
+    pointer-events: none;
   }
 
   @media (max-height: 32rem), (max-width: 39.9375em) {
     .controls {
       position: static;
+    }
+
+    .controls::after {
+      content: none;
     }
   }
 
@@ -321,17 +340,35 @@
   .library {
     display: grid;
     gap: var(--space-4);
-    padding-block: var(--space-6) var(--space-8);
+    padding-block: var(--space-5) var(--space-7);
   }
 
   .site-footer {
-    border-block-start: var(--px) solid var(--c-ink);
-    padding-block: var(--space-6);
+    padding-block: var(--space-5) var(--space-4);
   }
 
   @media (max-width: 39.9375em) {
     .intro {
-      padding-block: var(--space-5) var(--space-5);
+      padding-block: var(--space-5) var(--space-4);
+    }
+
+    /* Phones get straight to the library; the title and counts say enough. */
+    .intro-lede {
+      display: none;
+    }
+
+    /* Same width as the search field above it. */
+    .segmented {
+      flex: 1 1 100%;
+    }
+
+    .segmented label {
+      flex: 1 1 0;
+    }
+
+    .segmented span {
+      flex: 1;
+      padding-inline: 0;
     }
   }
 }
@@ -523,7 +560,10 @@
     }
   }
 
-  /* ---- Curriculum map ---- */
+  /* ---- Curriculum map: a route ----
+     Stages are stations on one line; each has its two semester stops on a short branch, with
+     the modules listed under them. Desktop runs the line across the top of four columns;
+     phones run it down the left edge. */
   .map {
     background-color: var(--c-card);
   }
@@ -550,78 +590,71 @@
   }
 
   .map-body {
-    padding: 0 var(--space-5) var(--space-5);
+    padding: var(--space-3) var(--space-5) var(--space-5);
   }
 
-  .map-grid {
+  .map-route {
+    --node: 0.875rem;
+    --rail: var(--px);
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-    gap: var(--space-5) var(--space-6);
-    padding-block-start: var(--space-4);
-    border-block-start: var(--px) dashed var(--c-rule);
+    gap: var(--space-6);
+    padding-inline-start: calc(var(--node) + var(--space-3));
   }
 
-  /* Phones: one stage per swipe instead of four stacked lists, so the library stays close. */
-  @media (max-width: 39.9375em) {
-    .map-grid {
-      grid-template-columns: none;
-      grid-auto-flow: column;
-      grid-auto-columns: 88%;
-      gap: var(--space-5);
-      /* Containing block for the absolutely positioned screen-reader labels inside, so
-         the scroller clips them too; without it they stretched the page to ~1200px. */
-      position: relative;
-      overflow-x: auto;
-      overscroll-behavior-x: contain;
-      scroll-snap-type: x mandatory;
-      padding-block-end: var(--space-3);
-      scrollbar-width: thin;
-    }
-
-    .map-stage {
-      scroll-snap-align: start;
-    }
+  /* The main line: a dashed pixel rail through every station node. */
+  .map-route::before {
+    content: "";
+    position: absolute;
+    inset-block: calc(var(--node) / 2) 0;
+    inset-inline-start: calc(var(--node) / 2 - var(--rail) / 2);
+    inline-size: var(--rail);
+    background: repeating-linear-gradient(to bottom, var(--c-border) 0 6px, transparent 6px 10px);
   }
 
-  .map-hint {
-    display: none;
+  .map-station {
+    position: relative;
+    min-inline-size: 0;
   }
 
-  @media (max-width: 39.9375em) {
-    .map-hint {
-      display: block;
-      margin-block-start: var(--space-2);
-      font-family: var(--font-pixel);
-      font-size: var(--px-xs);
-      color: var(--c-accent);
-    }
-  }
-
-  .map-stage-title {
+  .map-station-title {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0 var(--space-3);
-    padding-block-end: var(--space-2);
-    border-block-end: var(--px) solid var(--c-ink);
     font-family: var(--font-pixel);
     font-size: var(--px-m);
     font-weight: 400;
   }
 
-  .map-stage-title .ar {
+  .map-station-title .ar {
     font-size: var(--step--1);
     color: var(--c-ink-muted);
   }
 
-  .map-sem {
+  /* Station node: a solid pixel square on the line; hollow for stages with nothing yet. */
+  .map-node {
+    position: absolute;
+    inset-block-start: 0.15em;
+    inset-inline-start: calc(-1 * (var(--node) + var(--space-3)));
+    inline-size: var(--node);
+    block-size: var(--node);
+    background-color: var(--c-accent);
+    box-shadow: 0 0 0 var(--px) var(--c-card);
+  }
+
+  .map-station.is-ahead .map-node {
+    background-color: var(--c-card);
+    box-shadow: inset 0 0 0 var(--px) var(--c-border), 0 0 0 var(--px) var(--c-card);
+  }
+
+  .map-stops {
+    display: grid;
+    gap: var(--space-4);
     margin-block-start: var(--space-3);
   }
 
-  .map-sem-title {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--space-2);
+  .map-stop-title {
     margin-block-end: var(--space-1);
     font-family: var(--font-pixel);
     font-size: var(--px-xs);
@@ -631,86 +664,51 @@
     color: var(--c-ink-muted);
   }
 
-  .map-link {
+  .map-list {
     display: grid;
-    grid-template-columns: 0.625rem 4.6rem minmax(0, 1fr) auto;
-    align-items: baseline;
-    gap: 0 var(--space-2);
-    min-block-size: 1.75rem;
-    padding: var(--space-1);
-    color: var(--c-ink);
+    gap: 0.15rem;
     font-size: var(--step--1);
     line-height: var(--lh-snug);
-    text-decoration: none;
-    transition: background-color var(--dur-fast) steps(2, end);
   }
 
-  /* Type marker: core solid, support dithered, basic hollow, elective dotted accent. */
-  .map-link::before,
-  .map-type {
+  /* Module bullet: filled green when its PDF is here, hollow when it isn't. */
+  .map-list > li {
+    position: relative;
+    padding-inline-start: var(--space-4);
+  }
+
+  .map-list > li::before {
     content: "";
-    inline-size: 0.625rem;
-    block-size: 0.625rem;
-    align-self: start;
-    margin-block-start: 0.32em;
-    background: var(--mk);
-    box-shadow: var(--mk-edge, none);
+    position: absolute;
+    inset-block-start: 0.45em;
+    inset-inline-start: 0;
+    inline-size: 6px;
+    block-size: 6px;
+    background-color: var(--c-accent);
   }
 
-  .map-type {
+  .map-list > li:has(> .is-missing:only-child)::before,
+  .map-list > li.map-elective:not(:has(a))::before {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 var(--px) var(--c-border);
+  }
+
+  .map-link {
+    color: var(--c-ink);
+    text-decoration-line: none;
+    text-decoration-thickness: var(--px);
+    text-underline-offset: 0.2em;
+  }
+
+  a.map-link {
     display: inline-block;
-  }
-
-  [data-type="C"] {
-    --mk: var(--c-ink);
-  }
-
-  [data-type="S"] {
-    --mk: repeating-conic-gradient(var(--c-ink) 0 25%, transparent 0 50%) 0 0 / 4px 4px;
-  }
-
-  [data-type="B"] {
-    --mk: transparent;
-    --mk-edge: inset 0 0 0 var(--px) var(--c-ink);
-  }
-
-  [data-type="E"] {
-    --mk: repeating-conic-gradient(var(--c-accent) 0 25%, transparent 0 50%) 0 0 / 4px 4px;
-    --mk-edge: inset 0 0 0 var(--px) var(--c-accent);
-  }
-
-  .map-code {
-    font-size: var(--px-xs);
-    color: var(--c-ink-muted);
-  }
-
-  .map-name {
-    min-inline-size: 0;
-  }
-
-  .map-ects {
-    font-family: var(--font-pixel);
-    font-size: var(--px-xs);
-    color: var(--c-ink-muted);
-  }
-
-  /* No-break space: the arrow never wraps onto a line of its own. */
-  a.map-link .map-name::after {
-    content: "\00a0\2197";
-    content: "\00a0\2197" / "";
-    font-family: var(--font-pixel);
-    font-size: var(--px-xs);
-    color: var(--c-accent);
+    min-block-size: 1.5rem;
   }
 
   @media (hover: hover) {
     a.map-link:hover {
-      background-color: var(--c-well);
-    }
-
-    a.map-link:hover .map-name {
-      text-decoration: underline var(--px);
-      text-underline-offset: 0.2em;
+      color: var(--c-accent);
+      text-decoration-line: underline;
     }
   }
 
@@ -718,24 +716,38 @@
     color: var(--c-ink-muted);
   }
 
-  .map-options {
-    margin-inline-start: calc(0.625rem + var(--space-2));
-    padding-inline-start: var(--space-2);
-    border-inline-start: var(--px) dotted var(--c-border);
+  .map-elective-label {
+    color: var(--c-ink-muted);
   }
 
-  .map-foot {
-    display: grid;
-    gap: var(--space-3);
-    margin-block-start: var(--space-5);
-    padding-block-start: var(--space-4);
-    border-block-start: var(--px) dashed var(--c-rule);
+  /* Wide screens: the line runs across the top and the four stations hang from it. */
+  @media (min-width: 56em) {
+    .map-route {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-6);
+      padding-inline-start: 0;
+      padding-block-start: calc(var(--node) + var(--space-4));
+    }
+
+    .map-route::before {
+      inset-block: calc(var(--node) / 2 - var(--rail) / 2) auto;
+      inset-inline: calc(var(--node) / 2) 0;
+      inline-size: auto;
+      block-size: var(--rail);
+      background: repeating-linear-gradient(to right, var(--c-border) 0 6px, transparent 6px 10px);
+    }
+
+    .map-node {
+      inset-block-start: calc(-1 * (var(--node) + var(--space-4)));
+      inset-inline-start: 0;
+    }
   }
 
   .legend {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2) var(--space-5);
+    margin-block-start: var(--space-5);
     font-family: var(--font-pixel);
     font-size: var(--px-xs);
     color: var(--c-ink-muted);
@@ -747,21 +759,15 @@
     gap: var(--space-2);
   }
 
-  .legend-pdf::before {
-    content: "\2197";
-    content: "\2197" / "";
-    color: var(--c-accent);
+  .legend-dot {
+    inline-size: 6px;
+    block-size: 6px;
+    box-shadow: inset 0 0 0 var(--px) var(--c-border);
   }
 
-  .legend-missing {
-    inline-size: 1.25rem;
-    border-block-end: var(--px) solid var(--c-border);
-  }
-
-  .map-source {
-    max-inline-size: var(--measure);
-    font-size: var(--step--1);
-    color: var(--c-ink-muted);
+  .legend-dot.is-on {
+    background-color: var(--c-accent);
+    box-shadow: none;
   }
 
   /* ---- Search ---- */
@@ -1317,6 +1323,115 @@
     min-block-size: 1.5rem;
     padding-block: var(--space-1);
   }
+
+  /* ---- Credit: wanders along the bottom line with a pixel glitch (script.js). ---- */
+  .credit-line {
+    position: relative;
+    min-block-size: var(--target);
+    margin-block-start: var(--space-3);
+  }
+
+  .credit {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--target);
+    padding-inline: var(--space-2);
+    font-family: var(--font-pixel);
+    font-size: var(--px-s);
+    color: var(--c-accent);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .credit:hover {
+    text-decoration-line: underline;
+  }
+
+  html.js .credit-line .credit {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: var(--credit-x, 0px);
+  }
+
+  .credit.is-glitch-out {
+    animation: glitch-out 360ms steps(6, end) both;
+  }
+
+  .credit.is-glitch-in {
+    animation: glitch-in 360ms steps(6, end) both;
+  }
+
+  /* Horizontal slices of the text jump sideways with a colour split, then it's gone. */
+  @keyframes glitch-out {
+    0% {
+      clip-path: inset(0 0 0 0);
+      transform: none;
+      text-shadow: none;
+    }
+
+    20% {
+      clip-path: inset(10% 0 55% 0);
+      transform: translateX(-4px);
+      text-shadow: 3px 0 var(--c-ink-muted), -3px 0 var(--c-accent);
+    }
+
+    40% {
+      clip-path: inset(60% 0 5% 0);
+      transform: translateX(5px);
+    }
+
+    60% {
+      clip-path: inset(30% 0 40% 0);
+      transform: translateX(-2px);
+      text-shadow: -2px 0 var(--c-ink-muted), 2px 0 var(--c-accent);
+    }
+
+    80% {
+      clip-path: inset(48% 0 48% 0);
+      transform: translateX(6px);
+    }
+
+    100% {
+      clip-path: inset(50% 0 50% 0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes glitch-in {
+    0% {
+      clip-path: inset(50% 0 50% 0);
+      opacity: 0;
+    }
+
+    20% {
+      clip-path: inset(40% 0 35% 0);
+      opacity: 1;
+      transform: translateX(5px);
+      text-shadow: 3px 0 var(--c-ink-muted), -3px 0 var(--c-accent);
+    }
+
+    40% {
+      clip-path: inset(5% 0 60% 0);
+      transform: translateX(-4px);
+    }
+
+    60% {
+      clip-path: inset(55% 0 0 0);
+      transform: translateX(3px);
+      text-shadow: -2px 0 var(--c-ink-muted), 2px 0 var(--c-accent);
+    }
+
+    80% {
+      clip-path: inset(0 0 20% 0);
+      transform: translateX(-1px);
+    }
+
+    100% {
+      clip-path: inset(0 0 0 0);
+      transform: none;
+      text-shadow: none;
+    }
+  }
 }
 
 /* ==========================================================================
@@ -1364,8 +1479,9 @@
     }
 
     .search::before,
-    .map-link::before,
-    .map-type {
+    .map-node,
+    .map-list > li::before,
+    .legend-dot.is-on {
       forced-color-adjust: none;
       background: CanvasText;
     }

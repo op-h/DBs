@@ -389,19 +389,47 @@
   const emptyReset = $("#emptyReset");
   if (emptyReset) emptyReset.addEventListener("click", clearSearch);
 
-  // On phones the map scrolls sideways; a scrollable region must be reachable by keyboard,
-  // but on desktop (no overflow) an empty tab stop would just be in the way.
-  const mapGrid = $("#mapGrid");
-  function syncMapScroll() {
-    if (!mapGrid) return;
-    const scrolls = mapGrid.scrollWidth > mapGrid.clientWidth + 1;
-    if (scrolls) { mapGrid.tabIndex = 0; mapGrid.setAttribute("role", "region"); }
-    else { mapGrid.removeAttribute("tabindex"); mapGrid.removeAttribute("role"); }
+  // ---------- credit glitch ----------
+  // "Done by OPH" glitches out and back in at a new spot along the bottom line every few
+  // seconds. It holds still while hovered or focused, stops for good once clicked, and never
+  // moves for people who ask for reduced motion or while the tab is hidden.
+  const credit = $("#credit");
+  const creditLine = $("#creditLine");
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (credit && creditLine && !(reduceMotion && reduceMotion.matches)) {
+    let held = false;
+    let pinned = false;
+    let timer = 0;
+
+    const hold = () => { held = true; };
+    const release = () => { held = credit.matches(":hover") || document.activeElement === credit; };
+    credit.addEventListener("pointerenter", hold);
+    credit.addEventListener("pointerleave", release);
+    credit.addEventListener("focus", hold);
+    credit.addEventListener("blur", release);
+    credit.addEventListener("click", () => { pinned = true; });
+
+    const settle = (cls) => new Promise((resolve) => {
+      credit.classList.add(cls);
+      credit.addEventListener("animationend", () => { credit.classList.remove(cls); resolve(); }, { once: true });
+    });
+
+    async function hop() {
+      if (pinned) return;
+      if (!held && !document.hidden) {
+        await settle("is-glitch-out");
+        // Re-check: the pointer may have arrived mid-glitch. If so, come back in place.
+        if (!held && !pinned) {
+          const room = Math.max(0, creditLine.clientWidth - credit.offsetWidth);
+          creditLine.style.setProperty("--credit-x", `${Math.round(Math.random() * room)}px`);
+        }
+        await settle("is-glitch-in");
+      }
+      timer = setTimeout(hop, 3500 + Math.random() * 2500);
+    }
+    timer = setTimeout(hop, 2500);
+    window.addEventListener("resize", () => creditLine.style.setProperty("--credit-x", "0px"));
   }
-  syncMapScroll();
-  window.addEventListener("resize", syncMapScroll);
-  const mapDetails = $("#map");
-  if (mapDetails) mapDetails.addEventListener("toggle", syncMapScroll);
 
   // Printing: closed drop-downs would print as bare headings, so open the stages for the
   // printout and put them back afterwards.

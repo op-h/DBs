@@ -4,8 +4,7 @@
     "university": "Middle Technical University",
     "degree": "Bachelor's degree in Cybersecurity Technology Engineering (First cycle)",
     "summary": "Four years (eight semesters) · 240 ECTS · 1 ECTS = 25 hours",
-    "note": "Students also complete 4 weeks of summer internship to fulfil the degree requirements.",
-    "pdf": "curriculum.pdf"
+    "note": "Students also complete 4 weeks of summer internship to fulfil the degree requirements."
   },
   "types": {
     "C": "Core",
@@ -17,102 +16,666 @@
     {
       "n": 1,
       "modules": [
-        { "code": "CSTE1101", "name": "Introduction to Information System", "ar": "مقدمة في نظم المعلومات", "lang": "English", "sswl": 79, "swl": 150, "ects": 6, "type": "C", "file": "Introduction to Information System" },
-        { "code": "CSTE1102", "name": "Fundamental of Electrical Eng.", "ar": "أسس الهندسة الكهربائية", "lang": "English", "sswl": 79, "swl": 150, "ects": 6, "type": "C", "file": "Fundamental of Electrical Eng" },
-        { "code": "CSTE1103", "name": "Programming Essentials", "ar": "أساسيات البرمجة", "lang": "English", "sswl": 79, "swl": 150, "ects": 6, "type": "C", "file": "Programming Essentials" },
-        { "code": "CSTE1104", "name": "Mathematics I", "ar": "الرياضيات I", "lang": "English", "sswl": 63, "swl": 125, "ects": 5, "type": "S", "file": "Mathematics 1" },
-        { "code": "CSTE1105", "name": "Engineering Drawing", "ar": "الرسم الهندسي", "lang": "English", "sswl": 63, "swl": 125, "ects": 5, "type": "S", "file": "Engineering Drawing" },
-        { "code": "CSTE1106", "name": "Democracy & Human Rights", "ar": "الديمقراطية وحقوق الإنسان", "lang": "Arabic", "sswl": 33, "swl": 50, "ects": 2, "type": "B", "file": "Democracy & Human Rights" }
+        {
+          "code": "CSTE1101",
+          "name": "Introduction to Information System",
+          "ar": "مقدمة في نظم المعلومات",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "file": "Introduction to Information System"
+        },
+        {
+          "code": "CSTE1102",
+          "name": "Fundamental of Electrical Eng.",
+          "ar": "أسس الهندسة الكهربائية",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "file": "Fundamental of Electrical Eng"
+        },
+        {
+          "code": "CSTE1103",
+          "name": "Programming Essentials",
+          "ar": "أساسيات البرمجة",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "file": "Programming Essentials"
+        },
+        {
+          "code": "CSTE1104",
+          "name": "Mathematics I",
+          "ar": "الرياضيات I",
+          "lang": "English",
+          "sswl": 63,
+          "swl": 125,
+          "ects": 5,
+          "type": "S",
+          "file": "Mathematics 1"
+        },
+        {
+          "code": "CSTE1105",
+          "name": "Engineering Drawing",
+          "ar": "الرسم الهندسي",
+          "lang": "English",
+          "sswl": 63,
+          "swl": 125,
+          "ects": 5,
+          "type": "S",
+          "file": "Engineering Drawing"
+        },
+        {
+          "code": "CSTE1106",
+          "name": "Democracy & Human Rights",
+          "ar": "الديمقراطية وحقوق الإنسان",
+          "lang": "Arabic",
+          "sswl": 33,
+          "swl": 50,
+          "ects": 2,
+          "type": "B",
+          "file": "Democracy & Human Rights"
+        }
       ]
     },
     {
       "n": 2,
       "modules": [
-        { "code": "CSTE1201", "name": "Digital Logic Design", "ar": "التصميم المنطقي الرقمي", "lang": "English", "sswl": 79, "swl": 150, "ects": 6, "type": "C", "file": "Digital Logic Design" },
-        { "code": "CSTE1202", "name": "Ethics for the Information Age", "ar": "أخلاقيات عصر المعلومات", "lang": "English", "sswl": 48, "swl": 100, "ects": 4, "type": "C", "file": "Ethics for the Information Age" },
-        { "code": "CSTE1203", "name": "General Physics", "ar": "الفيزياء العامة", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "S", "file": "General Physics" },
-        { "code": "CSTE1204", "name": "Mathematics II", "ar": "الرياضيات II", "lang": "English", "sswl": 78, "swl": 150, "ects": 6, "type": "S", "prereq": ["CSTE1104"], "file": "Mathematics 2" },
-        { "code": "CSTE1205", "name": "Engineering Workshops", "ar": "الورش الهندسية", "lang": "Arabic", "sswl": 64, "swl": 125, "ects": 5, "type": "S", "file": "Engineering Workshops" },
-        { "code": "CSTE1206", "name": "Arabic Language", "ar": "اللغة العربية", "lang": "Arabic", "sswl": 33, "swl": 50, "ects": 2, "type": "B", "file": "Arabic Language 1" },
-        { "code": "CSTE1207", "name": "English Language I", "ar": "اللغة الإنكليزية I", "lang": "English", "sswl": 33, "swl": 50, "ects": 2, "type": "B", "file": "English Language 1" }
+        {
+          "code": "CSTE1201",
+          "name": "Digital Logic Design",
+          "ar": "التصميم المنطقي الرقمي",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "file": "Digital Logic Design"
+        },
+        {
+          "code": "CSTE1202",
+          "name": "Ethics for the Information Age",
+          "ar": "أخلاقيات عصر المعلومات",
+          "lang": "English",
+          "sswl": 48,
+          "swl": 100,
+          "ects": 4,
+          "type": "C",
+          "file": "Ethics for the Information Age"
+        },
+        {
+          "code": "CSTE1203",
+          "name": "General Physics",
+          "ar": "الفيزياء العامة",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "S",
+          "file": "General Physics"
+        },
+        {
+          "code": "CSTE1204",
+          "name": "Mathematics II",
+          "ar": "الرياضيات II",
+          "lang": "English",
+          "sswl": 78,
+          "swl": 150,
+          "ects": 6,
+          "type": "S",
+          "prereq": [
+            "CSTE1104"
+          ],
+          "file": "Mathematics 2"
+        },
+        {
+          "code": "CSTE1205",
+          "name": "Engineering Workshops",
+          "ar": "الورش الهندسية",
+          "lang": "Arabic",
+          "sswl": 64,
+          "swl": 125,
+          "ects": 5,
+          "type": "S",
+          "file": "Engineering Workshops"
+        },
+        {
+          "code": "CSTE1206",
+          "name": "Arabic Language",
+          "ar": "اللغة العربية",
+          "lang": "Arabic",
+          "sswl": 33,
+          "swl": 50,
+          "ects": 2,
+          "type": "B",
+          "file": "Arabic Language 1"
+        },
+        {
+          "code": "CSTE1207",
+          "name": "English Language I",
+          "ar": "اللغة الإنكليزية I",
+          "lang": "English",
+          "sswl": 33,
+          "swl": 50,
+          "ects": 2,
+          "type": "B",
+          "file": "English Language 1"
+        }
       ]
     },
     {
       "n": 3,
       "modules": [
-        { "code": "CSTE2101", "name": "Engineering Mathematics", "ar": "الرياضيات الهندسية", "lang": "English", "sswl": 63, "swl": 150, "ects": 6, "type": "S", "prereq": ["CSTE1204"], "file": "Engineering Mathematics" },
-        { "code": "CSTE2102", "name": "Electronics Fundamentals", "ar": "أسس الإلكترونيك", "lang": "English", "sswl": 79, "swl": 150, "ects": 6, "type": "S", "prereq": ["CSTE1102"], "file": "Electronics Fundamentals" },
-        { "code": "CSTE2103", "name": "Linux Essentials", "ar": "مبادئ اللينوكس", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "file": "Linux Essentials" },
-        { "code": "CSTE2104", "name": "Computer Organization & Architecture", "ar": "تركيب ومعمارية الحاسوب", "lang": "English", "sswl": 79, "swl": 150, "ects": 6, "type": "C", "file": "Computer Organization & Architecture" },
-        { "code": "CSTE2105", "name": "Data Structure & Algorithms", "ar": "هياكل البيانات والخوارزميات", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "prereq": ["CSTE1103"], "file": "Data Structure & Algorithms" },
-        { "code": "CSTE2106", "name": "The Crimes of the Baath regime in Iraq", "ar": "جرائم نظام البعث في العراق", "lang": "Arabic", "sswl": 33, "swl": 50, "ects": 2, "type": "B", "file": "The Crimes of the Baath regime in Iraq" }
+        {
+          "code": "CSTE2101",
+          "name": "Engineering Mathematics",
+          "ar": "الرياضيات الهندسية",
+          "lang": "English",
+          "sswl": 63,
+          "swl": 150,
+          "ects": 6,
+          "type": "S",
+          "prereq": [
+            "CSTE1204"
+          ],
+          "file": "Engineering Mathematics"
+        },
+        {
+          "code": "CSTE2102",
+          "name": "Electronics Fundamentals",
+          "ar": "أسس الإلكترونيك",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 150,
+          "ects": 6,
+          "type": "S",
+          "prereq": [
+            "CSTE1102"
+          ],
+          "file": "Electronics Fundamentals"
+        },
+        {
+          "code": "CSTE2103",
+          "name": "Linux Essentials",
+          "ar": "مبادئ اللينوكس",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "file": "Linux Essentials"
+        },
+        {
+          "code": "CSTE2104",
+          "name": "Computer Organization & Architecture",
+          "ar": "تركيب ومعمارية الحاسوب",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "file": "Computer Organization & Architecture"
+        },
+        {
+          "code": "CSTE2105",
+          "name": "Data Structure & Algorithms",
+          "ar": "هياكل البيانات والخوارزميات",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "prereq": [
+            "CSTE1103"
+          ],
+          "file": "Data Structure & Algorithms"
+        },
+        {
+          "code": "CSTE2106",
+          "name": "The Crimes of the Baath regime in Iraq",
+          "ar": "جرائم نظام البعث في العراق",
+          "lang": "Arabic",
+          "sswl": 33,
+          "swl": 50,
+          "ects": 2,
+          "type": "B",
+          "file": "The Crimes of the Baath regime in Iraq"
+        }
       ]
     },
     {
       "n": 4,
       "modules": [
-        { "code": "CSTE2201", "name": "Numerical Analysis & Statistics", "ar": "التحليلات العددية والإحصاء", "lang": "English", "sswl": 63, "swl": 125, "ects": 5, "type": "S", "prereq": ["CSTE1104", "CSTE1204"], "file": "Numerical Analysis & Statistics" },
-        { "code": "CSTE2202", "name": "Object Oriented Programming", "ar": "البرمجة الشيئية", "lang": "English", "sswl": 79, "swl": 150, "ects": 6, "type": "C", "file": "Object Oriented Programming" },
-        { "code": "CSTE2203", "name": "Microprocessors", "ar": "المعالجات الدقيقة", "lang": "English", "sswl": 94, "swl": 150, "ects": 6, "type": "C", "prereq": ["CSTE2104"], "file": "Microprocessors" },
-        { "code": "CSTE2204", "name": "Communication Fundamentals", "ar": "أسس الاتصالات", "lang": "English", "sswl": 79, "swl": 150, "ects": 6, "type": "C", "file": "Communication Fundamentals" },
-        { "code": "CSTE2205", "name": "Introduction to Database - SQL", "ar": "مقدمة في قواعد البيانات", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "prereq": ["CSTE2105"], "file": "Introduction to Database -SQL" },
-        { "code": "CSTE2206", "name": "English Language II", "ar": "اللغة الإنكليزية II", "lang": "English", "sswl": 33, "swl": 50, "ects": 2, "type": "B", "prereq": ["CSTE1106"], "file": "English Language 2" }
+        {
+          "code": "CSTE2201",
+          "name": "Numerical Analysis & Statistics",
+          "ar": "التحليلات العددية والإحصاء",
+          "lang": "English",
+          "sswl": 63,
+          "swl": 125,
+          "ects": 5,
+          "type": "S",
+          "prereq": [
+            "CSTE1104",
+            "CSTE1204"
+          ],
+          "file": "Numerical Analysis & Statistics"
+        },
+        {
+          "code": "CSTE2202",
+          "name": "Object Oriented Programming",
+          "ar": "البرمجة الشيئية",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "file": "Object Oriented Programming"
+        },
+        {
+          "code": "CSTE2203",
+          "name": "Microprocessors",
+          "ar": "المعالجات الدقيقة",
+          "lang": "English",
+          "sswl": 94,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "prereq": [
+            "CSTE2104"
+          ],
+          "file": "Microprocessors"
+        },
+        {
+          "code": "CSTE2204",
+          "name": "Communication Fundamentals",
+          "ar": "أسس الاتصالات",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "file": "Communication Fundamentals"
+        },
+        {
+          "code": "CSTE2205",
+          "name": "Introduction to Database - SQL",
+          "ar": "مقدمة في قواعد البيانات",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "prereq": [
+            "CSTE2105"
+          ],
+          "file": "Introduction to Database -SQL"
+        },
+        {
+          "code": "CSTE2206",
+          "name": "English Language II",
+          "ar": "اللغة الإنكليزية II",
+          "lang": "English",
+          "sswl": 33,
+          "swl": 50,
+          "ects": 2,
+          "type": "B",
+          "prereq": [
+            "CSTE1106"
+          ],
+          "file": "English Language 2"
+        }
       ]
     },
     {
       "n": 5,
       "modules": [
-        { "code": "CSTE3101", "name": "Computer Network Fundamentals", "ar": "أساسيات شبكات الحاسوب", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "file": "Computer Networks" },
-        { "code": "CSTE3102", "name": "Information Security & Cryptography", "ar": "أمنية المعلومات", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "file": "Information Security and Cryptography" },
-        { "code": "CSTE3103", "name": "Digital Signal Processing", "ar": "معالجة الإشارة الرقمية", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "file": "Digital Signal Processing" },
-        { "code": "CSTE3104", "name": "Software Engineering", "ar": "هندسة البرمجيات", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "file": "Software Engineering" },
-        { "code": "CSTE3105", "name": "Python Programming", "ar": "البرمجة بلغة البايثون", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "file": "Python" },
-        { "code": "CSTE31XX", "name": "Elective I", "ar": "مادة اختيارية", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "E", "options": [
-          { "code": "CSTE3106", "name": "Digital Forensics", "ar": "التحليل الجنائي الرقمي", "file": "Digital Forensics" },
-          { "code": "CSTE3107", "name": "Multimedia Security", "ar": "أمن الوسائط المتعددة" }
-        ] }
+        {
+          "code": "CSTE3101",
+          "name": "Computer Network Fundamentals",
+          "ar": "أساسيات شبكات الحاسوب",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "file": "Computer Networks"
+        },
+        {
+          "code": "CSTE3102",
+          "name": "Information Security & Cryptography",
+          "ar": "أمنية المعلومات",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "file": "Information Security and Cryptography"
+        },
+        {
+          "code": "CSTE3103",
+          "name": "Digital Signal Processing",
+          "ar": "معالجة الإشارة الرقمية",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "file": "Digital Signal Processing"
+        },
+        {
+          "code": "CSTE3104",
+          "name": "Software Engineering",
+          "ar": "هندسة البرمجيات",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "file": "Software Engineering"
+        },
+        {
+          "code": "CSTE3105",
+          "name": "Python Programming",
+          "ar": "البرمجة بلغة البايثون",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "file": "Python"
+        },
+        {
+          "code": "CSTE31XX",
+          "name": "Elective I",
+          "ar": "مادة اختيارية",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "E",
+          "options": [
+            {
+              "code": "CSTE3106",
+              "name": "Digital Forensics",
+              "ar": "التحليل الجنائي الرقمي",
+              "file": "Digital Forensics"
+            },
+            {
+              "code": "CSTE3107",
+              "name": "Multimedia Security",
+              "ar": "أمن الوسائط المتعددة"
+            }
+          ]
+        }
       ]
     },
     {
       "n": 6,
       "modules": [
-        { "code": "CSTE3201", "name": "Cybersecurity Essentials", "ar": "أساسيات الأمن السيبراني", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "file": "CyberSecurity Essentials" },
-        { "code": "CSTE3202", "name": "Artificial Intelligence", "ar": "الذكاء الاصطناعي", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "prereq": ["CSTE3105"], "file": "Artificial Intelligence" },
-        { "code": "CSTE3203", "name": "Operating Systems", "ar": "أنظمة التشغيل", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "file": "Operating System" },
-        { "code": "CSTE3204", "name": "Web Design", "ar": "تصميم المواقع الإلكترونية", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "file": "Web Design" },
-        { "code": "CSTE3205", "name": "Computer Network Protocols", "ar": "بروتوكولات شبكات الحاسوب", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C", "prereq": ["CSTE2206"], "file": "Network Protocols" },
-        { "code": "CSTE32XX", "name": "Elective II", "ar": "مادة اختيارية", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "E", "options": [
-          { "code": "CSTE3206", "name": "Wireless Networks Security", "ar": "أمن الشبكات اللاسلكية", "prereq": ["CSTE3101"] },
-          { "code": "CSTE3207", "name": "Information Theory and Coding", "ar": "نظرية المعلومات والترميز", "file": "Information theory and coding" }
-        ] }
+        {
+          "code": "CSTE3201",
+          "name": "Cybersecurity Essentials",
+          "ar": "أساسيات الأمن السيبراني",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "file": "CyberSecurity Essentials"
+        },
+        {
+          "code": "CSTE3202",
+          "name": "Artificial Intelligence",
+          "ar": "الذكاء الاصطناعي",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "prereq": [
+            "CSTE3105"
+          ],
+          "file": "Artificial Intelligence"
+        },
+        {
+          "code": "CSTE3203",
+          "name": "Operating Systems",
+          "ar": "أنظمة التشغيل",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "file": "Operating System"
+        },
+        {
+          "code": "CSTE3204",
+          "name": "Web Design",
+          "ar": "تصميم المواقع الإلكترونية",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "file": "Web Design"
+        },
+        {
+          "code": "CSTE3205",
+          "name": "Computer Network Protocols",
+          "ar": "بروتوكولات شبكات الحاسوب",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C",
+          "prereq": [
+            "CSTE2206"
+          ],
+          "file": "Network Protocols"
+        },
+        {
+          "code": "CSTE32XX",
+          "name": "Elective II",
+          "ar": "مادة اختيارية",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "E",
+          "options": [
+            {
+              "code": "CSTE3206",
+              "name": "Wireless Networks Security",
+              "ar": "أمن الشبكات اللاسلكية",
+              "prereq": [
+                "CSTE3101"
+              ]
+            },
+            {
+              "code": "CSTE3207",
+              "name": "Information Theory and Coding",
+              "ar": "نظرية المعلومات والترميز",
+              "file": "Information theory and coding"
+            }
+          ]
+        }
       ]
     },
     {
       "n": 7,
       "modules": [
-        { "code": "CSTE4101", "name": "Advanced Cybersecurity", "ar": "الأمن السيبراني المتقدم", "lang": "English", "sswl": 94, "swl": 150, "ects": 6, "type": "C", "prereq": ["CSTE3201"] },
-        { "code": "CSTE4102", "name": "Network Security", "ar": "أمن الشبكات", "lang": "English", "sswl": 94, "swl": 150, "ects": 6, "type": "C", "prereq": ["CSTE3101", "CSTE3201"] },
-        { "code": "CSTE4103", "name": "Cloud Computing", "ar": "الحوسبة السحابية", "lang": "English", "sswl": 79, "swl": 150, "ects": 6, "type": "C" },
-        { "code": "CSTE4104", "name": "Cybersecurity Governance", "ar": "حوكمة الأمن السيبراني", "lang": "English", "sswl": 64, "swl": 125, "ects": 5, "type": "C" },
-        { "code": "CSTE4105", "name": "Project Preparation", "ar": "إعداد المشروع", "lang": "English", "sswl": 33, "swl": 50, "ects": 2, "type": "S" },
-        { "code": "CSTE41XX", "name": "Elective III", "ar": "مادة اختيارية", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "E", "options": [
-          { "code": "CSTE4106", "name": "Biometric Security", "ar": "الأمن البيومتري" },
-          { "code": "CSTE4107", "name": "Web Applications Security", "ar": "أمن تطبيقات الويب", "prereq": ["CSTE3201"] }
-        ] }
+        {
+          "code": "CSTE4101",
+          "name": "Advanced Cybersecurity",
+          "ar": "الأمن السيبراني المتقدم",
+          "lang": "English",
+          "sswl": 94,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "prereq": [
+            "CSTE3201"
+          ]
+        },
+        {
+          "code": "CSTE4102",
+          "name": "Network Security",
+          "ar": "أمن الشبكات",
+          "lang": "English",
+          "sswl": 94,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "prereq": [
+            "CSTE3101",
+            "CSTE3201"
+          ]
+        },
+        {
+          "code": "CSTE4103",
+          "name": "Cloud Computing",
+          "ar": "الحوسبة السحابية",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 150,
+          "ects": 6,
+          "type": "C"
+        },
+        {
+          "code": "CSTE4104",
+          "name": "Cybersecurity Governance",
+          "ar": "حوكمة الأمن السيبراني",
+          "lang": "English",
+          "sswl": 64,
+          "swl": 125,
+          "ects": 5,
+          "type": "C"
+        },
+        {
+          "code": "CSTE4105",
+          "name": "Project Preparation",
+          "ar": "إعداد المشروع",
+          "lang": "English",
+          "sswl": 33,
+          "swl": 50,
+          "ects": 2,
+          "type": "S"
+        },
+        {
+          "code": "CSTE41XX",
+          "name": "Elective III",
+          "ar": "مادة اختيارية",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "E",
+          "options": [
+            {
+              "code": "CSTE4106",
+              "name": "Biometric Security",
+              "ar": "الأمن البيومتري"
+            },
+            {
+              "code": "CSTE4107",
+              "name": "Web Applications Security",
+              "ar": "أمن تطبيقات الويب",
+              "prereq": [
+                "CSTE3201"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
       "n": 8,
       "modules": [
-        { "code": "CSTE4201", "name": "Ethical Hacking & Penetration Testing", "ar": "القرصنة الأخلاقية واختبارات الاختراق", "lang": "English", "sswl": 94, "swl": 150, "ects": 6, "type": "C", "prereq": ["CSTE4101"] },
-        { "code": "CSTE4202", "name": "IoT Security", "ar": "أمنية إنترنت الأشياء", "lang": "English", "sswl": 94, "swl": 150, "ects": 6, "type": "C" },
-        { "code": "CSTE4203", "name": "Mobile Security", "ar": "أمن الهواتف المحمولة", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "C" },
-        { "code": "CSTE4204", "name": "Professional Ethics", "ar": "أخلاقيات المهنة", "lang": "Arabic", "sswl": 48, "swl": 75, "ects": 3, "type": "B" },
-        { "code": "CSTE4205", "name": "Final Project", "ar": "المشروع النهائي", "lang": "English", "sswl": 78, "swl": 125, "ects": 5, "type": "C" },
-        { "code": "CSTE42XX", "name": "Elective IV", "ar": "مادة اختيارية", "lang": "English", "sswl": 79, "swl": 125, "ects": 5, "type": "E", "options": [
-          { "code": "CSTE4206", "name": "Machine Learning Systems", "ar": "أنظمة التعلم الآلي" },
-          { "code": "CSTE4207", "name": "Cloud Security", "ar": "الأمن السحابي", "prereq": ["CSTE4103"] }
-        ] }
+        {
+          "code": "CSTE4201",
+          "name": "Ethical Hacking & Penetration Testing",
+          "ar": "القرصنة الأخلاقية واختبارات الاختراق",
+          "lang": "English",
+          "sswl": 94,
+          "swl": 150,
+          "ects": 6,
+          "type": "C",
+          "prereq": [
+            "CSTE4101"
+          ]
+        },
+        {
+          "code": "CSTE4202",
+          "name": "IoT Security",
+          "ar": "أمنية إنترنت الأشياء",
+          "lang": "English",
+          "sswl": 94,
+          "swl": 150,
+          "ects": 6,
+          "type": "C"
+        },
+        {
+          "code": "CSTE4203",
+          "name": "Mobile Security",
+          "ar": "أمن الهواتف المحمولة",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "C"
+        },
+        {
+          "code": "CSTE4204",
+          "name": "Professional Ethics",
+          "ar": "أخلاقيات المهنة",
+          "lang": "Arabic",
+          "sswl": 48,
+          "swl": 75,
+          "ects": 3,
+          "type": "B"
+        },
+        {
+          "code": "CSTE4205",
+          "name": "Final Project",
+          "ar": "المشروع النهائي",
+          "lang": "English",
+          "sswl": 78,
+          "swl": 125,
+          "ects": 5,
+          "type": "C"
+        },
+        {
+          "code": "CSTE42XX",
+          "name": "Elective IV",
+          "ar": "مادة اختيارية",
+          "lang": "English",
+          "sswl": 79,
+          "swl": 125,
+          "ects": 5,
+          "type": "E",
+          "options": [
+            {
+              "code": "CSTE4206",
+              "name": "Machine Learning Systems",
+              "ar": "أنظمة التعلم الآلي"
+            },
+            {
+              "code": "CSTE4207",
+              "name": "Cloud Security",
+              "ar": "الأمن السحابي",
+              "prereq": [
+                "CSTE4103"
+              ]
+            }
+          ]
+        }
       ]
     }
   ]
